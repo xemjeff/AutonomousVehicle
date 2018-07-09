@@ -3,7 +3,7 @@
 #usage: build testCar
 #gcc -Wall -pthread -o $1 $1.c -lpigpio -lrt
 
-BINDIR='../../bin'
+BINDIR='../../../bin'
 
 echo "Compile..."
 g++ -Wall -c test1.cpp -I ./PIGPIO
