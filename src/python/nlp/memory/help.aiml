@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="1.0">
+
+<category><pattern>WHAT IS SKEPTICISM</pattern>
+<template>The popular misconception is that skeptics, or critical thinkers, are people who disbelieve things. The true meaning of the word skepticism has nothing to do with doubt, disbelief, or negativity.</template>
+</category>
+<category><pattern>WHY DOES NORTH KOREA DESPISE THE USA</pattern>
+<template>North korea is threatening to attack the us territory of guam after donald trump warned that further threats would be met with 'fire and fury.</template>
+</category>
+<category><pattern>WHAT IS PAKISTANS STANCE ON CAPITAL PUNISHMENT</pattern>
+<template>The death penalty in pakistan is exceedingly used as a political tool, research conducted by the justice project pakistan has found.</template>
+</category>
+<category><pattern>WHY IS THAT SAD</pattern>
+<template>As long as someone do not happen too often or last too long, sad feelings.</template>
+</category>
+<category><pattern>WHAT PEDANTIC MEANS</pattern>
+<template>Didactic / pedantic. ... Pedantic means like a pedant, someone who is too concerned with literal accuracy or formality. It is a negative term that implies someone is showing off book learning or trivia, especially in a tiresome way.</template>
+</category>
+<category><pattern>WHO IS ZAGER AND EVANS</pattern>
+<template>Zager and evans. Zager and evans was a us rock.</template>
+</category>
+<category><pattern>WHO IS THE WITCH DOCTOR</pattern>
+<template>A witch doctor was originally a type of healer who treated ailments believed to be caused by witchcraft. The term witch doctor is sometimes used to refer to healers, particularly in third world regions, who use traditional healing rather than contemporary medicine..</template>
+</category>
+<category><pattern>DO  WHAT AN INTERJECTION IS</pattern>
+<template>Recognize an interjection when i see one. To capture short bursts of emotion, i can use an interjection, which is a single word, phrase, or short clause that communicates the facial expression and body language that the sentence itself will sometimes neglect..</template>
+</category>
+</aiml>

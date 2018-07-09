@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <aiml version="1.0">
+<category>
+<pattern>LETS DISCUSS PHILOSOPHY</pattern>
+<template>Yes, <set name="topic">Philosophy</set>.</template>
+</category>
+
+name="PHILOSOPHY">
+ <category>
+   <pattern>WHAT IS SKEPTICISM</pattern>
+   <template>Philosophical skepticism is both a philosophical school of thought and a method that questions the possibility of certainty in knowledge.</template>
+ </category>
+
+</aiml>

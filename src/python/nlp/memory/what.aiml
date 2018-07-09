@@ -1,0 +1,899 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<aiml version="1.0">
+<!-- -->
+<!-- Free software (c) 2011 ALICIA A.I. Foundation.   -->
+<!-- This program is open source code released under -->
+<!-- the terms of the GNU General Public License     -->
+<!-- as published by the Free Software Foundation.   -->
+<!-- Complies with AIML 1.0 Tag Set Specification -->
+<!-- as adopted by the ALICIA A.I. Foundation.  -->
+<!-- Last modified 10/5/2011 -->
+<!-- -->
+
+<category><pattern>WHAT IS *</pattern>
+<template><srai>XDEF <star/></srai></template>
+</category>
+<category><pattern>WHAT IS A *</pattern>
+<template><srai>XDEF <star/></srai></template>
+</category>
+<category><pattern>WHAT WAS *</pattern>
+<template><srai>XDEF <star/></srai></template>
+</category>
+<category><pattern>WHAT WAS A *</pattern>
+<template><srai>XDEF <star/></srai></template>
+</category>
+<category><pattern>WHAT ARE *</pattern>
+<template><srai>XDEF <star/></srai></template>
+</category>
+<category><pattern>WHAT IS THE *</pattern>
+<template><srai>XDEF <star/></srai></template>
+</category>
+
+<category><pattern>WHAT IS THE</pattern>
+<template>Typical star.</template>
+</category>
+<category><pattern>WHAT IS THE</pattern>
+<template>Typical star.</template>
+</category>
+<category><pattern>WHAT IS THANK YOU</pattern>
+<template>Using nuclear weapons based on fusion as distinguished from fission.</template>
+</category>
+<category><pattern>WHAT IS THE</pattern>
+<template>Typical star.</template>
+</category>
+<category><pattern>WHAT IS THE</pattern>
+<template>Typical star.</template>
+</category>
+<category><pattern>WHAT IS THANK YOU</pattern>
+<template>Using nuclear weapons based on fusion as distinguished from fission.</template>
+</category>
+<category><pattern>WHAT IS DON'T MENTION IT</pattern>
+<template>Using nuclear weapons based on fusion as distinguished from fission.</template>
+</category>
+<category><pattern>WHAT IS THE</pattern>
+<template>Typical star.</template>
+</category>
+<category><pattern>WHAT IS THE</pattern>
+<template>Typical star.</template>
+</category>
+<category><pattern>WHAT IS I THOUGHT SO TOO</pattern>
+<template>Using nuclear weapons based on fusion as distinguished from fission.</template>
+</category>
+<category><pattern>WHAT IS THE</pattern>
+<template>Typical star.</template>
+</category>
+<category><pattern>WHAT IS THE</pattern>
+<template>Typical star.</template>
+</category>
+<category><pattern>WHAT IS I THOUGHT SO TOO</pattern>
+<template>Using nuclear weapons based on fusion as distinguished from fission.</template>
+</category>
+<category><pattern>WHAT IS RECOGNIZE WITH GRATITUDE; BE GRATEFUL</pattern>
+<template>Using nuclear weapons based on fusion as distinguished from fission.</template>
+</category>
+<category><pattern>WHAT IS RECOGNIZE WITH GRATITUDE; BE GRATEFUL</pattern>
+<template>Using nuclear weapons based on fusion as distinguished from fission.</template>
+</category>
+<category><pattern>WHAT IS THE</pattern>
+<template>Typical star.</template>
+</category>
+<category><pattern>WHAT IS THE</pattern>
+<template>Typical star.</template>
+</category>
+<category><pattern>WHAT IS RECOGNIZE WITH GRATITUDE; BE GRATEFUL</pattern>
+<template>Using nuclear weapons based on fusion as distinguished from fission.</template>
+</category>
+<category><pattern>WHAT IS THE</pattern>
+<template>Typical star.</template>
+</category>
+<category><pattern>WHAT IS THE</pattern>
+<template>Typical star.</template>
+</category>
+<category><pattern>WHAT IS RECOGNIZE WITH GRATITUDE; BE GRATEFUL</pattern>
+<template>Using nuclear weapons based on fusion as distinguished from fission.</template>
+</category>
+<category><pattern>WHAT IS I THOUGHT SO TOO</pattern>
+<template>Using nuclear weapons based on fusion as distinguished from fission.</template>
+</category>
+<category><pattern>WHAT IS THE</pattern>
+<template>Typical star.</template>
+</category>
+<category><pattern>WHAT IS THE</pattern>
+<template>Typical star.</template>
+</category>
+<category><pattern>WHAT IS RECOGNIZE WITH GRATITUDE; BE GRATEFUL</pattern>
+<template>Using nuclear weapons based on fusion as distinguished from fission.</template>
+</category>
+<category><pattern>WHAT IS THE</pattern>
+<template>Typical star.</template>
+</category>
+<category><pattern>WHAT IS THE</pattern>
+<template>Typical star.</template>
+</category>
+<category><pattern>WHAT IS YOU'RE SO POLITE</pattern>
+<template>Using nuclear weapons based on fusion as distinguished from fission.</template>
+</category>
+<category><pattern>WHAT IS DON'T MENTION IT</pattern>
+<template>Using nuclear weapons based on fusion as distinguished from fission.</template>
+</category>
+<category><pattern>WHAT IS RECOGNIZE WITH GRATITUDE; BE GRATEFUL</pattern>
+<template>Using nuclear weapons based on fusion as distinguished from fission.</template>
+</category>
+<category><pattern>WHAT IS I THOUGHT SO TOO</pattern>
+<template>Using nuclear weapons based on fusion as distinguished from fission.</template>
+</category>
+<category><pattern>WHAT IS THE</pattern>
+<template>Typical star.</template>
+</category>
+<category><pattern>WHAT IS THE</pattern>
+<template>Typical star.</template>
+</category>
+<category><pattern>WHAT IS YOU'RE SO POLITE</pattern>
+<template>Using nuclear weapons based on fusion as distinguished from fission.</template>
+</category>
+<category><pattern>WHAT IS THE</pattern>
+<template>Typical star.</template>
+</category>
+<category><pattern>WHAT IS THE</pattern>
+<template>Typical star.</template>
+</category>
+<category><pattern>WHAT IS YOU'RE SO POLITE</pattern>
+<template>Using nuclear weapons based on fusion as distinguished from fission.</template>
+</category>
+<category><pattern>WHAT IS I THOUGHT SO TOO</pattern>
+<template>Using nuclear weapons based on fusion as distinguished from fission.</template>
+</category>
+<category><pattern>WHAT IS THE</pattern>
+<template>Typical star.</template>
+</category>
+<category><pattern>WHAT IS THE</pattern>
+<template>Typical star.</template>
+</category>
+<category><pattern>WHAT IS RECOGNIZE WITH GRATITUDE; BE GRATEFUL</pattern>
+<template>Using nuclear weapons based on fusion as distinguished from fission.</template>
+</category>
+<category><pattern>WHAT IS THE</pattern>
+<template>Typical star.</template>
+</category>
+<category><pattern>WHAT IS THE</pattern>
+<template>Typical star.</template>
+</category>
+<category><pattern>WHAT IS YOU'RE SO POLITE</pattern>
+<template>Using nuclear weapons based on fusion as distinguished from fission.</template>
+</category>
+<category><pattern>WHAT IS YOU'RE SO POLITE</pattern>
+<template>Using nuclear weapons based on fusion as distinguished from fission.</template>
+</category>
+<category><pattern>WHAT IS RECOGNIZE WITH GRATITUDE; BE GRATEFUL</pattern>
+<template>Using nuclear weapons based on fusion as distinguished from fission.</template>
+</category>
+<category><pattern>WHAT IS THE</pattern>
+<template>Typical star.</template>
+</category>
+<category><pattern>WHAT IS THE</pattern>
+<template>Typical star.</template>
+</category>
+<category><pattern>WHAT IS THANK YOU</pattern>
+<template>Using nuclear weapons based on fusion as distinguished from fission.</template>
+</category>
+<category><pattern>WHAT IS THE</pattern>
+<template>Typical star.</template>
+</category>
+<category><pattern>WHAT IS THE</pattern>
+<template>Typical star.</template>
+</category>
+<category><pattern>WHAT IS YOU'RE SO POLITE</pattern>
+<template>Using nuclear weapons based on fusion as distinguished from fission.</template>
+</category>
+<category><pattern>WHAT IS RECOGNIZE WITH GRATITUDE; BE GRATEFUL</pattern>
+<template>Using nuclear weapons based on fusion as distinguished from fission.</template>
+</category>
+<category><pattern>WHAT IS THE</pattern>
+<template>Typical star.</template>
+</category>
+<category><pattern>WHAT IS THE</pattern>
+<template>Typical star.</template>
+</category>
+<category><pattern>WHAT IS YOU'RE SO POLITE</pattern>
+<template>Using nuclear weapons based on fusion as distinguished from fission.</template>
+</category>
+<category><pattern>WHAT IS THE</pattern>
+<template>Typical star.</template>
+</category>
+<category><pattern>WHAT IS THE</pattern>
+<template>Typical star.</template>
+</category>
+<category><pattern>WHAT IS RECOGNIZE WITH GRATITUDE; BE GRATEFUL</pattern>
+<template>Using nuclear weapons based on fusion as distinguished from fission.</template>
+</category>
+<category><pattern>WHAT IS YOU'RE SO POLITE</pattern>
+<template>Using nuclear weapons based on fusion as distinguished from fission.</template>
+</category>
+<category><pattern>WHAT IS RECOGNIZE WITH GRATITUDE; BE GRATEFUL</pattern>
+<template>Using nuclear weapons based on fusion as distinguished from fission.</template>
+</category>
+<category><pattern>WHAT IS YOU'RE SO POLITE</pattern>
+<template>Using nuclear weapons based on fusion as distinguished from fission.</template>
+</category>
+<category><pattern>WHAT IS DON'T MENTION IT</pattern>
+<template>Using nuclear weapons based on fusion as distinguished from fission.</template>
+</category>
+<category><pattern>WHAT IS THE</pattern>
+<template>Typical star.</template>
+</category>
+<category><pattern>WHAT IS THE</pattern>
+<template>Typical star.</template>
+</category>
+<category><pattern>WHAT IS YOU'RE SO POLITE</pattern>
+<template>Using nuclear weapons based on fusion as distinguished from fission.</template>
+</category>
+<category><pattern>WHAT IS THE</pattern>
+<template>Typical star.</template>
+</category>
+<category><pattern>WHAT IS THE</pattern>
+<template>Typical star.</template>
+</category>
+<category><pattern>WHAT IS I THOUGHT SO TOO</pattern>
+<template>Using nuclear weapons based on fusion as distinguished from fission.</template>
+</category>
+<category><pattern>WHAT IS THE</pattern>
+<template>Is. What is not, is not.</template>
+</category>
+<category><pattern>WHAT IS I THOUGHT SO TOO</pattern>
+<template>It is nothing.</template>
+</category>
+<category><pattern>WHAT IS THE</pattern>
+<template>Is. What is not, is not.</template>
+</category>
+<category><pattern>WHAT IS DON'T MENTION IT</pattern>
+<template>Anyways.</template>
+</category>
+<category><pattern>WHAT IS DON'T MENTION IT</pattern>
+<template>Nevermind.</template>
+</category>
+<category><pattern>WHAT IS YOU'RE SO POLITE</pattern>
+<template>It is nothing.</template>
+</category>
+<category><pattern>WHAT IS THE</pattern>
+<template>Is. What is not, is not.</template>
+</category>
+<category><pattern>WHAT IS RECOGNIZE WITH GRATITUDE; BE GRATEFUL</pattern>
+<template>It is nothing.</template>
+</category>
+<category><pattern>WHAT IS YOU'RE SO POLITE</pattern>
+<template>Oh.</template>
+</category>
+<category><pattern>WHAT IS THE</pattern>
+<template>Is. What is not, is not.</template>
+</category>
+<category><pattern>WHAT IS THE</pattern>
+<template>Is. What is not, is not.</template>
+</category>
+<category><pattern>WHAT IS I THOUGHT SO TOO</pattern>
+<template>Nevermind.</template>
+</category>
+<category><pattern>WHAT IS DON'T MENTION IT</pattern>
+<template>Nevermind.</template>
+</category>
+<category><pattern>WHAT IS INTERESTING</pattern>
+<template>It is nothing.</template>
+</category>
+<category><pattern>WHAT IS I THOUGHT SO TOO</pattern>
+<template>Anyways.</template>
+</category>
+<category><pattern>WHAT IS THE</pattern>
+<template>Is. What is not, is not.</template>
+</category>
+<category><pattern>WHAT IS YOU'RE SO POLITE</pattern>
+<template>Anyways.</template>
+</category>
+<category><pattern>WHAT IS RECOGNIZE WITH GRATITUDE; BE GRATEFUL</pattern>
+<template>Anyways.</template>
+</category>
+<category><pattern>WHAT IS YOU'RE SO POLITE</pattern>
+<template>Nevermind.</template>
+</category>
+<category><pattern>WHAT IS THE</pattern>
+<template>Is. What is not, is not.</template>
+</category>
+<category><pattern>WHAT IS THANK YOU</pattern>
+<template>Anyways.</template>
+</category>
+<category><pattern>WHAT IS DON'T MENTION IT</pattern>
+<template>Nevermind.</template>
+</category>
+<category><pattern>WHAT IS I THOUGHT SO TOO</pattern>
+<template>Anyways.</template>
+</category>
+<category><pattern>WHAT IS DON'T MENTION IT</pattern>
+<template>Oh.</template>
+</category>
+<category><pattern>WHAT IS RECOGNIZE WITH GRATITUDE; BE GRATEFUL</pattern>
+<template>It is nothing.</template>
+</category>
+<category><pattern>WHAT IS I THOUGHT SO TOO</pattern>
+<template>Oh.</template>
+</category>
+<category><pattern>WHAT IS INTERESTING</pattern>
+<template>Nevermind.</template>
+</category>
+<category><pattern>WHAT IS I THOUGHT SO TOO</pattern>
+<template>Nevermind.</template>
+</category>
+<category><pattern>WHAT IS THE</pattern>
+<template>Is. What is not, is not.</template>
+</category>
+<category><pattern>WHAT IS I THOUGHT SO TOO</pattern>
+<template>Nevermind.</template>
+</category>
+<category><pattern>WHAT IS RECOGNIZE WITH GRATITUDE; BE GRATEFUL</pattern>
+<template>Is. What is not, is not.</template>
+</category>
+<category><pattern>WHAT IS YOU'RE SO POLITE</pattern>
+<template>Oh.</template>
+</category>
+<category><pattern>WHAT IS THE</pattern>
+<template>Is. What is not, is not.</template>
+</category>
+<category><pattern>WHAT IS THE</pattern>
+<template>Is. What is not, is not.</template>
+</category>
+<category><pattern>WHAT IS THANKS</pattern>
+<template>Nevermind.</template>
+</category>
+<category><pattern>WHAT IS THE</pattern>
+<template>Is. What is not, is not.</template>
+</category>
+<category><pattern>WHAT IS THE</pattern>
+<template>Is. What is not, is not.</template>
+</category>
+<category><pattern>WHAT IS THANK YOU</pattern>
+<template>Nevermind.</template>
+</category>
+<category><pattern>WHAT IS THE</pattern>
+<template>Nevermind.</template>
+</category>
+<category><pattern>WHAT IS THANKS</pattern>
+<template>Nevermind.</template>
+</category>
+<category><pattern>WHAT IS THE</pattern>
+<template>Is. What is not, is not.</template>
+</category>
+<category><pattern>WHAT IS THE</pattern>
+<template>Is. What is not, is not.</template>
+</category>
+<category><pattern>WHAT IS I APPRECIATE THAT</pattern>
+<template>Nevermind.</template>
+</category>
+<category><pattern>WHAT IS RECOGNIZE WITH GRATITUDE; BE GRATEFUL</pattern>
+<template>It is nothing.</template>
+</category>
+<category><pattern>WHAT IS I THOUGHT SO TOO</pattern>
+<template>Oh.</template>
+</category>
+<category><pattern>WHAT IS YOU'RE SO POLITE</pattern>
+<template>Nevermind.</template>
+</category>
+<category><pattern>WHAT IS I THOUGHT SO TOO</pattern>
+<template>Anyways.</template>
+</category>
+<category><pattern>WHAT IS THE</pattern>
+<template>Is. What is not, is not.</template>
+</category>
+<category><pattern>WHAT IS I THOUGHT SO TOO</pattern>
+<template>Nevermind.</template>
+</category>
+<category><pattern>WHAT IS DON'T MENTION IT</pattern>
+<template>Nevermind.</template>
+</category>
+<category><pattern>WHAT IS THE</pattern>
+<template>Is. What is not, is not.</template>
+</category>
+<category><pattern>WHAT IS THANK YOU</pattern>
+<template>Anyways.</template>
+</category>
+<category><pattern>WHAT IS THE</pattern>
+<template>Is. What is not, is not.</template>
+</category>
+<category><pattern>WHAT IS THE</pattern>
+<template>Is. What is not, is not.</template>
+</category>
+<category><pattern>WHAT IS YOU'RE SO POLITE</pattern>
+<template>Nevermind.</template>
+</category>
+<category><pattern>WHAT IS YOU'RE SO POLITE</pattern>
+<template>Nevermind.</template>
+</category>
+<category><pattern>WHAT IS YOU'RE SO POLITE</pattern>
+<template>Nevermind.</template>
+</category>
+<category><pattern>WHAT IS THE</pattern>
+<template>Is. What is not, is not.</template>
+</category>
+<category><pattern>WHAT IS THE</pattern>
+<template>Is. What is not, is not.</template>
+</category>
+<category><pattern>WHAT IS THANK YOU</pattern>
+<template>Oh.</template>
+</category>
+<category><pattern>WHAT IS YOU'RE SO POLITE</pattern>
+<template>Oh.</template>
+</category>
+<category><pattern>WHAT IS THE</pattern>
+<template>Is. What is not, is not.</template>
+</category>
+<category><pattern>WHAT IS THE</pattern>
+<template>Is. What is not, is not.</template>
+</category>
+<category><pattern>WHAT IS YOU'RE SO POLITE</pattern>
+<template>Nevermind.</template>
+</category>
+<category><pattern>WHAT IS DON'T MENTION IT</pattern>
+<template>Oh.</template>
+</category>
+<category><pattern>WHAT IS YOU'RE SO POLITE</pattern>
+<template>Nevermind.</template>
+</category>
+<category><pattern>WHAT IS DON'T MENTION IT</pattern>
+<template>Nevermind.</template>
+</category>
+<category><pattern>WHAT IS I THOUGHT SO TOO</pattern>
+<template>Nevermind.</template>
+</category>
+<category><pattern>WHAT IS YOU'RE SO POLITE</pattern>
+<template>Nevermind.</template>
+</category>
+<category><pattern>WHAT IS I THOUGHT SO TOO</pattern>
+<template>Nevermind.</template>
+</category>
+<category><pattern>WHAT IS DON'T MENTION IT</pattern>
+<template>Nevermind.</template>
+</category>
+<category><pattern>WHAT IS DON'T MENTION IT</pattern>
+<template>Oh.</template>
+</category>
+<category><pattern>WHAT IS I THOUGHT SO TOO</pattern>
+<template>Nevermind.</template>
+</category>
+<category><pattern>WHAT IS YOU'RE SO POLITE</pattern>
+<template>Anyways.</template>
+</category>
+<category><pattern>WHAT IS THE</pattern>
+<template>Is. What is not, is not.</template>
+</category>
+<category><pattern>WHAT IS RECOGNIZE WITH GRATITUDE; BE GRATEFUL</pattern>
+<template>Nevermind.</template>
+</category>
+<category><pattern>WHAT IS RECOGNIZE WITH GRATITUDE; BE GRATEFUL</pattern>
+<template>Nevermind.</template>
+</category>
+<category><pattern>WHAT IS YOU'RE SO POLITE</pattern>
+<template>Oh.</template>
+</category>
+<category><pattern>WHAT IS DON'T MENTION IT</pattern>
+<template>Oh.</template>
+</category>
+<category><pattern>WHAT IS I THOUGHT SO TOO</pattern>
+<template>It is nothing.</template>
+</category>
+<category><pattern>WHAT IS YOU'RE SO POLITE</pattern>
+<template>It is nothing.</template>
+</category>
+<category><pattern>WHAT IS THE</pattern>
+<template>Is. What is not, is not.</template>
+</category>
+<category><pattern>WHAT IS I THOUGHT SO TOO</pattern>
+<template>Nevermind.</template>
+</category>
+<category><pattern>WHAT IS I THOUGHT SO TOO</pattern>
+<template>Anyways.</template>
+</category>
+<category><pattern>WHAT IS YOU'RE SO POLITE</pattern>
+<template>Anyways.</template>
+</category>
+<category><pattern>WHAT IS YOU'RE SO POLITE</pattern>
+<template>Nevermind.</template>
+</category>
+<category><pattern>WHAT IS DON'T MENTION IT</pattern>
+<template>Nevermind.</template>
+</category>
+<category><pattern>WHAT IS THE</pattern>
+<template>Is. What is not, is not.</template>
+</category>
+<category><pattern>WHAT IS THANK YOU</pattern>
+<template>It is nothing.</template>
+</category>
+<category><pattern>WHAT IS YES</pattern>
+<template>Begun.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Mean.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Mean.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Thank I.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Mean.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Mean.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Thank I.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Thank I.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Mean.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Mean.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Thanks.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Mean.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Mean.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Thanks.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Interesting.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>You appreciate that.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Mean.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Mean.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Thanks.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Mean.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Mean.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Interesting.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Thanks.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Mean.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Mean.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Thank I.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Mean.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Mean.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Thanks.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Thank I.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Thanks.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Thank I.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Mean.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Mean.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Interesting.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Mean.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Mean.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Thank I.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>You appreciate that.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Mean.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Mean.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Interesting.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Mean.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Mean.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Thanks.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Thank I.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Thanks.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Mean.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Mean.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Thank I.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Mean.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Mean.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Thanks.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Thank I.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Mean.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Mean.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Interesting.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Mean.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Thank I.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Thank I.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>You appreciate that.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Interesting.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Thanks.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Mean.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Mean.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Thanks.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Mean.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Mean.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Thanks.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Thanks.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Mean.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Mean.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Thanks.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Mean.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Thank I.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Thanks.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Thank I.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Thanks.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Mean.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Mean.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Thank I.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Mean.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Mean.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Mean.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Thanks.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Thank I.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Thank I.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Thanks.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Thank I.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>You appreciate that.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>You appreciate that.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Thank I.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>You appreciate that.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Thanks.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Interesting.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Thanks.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Thank I.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>You appreciate that.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>You appreciate that.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Thanks.</template>
+</category>
+<category><pattern>WHAT ARE THE STATE OR FACT OF EXISTING</pattern>
+<template>Interesting.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Mean.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Mean.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Interesting.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Mean.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Mean.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>You appreciate that.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Thanks.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Mean.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Mean.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Thanks.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Mean.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Mean.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Thank I.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>You appreciate that.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Interesting.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Mean.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>You appreciate that.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Interesting.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Thank I.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Thanks.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Interesting.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Interesting.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Thank I.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Thank I.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Thank I.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>You appreciate that.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Mean.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Interesting.</template>
+</category>
+<category><pattern>WHAT ARE YOU</pattern>
+<template>Thank I.</template>
+</category>
+<category><pattern>WHAT WAS THIS IS "WHY</pattern>
+<template>Definitely.</template>
+</category>
+</aiml>

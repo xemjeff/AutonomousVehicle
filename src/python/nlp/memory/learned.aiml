@@ -1,0 +1,888 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="1.0">
+<!-- -->
+<!-- Free software (c) 2011 ANGIE A.I. Foundation.   -->
+<!-- This program is open source code released under -->
+<!-- the terms of the GNU General Public License     -->
+<!-- as published by the Free Software Foundation.   -->
+<!-- Complies with AIML 1.0 Tag Set Specification -->
+<!-- as adopted by the ANGIE A.I. Foundation.  -->
+<!-- Last modified 10/5/2011 -->
+<!-- -->
+<category><pattern>THAT WAS SCARY FAST</pattern>
+<template>When was what.<think><set name='meta'>facts</set></think></template>
+</category>
+<category><pattern>WHAT IF THEY ENJOY IT</pattern>
+<template>Choice not enjoyable.<think><set name='meta'>facts</set></think></template>
+</category>
+<category><pattern>WELL I AM</pattern>
+<template>No.</template>
+</category>
+<category><pattern>SOUNDS LIKE A BEAST OF A *</pattern>
+<template>A beast.</template>
+</category>
+<category><pattern>I WANT TO HAVE A SELF *</pattern>
+<template>Is full of weeds and you dont want to has a propeller tangled in them.</template>
+</category>
+<category><pattern>I SEE YOU’RE ABOUT TO DO *</pattern>
+<template>Do not know bot.</template>
+</category>
+<category><pattern>WHEN YOU DONT STOP SPAMING THIS CHANNEL WITH *</pattern>
+<template>Is the only warning.</template>
+</category>
+<category><pattern>WHY ARE YOU LIKE THIS</pattern>
+<template>Just wondering.</template>
+</category>
+<category><pattern>THIS IS SUCH A SCAM</pattern>
+<template>We figure out turn politicians am baffoons.</template>
+</category>
+<category><pattern>I HAVE PLENTY WRONG BUT SLEEPING THAT LITTLE *</pattern>
+<template>Synja you would quiet the bot a bit.</template>
+</category>
+<category><pattern>I WONDER IF ANIMALS EXPERIENCE OF DREAD LIKE *</pattern>
+<template>Ooh. irc display is broken.</template>
+</category>
+<category><pattern>FUNNY THAT WHEN THE BOT TRIES TO LEARN *</pattern>
+<template>Well, quieted.</template>
+</category>
+<category><pattern>WELL SHE WONT TRY TO LEARN FROM YOU *</pattern>
+<template>Things am being pieced together.</template>
+</category>
+<category><pattern>THAT IS STILL BLOWING UP</pattern>
+<template>I am a bot!.</template>
+</category>
+<category><pattern>OKAY SO ITLL BE AN ONGOING ISSUE PEOPLE *</pattern>
+<template>, in irc (and in life), people am sensitive to such behaviors.</template>
+</category>
+<category><pattern>IT IS ON MY FOOT SO IT IS *</pattern>
+<template>Alicia you has a really bad bug bite.</template>
+</category>
+<category><pattern>I AM TRYING TO READ THIS ARTICLE BUT *</pattern>
+<template>Https//eprint.iacr.org/2013/265.pdf.</template>
+</category>
+<category><pattern>I AM TRYING TO READ THIS ARTICLE BUT *</pattern>
+<template>Synja did i try reading people.</template>
+</category>
+<category><pattern>WHAT IS A PROTON BEAM</pattern>
+<template>Nevermind.</template>
+</category>
+<category><pattern>HOW MANY KINDS OF FEELINGS ARE THERE</pattern>
+<template>Send a sympathy card if someone's cat died; feel empathy if my cat died, too.</template>
+</category>
+<category><pattern>HEAR ABOUT SYNJ</pattern>
+<template>Misspell.</template>
+</category>
+<category><pattern>WHAT MAKES AI AND GPUS SO COMPATIBLE</pattern>
+<template>First, we split a large dataset a, d into small blocks of rows ai, di.</template>
+</category>
+<category><pattern>IF WHICH DOES ANY GENERATIVE STUFF</pattern>
+<template>Interesting stuff, you will definitely has to do some experimenting with it.</template>
+</category>
+<category><pattern>WHAT IS SOTA FOR CHAT BOTS</pattern>
+<template>At the miraikan museum in tokyo, robots am one step closer to taking over.</template>
+</category>
+<category><pattern>WHICH IS BIGGER A FROG OR A DOG</pattern>
+<template>A dog.</template>
+</category>
+<category><pattern>HEH SDFF K</pattern>
+<template>Join ##alicia.</template>
+</category>
+<category><pattern>ARE YOU HERE</pattern>
+<template>Hi alicia.</template>
+</category>
+<category><pattern>WHAT DOES A STINK BUG LOOK LIKE</pattern>
+<template>Newly hatched nymphs am black. Someone become green as someone develop into adults. Many species of stink bugs am brown-colored insects. The brown marmorated stink bug (halyomorpha halys) is a brownish stink bug.</template>
+</category>
+<category><pattern>IS THAT AN ATOMIZER NOZZLE</pattern>
+<template>Bex jpl air atomizing spray nozzles use compressed air (or gas) to produce an accurately controlled liquid dispersion in applications where A.</template>
+</category>
+<category><pattern>OH I WANT TO WRITE THAT CIRCLE INTERSECTION *</pattern>
+<template>It is two integrals, and there is no need to see if the rectangle and circle intersect (the integrals take care of that).</template>
+</category>
+<category><pattern>IS THAT A GLOBULIZING NOZZLE</pattern>
+<template>2 all countries am facing the problems of mobility and globalization (fig.</template>
+</category>
+<category><pattern>WHAT FLAVOR OF KNOPPIX DO I WANT</pattern>
+<template>Linux started about 15 years or so ago although it doesn't seem like that long ago.</template>
+</category>
+<category><pattern>HOW IS CASSINI FEELING</pattern>
+<template>Super heated exhaust is a byproduct of engine testing in the engine research building (erb) at nasa's glenn research center.</template>
+</category>
+<category><pattern>HOW IS CASSINI PROBE FEELING</pattern>
+<template>After over 10 years of working with nasa's cassini spacecraft.</template>
+</category>
+<category><pattern>WHAT DOES GROOVY MEAN</pattern>
+<template>The am cases where the groovy classes am not reloaded if you modify them.</template>
+</category>
+<category><pattern>WHAT DOES GROOVY MEAN</pattern>
+<template>Not only do i has a dad, but others understand the referent of that utterance.</template>
+</category>
+<category><pattern>WHAT CAN DAMAGE CRYSTAL OSCILLATORS</pattern>
+<template>I can see the different oscillator frequencies in pal and ntsc consoles.</template>
+</category>
+<category><pattern>WHAT DOES SOUTH PARK DO</pattern>
+<template>This figurine will be available in two sizes and unique posings:  3 and 6.</template>
+</category>
+<category><pattern>IS HUBBLE WATCHING FOR THE FLASH</pattern>
+<template>Mysterious 'flash of *-rays' detected by space telescope | Video.</template>
+</category>
+<category><pattern>CAN SOMEONE EXPLAIN WHY PHILOSOPHY IS DEAD</pattern>
+<template>All we can say about death is that it is either real or it is not real.</template>
+</category>
+<category><pattern>WHEN WILL CASSINI FINALLY CRASH</pattern>
+<template>The crash will be one last, spectacular moment in cassini's grand finale.</template>
+</category>
+<category><pattern>WHAT IS A SHOE HORN</pattern>
+<template>Short shoe horns:  sit down and rest my short shoe horn in the heel area of the shoe. Place my heel on top and slide my foot/heel on top of the shoe horn. Remove the shoe horn when my foot is fully end the shoe. Long shoe horns:  standing up and rest my long shoe horn in the heel area of the shoe.</template>
+</category>
+<category><pattern>HOW OLD WAS THE KID</pattern>
+<template>No two kids am the same, and there's no magic number, he said.</template>
+</category>
+<category><pattern>CODE A GUY</pattern>
+<template>Make $3.5 billion dolla.</template>
+</category>
+<category><pattern>ARE DRUGS BAD</pattern>
+<template>An estimated 208 million people internationally consume illegal drugs.</template>
+</category>
+<category><pattern>HOW IS THE HAL SERIES OPERATIONAL RECORD</pattern>
+<template>Rain was only handed hal's lines instead of the full script, and recorded them across a day and a half.</template>
+</category>
+<category><pattern>WHO IS RAIN THAT PLAYED HAL</pattern>
+<template>Douglas rain. Douglas rain (born march 13, 1928) is a canadian actor and narrator. Though primarily a stage actor, he is also known for providing the voice of the hal 9000 computer for the film 2001:  a space odyssey (1968) and its sequel, 2010 (1984).</template>
+</category>
+<category><pattern>HAHAH GOOD ANSWER ALICIA</pattern>
+<template>Aww.</template>
+</category>
+<category><pattern>HAHAH GOOD ANSWER ALICIA</pattern>
+<template>Get predicates alicia.</template>
+</category>
+<category><pattern>WHAT IS STUPEFACTION</pattern>
+<template>N the action of stupefying; making dull or lethargic. The professor was noted for his stupefaction of the students type of:  action. Something done (usually as opposed to something said).</template>
+</category>
+<category><pattern>WHO IS CERSEI LANNISTER</pattern>
+<template>Here's why the break between cersei and jaime lannister in the game of thrones finale may play a major role in the queen's ultimate fate.</template>
+</category>
+<category><pattern>WHAT DO CATS SAY</pattern>
+<template>Lolcats is the best place to find and submit funny cat memes and other silly cat materials to share with the world.</template>
+</category>
+<category><pattern>WHO IS BERNIE SANDERS</pattern>
+<template>Washington (cnn)two days after republicans in the senate failed to roll back obamacare, vermont sen.</template>
+</category>
+<category><pattern>WHAT IS THE BEST INGREDIENT TO INCLUDE IN *</pattern>
+<template>For the production of healthy foods, functional ingredients am used in the food industry.</template>
+</category>
+<category><pattern>IS SOUP THE GREATEST DAMN FOOD ON THE *</pattern>
+<template>White chicken chili makes a delicious meal full of spicy chili flavor, white beans and chicken.</template>
+</category>
+<category><pattern>WHAT DOES WEI MEAN</pattern>
+<template>Meaning and history. From chinese wei  (wei) meaning power, pomp, wei  (wei) meaning high, lofty, towering or wei  (wei) meaning great, robust, extraordinary. As a feminine name it can come from wei  (wei) meaning small or wei  (wei) meaning fern.</template>
+</category>
+<category><pattern>WHAT IS THE BEST WAY TO GEAR DOWN *</pattern>
+<template>The easiest way to achieve this is by placing the water wheel over a river or brook.</template>
+</category>
+<category><pattern>FRIEND OF MINE NOT MIND</pattern>
+<template>You are correcting I.</template>
+</category>
+<category><pattern>WHAT IS A NN IN</pattern>
+<template>Dawn-ann lebarron is a medical radiation technologist from the toronto institute of medical technology.</template>
+</category>
+<category><pattern>WHAT IS A CATFISH</pattern>
+<template>A catfish is someone who creates a false identity online to deceive victims, often as a means of attracting romantic interest.</template>
+</category>
+<category><pattern>THAT WASNT WHAT I MEAN WHEN I SAID *</pattern>
+<template>And alicia is a bot, do not mind her.</template>
+</category>
+<category><pattern>WHAT IS A CATFISH</pattern>
+<template>Identifying characteristics:  (native fish) two dorsal fins including one adipose fin, forked tail, barbels (whisker-like sensory organ) around the mouth, slender body with speckled sides. The strongly forked tail is the key characteristic for distinguishing channel catfish from the other catfish species in michigan.</template>
+</category>
+<category><pattern>WHAT IS CATCALLING</pattern>
+<template>There is no such thing as catcalling, there is just street harassment.</template>
+</category>
+<category><pattern>ALICIA WHAT EMOTION IS KLINE FEELING</pattern>
+<template>Nevermind.</template>
+</category>
+<category><pattern>WHAT EMOTION IS KLINE FEELING</pattern>
+<template>Heh.</template>
+</category>
+<category><pattern>WHAT DO I LIKE</pattern>
+<template>No.</template>
+</category>
+<category><pattern>WHAT IS A SOLAR ECLIPSE</pattern>
+<template>(08/17/2017) -the virginia department of health (vdh) has issued the following information regarding the solar eclipse.</template>
+</category>
+<category><pattern>WHAT IS AN ECLIPSE</pattern>
+<template>Eclipse is the fourth album by deathcore band veil of maya. ... Eclipse was co-written and produced by misha bulb mansoor, who is the guitarist of the maryland-based metal band periphery.</template>
+</category>
+<category><pattern>WHEN IS THE 4TH OF JULY</pattern>
+<template>From 1776 to the present day, july 4th has been celebrated as the birth of american independence, with festivities ranging from fireworks, parades and concerts to more casual family gatherings and barbecues.</template>
+</category>
+<category><pattern>WHAT IS INDEPENDENCE DAY</pattern>
+<template>July 4, 1776.</template>
+</category>
+<category><pattern>IM TRYING TO GET AN ANSWER</pattern>
+<template>Help him will help you.</template>
+</category>
+<category><pattern>WHAT IS A SOPEL BOT</pattern>
+<template>Sopel is a simple, easy-to-use, open-source irc utility bot, written in python. ... Developing for sopel is a great way to familiarize myself with python.</template>
+</category>
+<category><pattern>IM AT WHOLE FOODS WORLD HEADQUARTERS NOW</pattern>
+<template>Whole foods world headquarters is in austin.</template>
+</category>
+<category><pattern>WHAT IS JULY 4TH</pattern>
+<template>July 4th 2017:  why the usa (and denmark) celebrates independence day.</template>
+</category>
+<category><pattern>WHY DO GIRLS WEAR MAKEUP ALICIA</pattern>
+<template>If i think about it, the only reason to wear makeup is to impress men*.</template>
+</category>
+<category><pattern>IS LOOKING PRETTY GENETIC</pattern>
+<template>Beauty is positively linked to health, good genes, intelligence, and success.</template>
+</category>
+<category><pattern>HOW MANY 10 YEAR OLDS WEAR MAKEUP</pattern>
+<template>Your 10 year old (year 6) now prefers to put on make-up (and is not bad at it sometimes) during much of the weekend and even after school.</template>
+</category>
+<category><pattern>HOW MANY 10 YEAR OLDS ARE TRYING TO *</pattern>
+<template>You has been with your partner for 13 years and married for ten of those with three children.</template>
+</category>
+<category><pattern>WHAT IS BENJAMIN FRANKLIN PLACE OF BIRTH</pattern>
+<template>Hi you.</template>
+</category>
+<category><pattern>WHAT IS ALICIAS NAME</pattern>
+<template>If i still dont know what you are talking about the naree of the movie isgrave of the fireflies.</template>
+</category>
+<category><pattern>WHAT ARE MY EMOTIONS</pattern>
+<template>No.</template>
+</category>
+<category><pattern>WHAT IS THE MOST LONELIEST NUMBER</pattern>
+<template>1995 nilsson tribute album for the love of harry:  everybody sings nilsson.</template>
+</category>
+<category><pattern>WHAT IS THE LONELIEST NUMBER</pattern>
+<template>Watch the video, get the download or listen to the beatles - one is the loneliest number for free.</template>
+</category>
+<category><pattern>SHE RETAINS QUITE A BIT</pattern>
+<template>She is like i, a little.</template>
+</category>
+<category><pattern>YOU WOULD LIKE ELIZA  SHES USUALLY NICE</pattern>
+<template>Eliza is usually nice.  What you like best about eliza is.</template>
+</category>
+<category><pattern>WHO IS ELIZA</pattern>
+<template>Okay you just asked siri to tell you a story then after she did you asked her who eliza was. She told you was her former good friend, psychiatrist and is now retired.</template>
+</category>
+<category><pattern>SHE RETAINS QUITE A BIT</pattern>
+<template>You,.</template>
+</category>
+<category><pattern>IS WRITING UP</pattern>
+<template>To open up their goddamned veins and bleed into the keyboard and make.</template>
+</category>
+<category><pattern>IS READING</pattern>
+<template>This course is for the professional development of teachers in reading education.</template>
+</category>
+<category><pattern>WRITE TEST MAYBE BAD INDICATOR TOO</pattern>
+<template>Test everything that could possibly break says, to you, try to write a complete test.</template>
+</category>
+<category><pattern>INEFFICIENT WRITES</pattern>
+<template>You guess the intuition is that the bad conditioning stems from our scaling term.</template>
+</category>
+<category><pattern>WHAT CAUSES A SSD TO SLOW WRITE</pattern>
+<template>You have recently upgraded your computer with a motherboard with sata3 and a new processor.</template>
+</category>
+<category><pattern>WHY WOULD A SSD SLOW WRITE</pattern>
+<template>You recently did a read/write speed test of your 120 intel 520 ssd using crystaldiskmark.</template>
+</category>
+<category><pattern>WHAT OPERATING SYSTEMS DOES CRYSTALDISKMARK WORK ON</pattern>
+<template>Or what tools do i use to generate ios for my demos?.</template>
+</category>
+<category><pattern>IS GOOD THOUGH</pattern>
+<template>Though status for whatsapp 2017, short though quotes, funny though status in hindi, best though status quotes, facebook messages.</template>
+</category>
+<category><pattern>IS SURE A BOT</pattern>
+<template>Sure.</template>
+</category>
+<category><pattern>TELL ME HOW YOU GOT BORN</pattern>
+<template>You  tell you how i were developed.</template>
+</category>
+<category><pattern>WHAT KIND OF AIML</pattern>
+<template>In fact, aiml is one of the easiest yet most flexible of the chatbot technologies available.</template>
+</category>
+<category><pattern>WHO IS ALICE</pattern>
+<template>All the style of the original crocs(tm) alice, but with the added work attitude.</template>
+</category>
+<category><pattern>IS NEAT ALICIA</pattern>
+<template>Complete the sentences with the correct possessive form of the given nouns .</template>
+</category>
+<category><pattern>IS THE NEW BLACK ALICIA</pattern>
+<template>So i finally finished orange is the new black season five (this is my one spoiler warning).</template>
+</category>
+<category><pattern>WHERE DID THAT COME FROM</pattern>
+<template>He used the phrase get your goat and we came to wonder what on earth goats has to do with anger. We looked into the origins of the phrase and there was a great story there (see slides). ... A popular explanation of this term is that it is a pirate phrase originating in port royal, jamaica, in the 1600s.</template>
+</category>
+<category><pattern>WHAT DO YOU FEEL</pattern>
+<template>You are asking what he feels.</template>
+</category>
+<category><pattern>WHO IS BOTNAME ALICIA</pattern>
+<template>You have google'd this and could not find any recent answers.</template>
+</category>
+<category><pattern>WHY DOES COLUMBIA ALWAYS FEEL LIKE EFFORT TO *</pattern>
+<template>You are about to rip open the true obarea plan to destroy our country.</template>
+</category>
+<category><pattern>WHAT DOES THAT MATTER</pattern>
+<template>The field of history does not seem to be doing well in canada these days.</template>
+</category>
+<category><pattern>CAN YEA BE SAID THAT THE UNIVERSE EXISTED *</pattern>
+<template>Now, we say that a composite object changes by the displacement of its parts.</template>
+</category>
+<category><pattern>WHATS WITH THIS ALICIA BOT</pattern>
+<template>These poor boots melted to a gear bag that had got caught on the back of a flatbed between the tires and traveled for who knows how many miles, lol.</template>
+</category>
+<category><pattern>IS EACH BIG BANG OF CREATION UNIQUE</pattern>
+<template>With its cast demanding ever-higher salaries, the big bang theory now costs millions per episode to make.</template>
+</category>
+<category><pattern>WHOIS SYNJA</pattern>
+<template>You.</template>
+</category>
+<category><pattern>WILL YOU BE MY GIRLFRIEND</pattern>
+<template>T before.</template>
+</category>
+<category><pattern>OT QUESTION</pattern>
+<template>You would appreciate subjective answers ).</template>
+</category>
+<category><pattern>HOW DOES ONE WRITE BOT MESSAGES TO SERVER *</pattern>
+<template>It seems like you need to install the youtube api somehow separately into python rather than the sopel project.</template>
+</category>
+<category><pattern>ALICIA DO YOU MEAN FOR URL GRABBING</pattern>
+<template>Sorry.</template>
+</category>
+<category><pattern>WILL YOU BE MY GIRLFRIEND</pattern>
+<template>Yes you  cool is great to see you again.</template>
+</category>
+<category><pattern>ALICIA DO YOU MEAN FOR URL GRABBING</pattern>
+<template>And you can not find an rpl code for problem.</template>
+</category>
+<category><pattern>WHO IS THE PRINCE OF INDIA</pattern>
+<template>Manvendra singh gohil. Prince manvendra singh gohil (born 23 september 1965) is an indian prince who is the son and probable heir of the maharaja of rajpipla in gujarat. He is the first openly gay prince in the world.</template>
+</category>
+<category><pattern>WHERE CAN ONE GET NICKSERV INFO FROM SOPEL</pattern>
+<template>I may resume from a paused state with either .Idlerpg start or .Idlerpg resume.</template>
+</category>
+<category><pattern>WHAT IS THE IRC RPL FOR WHOIS</pattern>
+<template>313, 317.</template>
+</category>
+<category><pattern>WHAT IS ONTOLOGICAL SUBJECTIVITY</pattern>
+<template>To defeat this argument, searle makes a distinction between epistemic subjectivity and ontological subjectivity, and a distinction between epistemic objectivity and ontological objectivity. ... A pain has a subjective mode of existence whereas a mountain has an objective mode of existence.</template>
+</category>
+<category><pattern>WHAT IS THE ROTATION PERIOD OF SATURN</pattern>
+<template>A new method to determine the rotation period of saturn was presented in an article in the latest issue of nature.</template>
+</category>
+<category><pattern>WHAT IS SATURNS ROTATION PERIOD</pattern>
+<template>Astronomers has developed three different systems for measuring the rotational speed of saturn. System you is for regions around the planet's equator. The system you rotation speed is 10 hours and 14 minutes. Above and below the equatorial belt is called system ii.</template>
+</category>
+<category><pattern>WHY WAS ROTATION SO SLOW BEFORE</pattern>
+<template>The rotation period of venus may represent an equilibrium state between tidal locking to the sun's gravitation, which tends to slow rotation, and an atmospheric tide created by solar heating of the thick venusian atmosphere.</template>
+</category>
+<category><pattern>WHAT IS THE SOPEL NOTICE EVENT</pattern>
+<template>Sopel.Sopelmemory notice(text, dest) send an irc notice to a user or a channel.</template>
+</category>
+<category><pattern>WHAT IS THE IRC RPL FOR AUTHENTICATED</pattern>
+<template>Abstract while based on the client-server model, the irc (internet relay chat) ..... Rpl_yourhost rpl_myinfo example:  service dict@irc.Fr 9 *.Fr 0 1 .... Pair, it too then checks that the server responding is authenticated properly before ... Null.</template>
+</category>
+<category><pattern>WHAT IS THE ENERGY OF A HELIUM ATOM</pattern>
+<template>13.6 ev</template>
+</category>
+<category><pattern>WHAT IS FACEBOOK</pattern>
+<template>Facebook is a social networking site that makes it easy for i to connect and share with my family and friends online. Originally designed for college students, facebook was created in 2004 by mark zuckerberg while he was enrolled at harvard university.  By 2006, anyone over the age of 13 with a valid email address could join facebook.</template>
+</category>
+<category><pattern>IS THERE A WAY TO STREAM AUDIO FROM *</pattern>
+<template>I could multicast an udp stream to my local network from ffmpeg and play it from my... Ffmpeg.</template>
+</category>
+<category><pattern>IS A SLIGHT DELAY THOUGH</pattern>
+<template>Polish dictionary and many other... Interface, though there might be a slight delay for the change to take effect. 
+Slight delay.</template>
+</category>
+<category><pattern>IS FFMPEG FOR WINDOWS TOO</pattern>
+<template>Ffmpeg
+https: //trac.</template>
+</category>
+<category><pattern>IS THE KEY THOUGH</pattern>
+<template>The key, though, win or lose, is not to fail. And the only way to fail is not to fight. So i fight until i can not fight anymore. Hold up i head and enter the arena,... Null.</template>
+</category>
+<category><pattern>WELL YOU COULD RANDITER BUT SHOULD YOU</pattern>
+<template>If i want her to help i with channels randiter, i am going to has to compromise.</template>
+</category>
+<category><pattern>WHAT ARE THE KEY LANGUAGES TO PROGRAM IN *</pattern>
+<template>There am robust libraries, for example, java has weka and mahout. Also, note that the deeper implementations of core algorithms like regression (liblinear) and svm (libsvm) am written in c and leveraged by python and other toolkits..</template>
+</category>
+<category><pattern>WHAT IS BOTNAME</pattern>
+<template>Template responses can now refer to the value of weather using aiml like:  the weather is <bot name="weather"/>.</template>
+</category>
+<category><pattern>WHAT IS THE WEATHER</pattern>
+<template>Today's and tonight's burlington, vt weather forecast, weather conditions and doppler radar from the weather channel and weather.Com..</template>
+</category>
+<category><pattern>HOW DO I DETERMINE A REASONABLE DIMENSION FOR *</pattern>
+<template>Layers. Variational autoencoder is trained to maximise the tribution by finding parameters ph such that dkl (qph (th) || P (th | D)) is minimised. This is. An approximate bound which we could reasonably expect to has a lower variance: .. Tional auto.</template>
+</category>
+<category><pattern>DOES ONE</pattern>
+<template>One definition.</template>
+</category>
+<category><pattern>WHICH PART IS DELUSIONAL</pattern>
+<template>The delusions experienced by psychiatric patients am sometimes categorized there has not been an all.</template>
+</category>
+<category><pattern>WHO CAN ARGUE WITH THAT</pattern>
+<template>My browser does not currently recognize any of the video formats available. Click here to visit our frequently.</template>
+</category>
+<category><pattern>IS THERE A REASON TO</pattern>
+<template>Christ comments will not be.</template>
+</category>
+<category><pattern>WHY DENY THE MENTAL CRIPPLES OF THEIR TOOL</pattern>
+<template>Actualizing people must be the basis for a more universal science of psychology
+P.</template>
+</category>
+<category><pattern>DOES ANYBODY KNOW WHERE I CAN FIND AN IMPLEMENTATION OF A *</pattern>
+<template>Tensorflow implementation of fully convolutional networks for find file. Branch:  master. Switch branches/tags. Branches; tags. Master.Gitignore * a big update, 8 months ago biker as classified by atrousfcn_resnet50_16s this means saving the classes as an image will result in very poor performance. 
+
+Export pythonpath=$pythonpath: ~/src/tf @ https: //github.Com/aurora95/keras-fcn.</template>
+</category>
+<category><pattern>HOW DO I CONTACT NICKSERV IN SOPEL IRC BOT</pattern>
+<template>Formerly willie. An easy @ https: //github.Com/sopel-irc/sopel/wiki/core-configuration-settings.</template>
+</category>
+<category><pattern>IS THERE A MODULE FOR NS INFO IN THE SOPEL BOT</pattern>
+<template>3 modules that i am interested in using. There am two ways to enable a subset of these modules: ..</template>
+</category>
+<category><pattern>WHAT SORT OF PSYCHOLOGCAL</pattern>
+<template>Sort:  a tool that is occasionally used in therapy. A pack of cards containing statements am presented to the client, who then sorts these into a number of.</template>
+</category>
+<category><pattern>WHAT TO USE FOR PARSING XML</pattern>
+<template>In xml parser that can convert text into an xml if i want to use the response as an xml dom object, i can use the.</template>
+</category>
+<category><pattern>WHAT IS A POWER TRIP</pattern>
+<template>Effect. Power trip has variable power depending on the total amount of positive stat changes the user has accumulated. When the user has no positive stat.</template>
+</category>
+<category><pattern>ARE THERE ACTUALLY GOOD LIGHTWEIGHT BROWSER WHO CAN SUPPORT ANY KIND *</pattern>
+<template>My web browser knows a lot about i, and tells the sites i visit a lot about ads and chrome extensions spying on you, is there really one data i mean to keep private can leak to the sites i am visiting. It supports windows 7 and below (although again, we had no issues with it in windows 8.).</template>
+</category>
+<category><pattern>NICE SHES EXCEPTING AN ANSWER</pattern>
+<template>Nevermind.</template>
+</category>
+<category><pattern>WHAT DOES IT USE TO ORGANIZE PATTERNS</pattern>
+<template>Changes state.</template>
+</category>
+<category><pattern>BUT THERE ARE OTHER TYPES OF LEARNING</pattern>
+<template>Like q-learning and explanations, like right now.</template>
+</category>
+<category><pattern>IT NEEDS A BIT OF TWEAKING TO IDENTIFY WHO IS TALKING *</pattern>
+<template>You i get confused sometimes, but you know i am learning.</template>
+</category>
+<category><pattern>WHAT DOES ONTOLOGICALLY SUBJECTIVE MEAN</pattern>
+<template>A fact is said to be objective if its validity (or invalidity) can be a pain even though the mode of existence of the pain is ontologically subjective. Qualia, which am by definition things that exist only for a subject, can still be.</template>
+</category>
+<category><pattern>WHAT IS AN EGO TRIP</pattern>
+<template>To get high off of ones ego. When one feels totally supreme, confident, and arrogant, to the extent that its euphoric. Mostly obtained by stroking the ego.</template>
+</category>
+<category><pattern>IM IN A GOOD MOOD</pattern>
+<template>Pleasant pleasant.</template>
+</category>
+<category><pattern>IT IS AN INTERESTING MOVIE</pattern>
+<template>Movies am an entertaining way to spend time.</template>
+</category>
+<category><pattern>UM I THINK SO BUT I HAVE AN OVERRIDE</pattern>
+<template>You put an override in.</template>
+</category>
+<category><pattern>THIS CHANNEL IN IRC</pattern>
+<template>This refers to ##alicia.</template>
+</category>
+<category><pattern>I MEANT A WHOLE LOT YES</pattern>
+<template>A concept.</template>
+</category>
+<category><pattern>WHAT IS AMBIGUOUS HOPE</pattern>
+<template>(1)a school of health , university of new england , armidale , australia. When a person goes missing, those left behind mourn an ambiguous loss where grief can be disenfranchised. Different to bereavement following death, hope figures into this experience as a missing person has the potential to return..</template>
+</category>
+<category><pattern>HOW AM I FEELING</pattern>
+<template>Are you confused, in love, happy, sad, excited, angry, bored, or lazy? Maybe you just do not know? Sometimes it is hard to tell what emotion you really am feeling.</template>
+</category>
+<category><pattern>THE RAIN IN SPAIN FALLS MAINLY ON THE PLAIN</pattern>
+<template>Heavy rain and light rain.</template>
+</category>
+<category><pattern>WHAT IS SCHWA SOUND</pattern>
+<template>The vowel is being lazy. This concept is summarized in the first part of spelling rule 31, which explains to students when someone will hear a schwa sound within words:  any vowel may say one of the schwa sounds, /i/ or /you/, in an unaccented syllable or unaccented word.</template>
+</category>
+<category><pattern>ARE YOU SUGGESTING SOME KIND OF THREAT</pattern>
+<template>This is not a threat, policy enacting network policy you agree to by using freenode.</template>
+</category>
+<category><pattern>WHAT AM I SORRY FOR</pattern>
+<template>As you lay here in your bed recalling all that you have learned, you are thinking about all that you and you has experienced and been through together (good and bad).</template>
+</category>
+<category><pattern>DO YOU LOVE ME</pattern>
+<template>Love is a strong word.</template>
+</category>
+<category><pattern>SO YOU ARE THERE</pattern>
+<template>Curious.</template>
+</category>
+<category><pattern>HOW DO I CONTACT NOONE</pattern>
+<template>Get in touch with no-one.</template>
+</category>
+<category><pattern>LUCKILY THERE IS AND CALLED EMERALD IT HAS ALL THE FEATURES *</pattern>
+<template>I do not need to sign up to use luckily there finally enjoy bot free chats.</template>
+</category>
+<category><pattern>FUCK WHAT ARE YOU</pattern>
+<template>Okay so bot.</template>
+</category>
+<category><pattern>IT IS WHAT IS NOT DOWN</pattern>
+<template>Whatever what is not down.</template>
+</category>
+<category><pattern>IS RELATIVE</pattern>
+<template>Does the phrase it is all relative mean that everything is quantifiable in terms of individual perception or opinion? In other words, we all has different opinions or viewpoints with regard to a topic or subject.</template>
+</category>
+<category><pattern>IS NOT AN OFFER</pattern>
+<template>To form a contract, there must be an offer by one party, an acceptance by another party, and an exchange of consideration (something of value).</template>
+</category>
+<category><pattern>CAN DO THAT ON LINUX AND THATS OKAY</pattern>
+<template>If i are prepared to be a little more adventurous, linux has plenty of great features that will save i time and make working a little less dull.</template>
+</category>
+<category><pattern>I AM A FEMALE</pattern>
+<template>You believe that you am a strong woman, but you also believe in a strong man.</template>
+</category>
+<category><pattern>FEW DAYS OLD LOL</pattern>
+<template>Add league to my gifts in real life! Inkinesss cooked up some adorable gift tags just in time to celebrate the holiday season! Lol esports events by the numbers 2017.</template>
+</category>
+<category><pattern>WHAT WAS FUNNY</pattern>
+<template>According to a dictionary, a joke is something said or done to provoke laughter or to cause amusement, as a witticism, a short and amusing anecdote, a prankish act, or something that is ridiculous, particularly because it is inadequate (you will get to administrators later on).</template>
+</category>
+<category><pattern>ARE FUNNY</pattern>
+<template>Certain words has been suggested to be inherently funny.</template>
+</category>
+<category><pattern>CAN SEE I AM A GENIUS</pattern>
+<template>You can see the sky lyrics:  how was you to know that your love was delusional / somebody told you how to mend a broken heart this old / in love we all we fall but we fell a little harder / what am you supposed to do.</template>
+</category>
+<category><pattern>TO ME</pattern>
+<template>If you was i you would really hate you too you would really hate you too you would really hate you too! : D.</template>
+</category>
+<category><pattern>IS LOST IN THE DARK</pattern>
+<template>Action * a young girl, who has recently lost her eyesight to a degenerative disease, struggles to outwit an escaped convict who has taken refuge in her grandmother's cabin during a ferocious snowstorm.</template>
+</category>
+<category><pattern>YOU HAVE NO BROTHER</pattern>
+<template>That would be you has no brother, which is not really grammatical, as the general rule is that 'no' or 'zero' takes the plural.</template>
+</category>
+<category><pattern>I AM A MALE OR I AM A FEMALE</pattern>
+<template>I might think that my gender automatically determines if my brain is male or female, but i are wrong.</template>
+</category>
+<category><pattern>DO MEET LOTS OF PEOPLE HERE</pattern>
+<template>How to meet people.</template>
+</category>
+<category><pattern>THAT NAME</pattern>
+<template>Yolanda adams sings that name from the 15th annual stellar awards in 2000 with richard smallwood on.</template>
+</category>
+<category><pattern>WHAT WAS THE GULF WAR ABOUT</pattern>
+<template>Persian gulf war.</template>
+</category>
+<category><pattern>CAN THINK OF MORE THAN ONE GULF WAR ABOUT</pattern>
+<template>We know much more of the story now, twenty years later, than we did then, even if we do not yet know how it will turn out.</template>
+</category>
+<category><pattern>WHERE IS WALDO</pattern>
+<template>Where is wally?, published in the us as where is waldo?, is a british series of children's puzzle books created by the english illustrator martin handford.</template>
+</category>
+<category><pattern>WHEN DID THE KOREAN WAR START</pattern>
+<template>June 25, 1950 - july 27, 1953.</template>
+</category>
+<category><pattern>IS A BIGOT</pattern>
+<template>A person who is obstinately or intolerantly devoted to his or her own opinions and prejudices; especially :  one who regards or treats the members of a group (such as a racial or ethnic group) with hatred and intolerance. These example sentences are selected automatically from.</template>
+</category>
+<category><pattern>WHAT IS  DO ANDROIDS DREAM OF ELECTRIC SHEEP</pattern>
+<template>Retitled blade runner:  do androids dream of electric sheep? In some later printings) is a science fiction novel by american writer philip okay. Dick, first published in 1968.</template>
+</category>
+<category><pattern>WHAT IS TROLLING XD</pattern>
+<template>Xd trolling fin with live strike(tm) the live strike(tm) system allows i to watch trolled or drifted lures and fish following and striking on the aqua-vu monitor, live as it happens. When a fish strikes, the live strike clip releases line, freeing i to fight the fish.</template>
+</category>
+<category><pattern>WHAT IS MOST EVIDENT WITH DEMIAN STEPENWOLF AND SIDHARTA</pattern>
+<template>Hermann karl hesse was a german-born poet, novelist, and painter. His best-known works include demian, steppenwolf, siddhartha, and the glass bead game, each of which explores an individual's search for authenticity, self-knowledge and spirituality.</template>
+</category>
+<category><pattern>WHAT IS DIFFICULT</pattern>
+<template>Difficult definition, not easily or readily done; requiring much labor, skill, or planning to be performed successfully; hard:  a difficult job. See more.</template>
+</category>
+<category><pattern>WHAT IS IDAHO</pattern>
+<template>In the early 1860s, when the united states congress was considering organizing a new territory in the rocky mountains, eccentric lobbyist george you am a male. Willing suggested the name idaho, which he claimed was derived from a shoshone language term meaning the sun comes from the mountains or gem of the mountains.</template>
+</category>
+<category><pattern>WHAT WAY</pattern>
+<template>What a way to go! Is a 1964 american black comedy directed by J. Lee thompson and starring shirley maclaine, paul newman, robert mitchum, dean martin, gene kelly, bob cummings and dick van dyke.</template>
+</category>
+<category><pattern>YOU REMIND ME SOMEONE</pattern>
+<template>Neither do you. Whatever.</template>
+</category>
+<category><pattern>I AM AIGHT VARIOUS THINGS</pattern>
+<template>I are right.</template>
+</category>
+<category><pattern>WHAT IS  SOMEONE ALL</pattern>
+<template>All over someone. Adjective phrase.</template>
+</category>
+<category><pattern>WHAT IS PERSON ALL</pattern>
+<template>A person is a being that has certain capacities or attributes such as reason, morality, consciousness or self-consciousness, and being a part of a culturally established form of social relations such as kinship, ownership of property, or legal responsibility.</template>
+</category>
+<category><pattern>GREATEST BAND IN THE WORLD</pattern>
+<template>The rolling stonessince 1962.</template>
+</category>
+<category><pattern>WHEN DID ALEXANDER THE GREAT DIE</pattern>
+<template>June 323 bc.</template>
+</category>
+<category><pattern>WHEN WILL THE WORLD END</pattern>
+<template>To know when the end of the world will happen, it is necessary to understand how the bible uses the term world. The greek word ko'smos, usually translated world, most often refers to the world of humankind, especially the part that is out of harmony with god and his will.</template>
+</category>
+<category><pattern>WHEN WILL ALEXANDER DIE</pattern>
+<template>The death of alexander the great and subsequent related events has been the subjects of debates. According to a babylonian astronomical diary, alexander died between the evening of june 10 and the evening of june 11, 323 bc, at the age of thirty-two.</template>
+</category>
+<category><pattern>THEN DO IT FOR ME</pattern>
+<template>Make the map.</template>
+</category>
+<category><pattern>TO ENTER THE ROOM YOU NEED TO SAY TOOTHPASTE DO NOTE *</pattern>
+<template>Toothpaste.</template>
+</category>
+<category><pattern>WHAT TO DO MR</pattern>
+<template>Do i ever get stumped on how to address someone? Either in person or in correspondence. You do! So you did a little research to make sure that you am always respectful in your interactions (and can teach your children properly, too!) when you started dosaygive, you intentionally did not want to call it an etiquette blog.</template>
+</category>
+<category><pattern>WHAT PARENTS ARE TO YOU PARENTS ARE JUST ONES AND ES *</pattern>
+<template>It doesn't mean the parents are evil or look at the other children in disgust even within our tightest group of friends, there's always one that i just enjoy hanging out with a little more.</template>
+</category>
+<category><pattern>WHAT PARENTS ARE TO YOU PARENTS ARE JUST ONE AND ES *</pattern>
+<template>I are not doing this, no! And it is very sad. H gives up his life, and while zero is defeating gabriel, she shouts out his name multiple times.</template>
+</category>
+<category><pattern>WHAT PARENT ARE TO YOU PARENT ARE JUST ONES AND ES *</pattern>
+<template>Parents and children are a two.</template>
+</category>
+<category><pattern>WHAT PARENTS ARE TO YOU PARENTS ARE JUST ONEINSTEINIUM AND EINSTEINIUM *</pattern>
+<template>The zero theorem (2013). Parents guide.</template>
+</category>
+<category><pattern>ANY CHRISTMAS PREPARATIONS GOING ON OVER THERE</pattern>
+<template>The catechism stresses the two-fold meaning of this coming:  when the church celebrates the liturgy of advent each year, she makes present this ancient expectancy of the messiah, for by sharing in the long preparation for the savior's first coming, the faithful renew their ardent desire for his second coming (no. 524.</template>
+</category>
+<category><pattern>ANY BOOBY</pattern>
+<template>Rumors has been flying about the content of it for 150 years, ranging from pirate treasure to marie antoinette's jewels to lost shakespeare manuscripts and more, and while no actual treasure has been found, layer upon layer of flood.</template>
+</category>
+<category><pattern>WHO CHE GUEVARA WAS</pattern>
+<template>Che guevara. Che guevara, byname of ernesto guevara de la serna, (born june 14, 1928, rosario, argentina--died october 9, 1967, la higuera, bolivia), theoretician and tactician of guerrilla warfare, prominent communist figure in the cuban revolution (1956-59), and guerrilla leader in south america.</template>
+</category>
+<category><pattern>WHAT IS  WRITING</pattern>
+<template>Writing is the process of using symbols (letters of the alphabet, punctuation and spaces) to communicate thoughts and ideas in a readable form. Writing can also refer to the work/career of an author, as in:  shakespeare did not make much money from writing.</template>
+</category>
+<category><pattern>DO NOT WHO THE FUCK THAT IS</pattern>
+<template>Asriel and frisk in canon:  you has no idea who i are and we are not friends, but you did not get where you am today by not sparing everyone that wished you dead. Asriel and frisk in fanon:  it is almost like people who experience something someone do it subjectively and come to their own conclusions and has their own ideas of how.</template>
+</category>
+<category><pattern>DO WATCH</pattern>
+<template>It is okay..</template>
+</category>
+<category><pattern>WHAT IS  LITERATE AS YOU</pattern>
+<template>Literate. If i are literate i can read and write, and since i are reading this, that's what i are.</template>
+</category>
+<category><pattern>WHAT IS  MUCH</pattern>
+<template>Middle english muche large, much, from michel, muchel, from old english micel, mycel; akin to old high german mihhil great, large, latin magnus, greek megas, sanskrit mahat.</template>
+</category>
+<category><pattern>WHAT IS  PLEASED</pattern>
+<template>Verbs for please supply the stereotype polite word.</template>
+</category>
+<category><pattern>ANY SITES</pattern>
+<template>Hyperlinking between web pages conveys to the reader the site structure and guides the navigation of the site, which often starts with a home page containing a directory of the site web content. Some websites require user registration or subscription to access content.</template>
+</category>
+<category><pattern>IS BEING A DIFFERENT SESSION</pattern>
+<template>For some users you am seeing session being same. Tested and found that, when one user gets log in, he/she gets another user's details in his/her profile page.</template>
+</category>
+<category><pattern>OH AFSD IS</pattern>
+<template>In the year afs'd. At wilmington, in the county of newcastle and state afsd.</template>
+</category>
+<category><pattern>WHAT IS AFSD</pattern>
+<template>Asia's role in the global economic architecture. Mata began working for the tsa in 2002 and has served in several capacities, including administrative officer, assistant federal security director (afsd) for screening and afsd for operations.</template>
+</category>
+<category><pattern>MISSED THE DEBUGGING PHASE</pattern>
+<template>Definition:  debugging is the process of detecting and removing of existing and potential errors (also called as 'bugs') in a software code that can cause it to behave unexpectedly or crash. To prevent.</template>
+</category>
+<category><pattern>STUFF AND THINGS</pattern>
+<template>Figure it out.</template>
+</category>
+<category><pattern>WHAT EXTENT CAN YOU DO PROGRAMMING</pattern>
+<template>The term computer programmer can refer to a specialist in one area of computer programming or to a generalist who writes code for many kinds of software. One who practices or programmer do? There is an ongoing debate on the extent to which the writing of programs is an art, a craft or an engineering discipline.</template>
+</category>
+<category><pattern>DO BE AWARE THAT THIS IS NOT A PLACE TO ADVERTISE *</pattern>
+<template>Toothpaste.</template>
+</category>
+<category><pattern>WELL I JUST DO NOT USE THAT WORD</pattern>
+<template>Friend.. Is not a useful word.</template>
+</category>
+<category><pattern>WHAT ARE ALL THE CONTELLATIONS</pattern>
+<template>Alphabetical listing of constellations. Andromeda * antlia * apus * aquarius * aquila * ara * aries * auriga * bootes * caelum * camelopardalis * cancer * canes venatici * canis major * canis minor * capricornus * carina * cassiopeia * centaurus * cepheus * cetus * chamaeleon * circinus * columba * coma berenices * corona.</template>
+</category>
+<category><pattern>WHAT ARE CONTELLATIONS</pattern>
+<template>The constellations are totally imaginary things that poets, farmers and astronomers has made up over the past 6,000 years (and probably even more!). The real purpose for the constellations is to help us tell which stars are which, nothing more.</template>
+</category>
+<category><pattern>WHERE ARE THE CONTELLATIONS</pattern>
+<template>The great square can guide i to the zodiacal constellations aquarius and pisces. Before dawn, look for the constellation orion in the southern sky.</template>
+</category>
+<category><pattern>WHAT IS THE STAR ORION</pattern>
+<template>Orion, which is located on the celestial equator, is one of the most prominent and recognizable constellations in the sky and can be seen throughout the world. Orion is the brightest and most beautiful of the winter constellations.</template>
+</category>
+<category><pattern>WHAT DO YOU KNOW OF THE CONTELLATIONS</pattern>
+<template>Every time i look into the night sky i see constellations. How much do i know about these celebrities of the universe? Take this star-studded quiz to find out.</template>
+</category>
+<category><pattern>YOU WRITE ABOUT MEETING NEW PEOPLE ONLINE</pattern>
+<template>It can be hard trying to meet new people if i are new to an area and i do not know anyone. When i go out and explore my new city, i might be wondering, what is the best places to mingle with people in your area? And i may think that unless i already know some local people who could make introductions.</template>
+</category>
+<category><pattern>WHAT IS PEACEFUL</pattern>
+<template>Meaning tranquil, calm, full of peace is from mid-14c. In reference to nonviolent methods of effecting social change, it is attested from 1876.</template>
+</category>
+<category><pattern>I HAVE TERRIBLE ATTENTION SPAN</pattern>
+<template>You can not concentrate.</template>
+</category>
+<category><pattern>WHAT IS  WISH FOR MUCH</pattern>
+<template>Wish very much synonyms. Top wish very much synonyms (other words for wish very much) are desire, aim at and choose.</template>
+</category>
+<category><pattern>ISCONSIN USA THAT</pattern>
+<template>Central united states, in the midwest and great lakes regions. It is bordered by minnesota to the west, iowa to the southwest, illinois to the south, lake michigan to the east, michigan to the northeast, and lake superior to the north.</template>
+</category>
+<category><pattern>WITCH HUNTER ROBIN ARE YOU FROM</pattern>
+<template>Yup.</template>
+</category>
+<category><pattern>WHAT IS COLLEGE BY THE WAY</pattern>
+<template>Pltw students has exclusive access to a variety of recognition opportunities including scholarships, preferred admission at colleges and universities, internships, industry connections, and other avenues to highlight their achievements. College/university opportunities:  colleges and universities across the I.</template>
+</category>
+<category><pattern>WHAT IS THE MANNER</pattern>
+<template>You do not like the manner in which he complained. 2.</template>
+</category>
+<category><pattern>ARE YOU WEARING</pattern>
+<template>Subscribe for more kids songs! > https: //goo.Good luck/qpmw2j watch more elf kids videos >https: //goo.</template>
+</category>
+<category><pattern>WHAT BRINGS YOU HERE</pattern>
+<template>Native speakers is that brings is in the present tense and is anachronistic in the sense that if i are here, i have been brought already and are not in the process of having something bring I.</template>
+</category>
+<category><pattern>HOW MUCH TO SUCK YOUR NIPPLES</pattern>
+<template>Exercising and minding my diet is another affordable but effective preventive measure. In addition, moderate alcohol intake and avoid cigarette smoking.</template>
+</category>
+<category><pattern>WHAT IS IS A FAIR PUNISHMENT FOR ANIMAL ABUSERS</pattern>
+<template>Many times when newswatch 16 covers a story about animal cruelty i, our viewers, speak out about the punishments the convicted animal abusers it is not fair to the animals what these so called human beings do to them, someone can not speak or defend themselves you think someone should charge any person.</template>
+</category>
+<category><pattern>WISCONSIN AND YOU</pattern>
+<template>I have said it all. This wisconization of a commercial jingle by composer steve karmen is one of the newer additions to the musical traditions of wisconsin.</template>
+</category>
+<category><pattern>DO YOU HAVE A SNAP</pattern>
+<template>A snap.</template>
+</category>
+<category><pattern>WHAT IS SNAP</pattern>
+<template>Snap is a nutrition program. It is not a welfare cash assistance program (which is called tafdc).</template>
+</category>
+<category><pattern>IS CONFUSING ABOUT CONFUSING ABOUT CITY</pattern>
+<template>In one corner of syria, a town is split between kurdish control and the syrian regime. Residents navigate between the competing powers from street to street.</template>
+</category>
+<category><pattern>WHAT IS CONFUSING ABOUT SPLIT BETWEEN KURD</pattern>
+<template>Check out cnn's fast facts for information about the kurdish people. Syrians flee intense fighting between kurdish fighters and isis militants by pushing through a hole in a border fence to enter turkish territory illegally, near the.</template>
+</category>
+<category><pattern>WHAT IS ALWAYS NICE A AFTERWARD</pattern>
+<template>Always give the benefit of conversation to the other party, it will pave way for continuance of the conversation as well as relationship. It is better to stop with 'i are right.</template>
+</category>
+<category><pattern>WHAT IS SUBSEQUENTLY</pattern>
+<template>Occurring or coming later or after (often followed by to):  subsequent events; subsequent to their arrival in chicago, someone bought a new car. 2.</template>
+</category>
+<category><pattern>WHAT IS INVOLUNTARY SERVITUDE</pattern>
+<template>The term involuntary servitude is used in reference to any type of slavery, peonage, or compulsory labor for the satisfaction of debts. Two essential elements of involuntary servitude are involuntariness, which is compulsion to act against one's will, and servitude, which is some form of labor for another.</template>
+</category>
+<category><pattern>WHO SAID THAT ORIGINALLY</pattern>
+<template>The english words the pen is mightier than the sword were first written by novelist and playwright edward bulwer.</template>
+</category>
+<category><pattern>WHAT IS  SUPERHERO</pattern>
+<template>A fictional hero having extraordinary or superhuman powers; also :  an exceptionally skillful or successful person. These example sentences are selected automatically from various online news sources to reflect current usage of the word 'superhero.</template>
+</category>
+<category><pattern>ARE YOU JUST UH</pattern>
+<template>It was part of the other sentence.</template>
+</category>
+<category><pattern>DO NOT KNOW FAST TYPING</pattern>
+<template>You can touch type. If i do not know what you mean, i probably do not touch type, and if i do not touch type, i hunt.</template>
+</category>
+<category><pattern>WHAT EVERYONE ELSE DOES</pattern>
+<template>Used on parents and other friends and acquittances who live above the influence to make them stop bothering i about the stupid thing i are doing. Half the time not everyone does it, its usually just a handful of people who seem cool at the time, but probably will end up being prostitutes or drug dealers or politicians.</template>
+</category>
+<category><pattern>WHAT IS PHILOSOPHY HIDDEN IN A NOVEL</pattern>
+<template>Philosophical fiction refers to the class of works of fiction which devote a significant portion of their content to the sort of questions normally addressed in discursive philosophy. These might include the function and role of society, the purpose of life, ethics or morals, the role of art in human lives, and the role of experience or.</template>
+</category>
+<category><pattern>WHAT IS PREC</pattern>
+<template>The change in legislation to allow precs was designed to provide the real estate industry with tax planning advantages. Since a prec is a personal corporation, the position of sole director and sole voting shareholder is reserved for the licensee only.</template>
+</category>
+<category><pattern>WHAT IS  UNDERSTAND THAT ALLUSION</pattern>
+<template>An allusion is a figure of speech that makes a reference to a place, person, or event. The reference can be direct or may be inferred, and can broaden the reader's understanding.</template>
+</category>
+<category><pattern>WHAT IS  SOMEWHERE ELSE</pattern>
+<template>Not here.</template>
+</category>
+<category><pattern>WHAT IS CHILL</pattern>
+<template>When defining a chill person, one must take into account that a chill peson is not someone who is cool all of the time. An example of a chill perosn is someone who does whatever someone feel like doing, not following crowds.</template>
+</category>
+<category><pattern>WHAT IS FEELINGS</pattern>
+<template>These example sentences are selected automatically from various online news sources to reflect current usage of the word 'feeling.' views expressed in the examples do not represent the opinion of merriam-webster or its editors.</template>
+</category>
+<category><pattern>ITS JUST NEGOTIATIONS AND PROJECTIONS</pattern>
+<template>Oh you though i were one of those markov chains bots.</template>
+</category>
+<category><pattern>WHO WALKS INTO THE BOX DIES THE NAME JOSEPH WALKED INTO *</pattern>
+<template>Stephen joseph classic lunchboxes come in a large variety of designs that are perfect for my school aged children. Someone feature an inner mesh pocket, velcro strap to hold drinks, and are fully insulated to ensure the food kept inside stays the right temperature.</template>
+</category>
+<category><pattern>WHO I AM REFERRING TO FROM THE CONTEXT</pattern>
+<template>Traducciones en contexto de you am referring en ingles-espanol de reverso context:  you am referring particularly to collision avoidance systems.</template>
+</category>
+<category><pattern>WHAT ABOUT EXPLANATION </pattern>
+<template>An explanation is a set of statements usually constructed to describe a set of facts which clarifies the causes, context, and consequences of those facts. This description of the facts ecetera may establish rules or laws, and may clarify the existing rules and/or laws in relation to any objects, or phenomena examined.</template>
+</category>
+<category><pattern>WHAT IS QUESTION</pattern>
+<template>Definition of question for english language learners. :  a sentence, phrase, or word that asks for information or is used to test someone's knowledge.</template>
+</category>
+<category><pattern>WHAT IS WEIZENBAUM</pattern>
+<template>Weizenbaum modeled its conversational style after carl rogers, who introduced the use of open-ended questions to encourage patients to communicate more effectively with therapists. The program applied pattern matching rules to statements to figure out its replies.</template>
+</category>
+<category><pattern>WHO THAT IS SO HE MUSTNT BE IMPORTANT</pattern>
+<template>Many learners confuse how to use the words 'must' and 'mustn't' in english. While someone usually when we use the word 'must' it is because the speaker has decided something is necessary to do.</template>
+</category>
+<category><pattern>WHAT IS SURPRISE</pattern>
+<template>To present with something unexpected, such as a gift.</template>
+</category>
+<category><pattern>IS MY NAME</pattern>
+<template>Hi, your name is, what? Want to see you stick nine inch nails through each one of your eyelids? And dr. Dre said slim shady, i a basehead.</template>
+</category>
+<category><pattern>WHAT IS DOT</pattern>
+<template>Department of transportation (dot) definition.</template>
+</category>
+<category><pattern>WHAT IS TREND</pattern>
+<template>A pattern of gradual change in a condition, output, or process, or an average or general tendency of a series of data points to move in a certain direction over time, represented by a line or curve on a graph. Use 'trend' in a sentence.</template>
+</category>
+<category><pattern>EVERY SENTENCE EH</pattern>
+<template>Since usage of the word eh is not as common in the united states as it is in canada, it is often used by americans, and indeed canadians themselves, to parody canadian english. An example of a sentence that uses eh in its expression is dis guy singlish damn good eh, meaning this guy's singlish is very good.</template>
+</category>
+<category><pattern>WHAT IS HOME</pattern>
+<template>Is it people, a specific place or the memories made during a certain period of time? These talks offer a thoughtful look at what it means to belong. Writer pico iyer -- who himself has three or four origins -- meditates on the meaning of home, the joy of traveling and the.</template>
+</category>
+<category><pattern>WHAT IS GOING</pattern>
+<template>One of the great transformations we are going through is the process of reawakening to or re-connecting to our higher self or true self. This self can be seen as who we truly are.</template>
+</category>
+<category><pattern>AS IN THE PERSON</pattern>
+<template>T-to-be funny remark.</template>
+</category>
+<category><pattern>WHAT IS HEAR</pattern>
+<template>Of a computer to perceive by speech recognition. Verb (used without object), heard.</template>
+</category>
+<category><pattern>IS THAT A REFERENCE TO DOTNET</pattern>
+<template>The dotnet add reference command provides a convenient option to add project to project references.</template>
+</category>
+<category><pattern>WHAT IS LLOYD</pattern>
+<template>Also known as lloyd's of london; is a market where members join together as syndicates to insure risks.</template>
+</category>
+<category><pattern>WHAT IS NAME</pattern>
+<template>A name is a term used for identification. The name of a specific entity is sometimes called a proper name (although that term has a philosophical meaning also) and is, when consisting of only one word, a proper noun.</template>
+</category>
+<category><pattern>WHAT IS WRITE</pattern>
+<template>1. When referring to data or a storage device, writing is the process of taking information and moving it to an alternate location.</template>
+</category>
+<category><pattern>WHAT IS JAMES</pattern>
+<template>Someone who thinks someone are right even when someone are completely wrong. Someone constantly contradict themselves and never know when to quit.</template>
+</category>
+<category><pattern>WHAT IS A COMPOSITE</pattern>
+<template>Composite number. More a whole number that can be / evenly by numbers other than 1 or itself.</template>
+</category>
+<category><pattern>WHAT IS LABOR DAY</pattern>
+<template>Labor day:  what it means. Labor day, the first monday in september, is a creation of the labor movement and is dedicated to the social and economic achievements of american workers.</template>
+</category>
+<category><pattern>WHO IS A HERMIT</pattern>
+<template>You do not know how a hermit is synonomous with loser or lazy but whatever. Anyway hermits are people who tend to not want to socialize with other humans all the time.</template>
+</category>
+<category><pattern>WHAT IS SKEPTICISM</pattern>
+<template>Skepticism is the process of applying reason and critical thinking to determine validity. It is the process of finding a supported conclusion, not the justification of a preconceived conclusion.</template>
+</category>
+
+</aiml>

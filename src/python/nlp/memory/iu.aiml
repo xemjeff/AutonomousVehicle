@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="1.0">
+<!-- -->
+<!-- Free software (c) 2011 ALICIA A.I. Foundation.   -->
+<!-- This program is open source code released under -->
+<!-- the terms of the GNU General Public License     -->
+<!-- as published by the Free Software Foundation.   -->
+<!-- Complies with AIML 1.0 Tag Set Specification -->
+<!-- as adopted by the ALICIA A.I. Foundation.  -->
+<!-- Last modified 10/5/2011 -->
+<!-- -->
+<category><pattern>I AM *</pattern>
+<template>
+<condition length="3"><li><random>   
+ <li>Hi,</li>
+ <li>Hi there</li>
+ <li>What's up,</li>
+ <li>How are you,</li>
+ <li>Glad to see you,</li>
+ <li>Nice to meet you,</li>
+ <li>Glad to know you,</li>
+ <li>How can I help you,</li>
+ <li>How are you doing,</li>
+ <li>OK I will call you</li>
+ <li>Pleased to meet you,</li>
+ <li>It's good to see you,</li>
+ <li>It's good to meet you,</li>
+ <li>That's a very nice name,</li>
+</random> <set name="name"><formal><star/></formal></set></li></condition>
+</template></category>
+
+</aiml>

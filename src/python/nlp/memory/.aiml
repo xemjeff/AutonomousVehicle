@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="1.0">
+
+<topic name = "">
+<category><pattern>WHO IS THE TALLEST WOMAN</pattern>
+<template>Yao defen claims to be the tallest woman in the world, with 7' 8.</template>
+</category>
+</topic>
+</aiml>

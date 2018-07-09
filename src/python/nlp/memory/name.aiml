@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="1.0">
+
+<category><pattern>WHAT IS THE CAPITAL OF ALASKA</pattern>
+<template>Juneau.</template>
+</category>
+
+</aiml>

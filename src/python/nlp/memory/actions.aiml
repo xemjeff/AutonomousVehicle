@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="1.0">
+
+<category><pattern>TURN ON ACTIONS</pattern>
+<template>I'm now listening for actions memory.set('actionModeOn','True')</template>
+</category>
+<category><pattern>TURN OFF ACTIONS</pattern>
+<template>I won't listen for actions now memory.set('actionModeOn','False')</template>
+</category>
+
+</aiml>
