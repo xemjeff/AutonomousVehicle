@@ -1,0 +1,17 @@
+bin/*
+
+# Object code
+*.o
+*.obj
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Compiled Static libraries
+*.a
+*.lib
+
+# Executable
+*.out
