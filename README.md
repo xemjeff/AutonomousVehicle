@@ -16,4 +16,6 @@ Sensor Input
 - Wheel Encoding (not done)
 - Battery Voltage Level
 
+REQUIREMENTS: (python)
+- GPS sensor monitor requires 'gpsd /dev/ttyAMA0' on rPi
 
