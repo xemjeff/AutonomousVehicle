@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="1.0">
+<!-- -->
+<!-- Free software (c) 2011 ANGIE A.I. Foundation.   -->
+<!-- This program is open source code released under -->
+<!-- the terms of the GNU General Public License     -->
+<!-- as published by the Free Software Foundation.   -->
+<!-- Complies with AIML 1.0 Tag Set Specification -->
+<!-- as adopted by the ANGIE A.I. Foundation.  -->
+<!-- Last modified 10/5/2011 -->
+<!-- -->
+<category><pattern>* BENJAMIN FRANKLIN PLACE OF BIRTH</pattern>
+<template>Boston.<think><set name='meta'>relations</set></think></template>
+</category>
+<category><pattern>* BENJAMIN FRANKLIN PARENTS</pattern>
+<template>Josiah franklin.<think><set name='meta'>relations</set></think></template>
+</category>
+<category><pattern>* PAWN OF PROPHECY AUTHOR</pattern>
+<template>David eddings.<think><set name='meta'>relations</set></think></template>
+</category>
+<category><pattern>* TF INFLUENCED BY</pattern>
+<template>Cntk.<think><set name='meta'>relations</set></think></template>
+</category>
+<category><pattern>* SVETA ETHNICITY</pattern>
+<template>Russian.<think><set name='meta'>relations</set></think></template>
+</category>
+<category><pattern>* SVETA ETHNICITY</pattern>
+<template>Russian.<think><set name='meta'>relations</set></think></template>
+</category>
+<category><pattern>* ILL PARTIALLY CONTAINS</pattern>
+<template>Nlp.<think><set name='meta'>relations</set></think></template>
+</category>
+<category><pattern>* NLP PARTIALLY CONTAINS</pattern>
+<template>Ill.<think><set name='meta'>relations</set></think></template>
+</category>
+</aiml>

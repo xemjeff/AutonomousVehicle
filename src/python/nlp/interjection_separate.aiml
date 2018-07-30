@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="1.0">
+<!-- -->
+<!-- Free software (c) 2011 KIRA A.I. Foundation.   -->
+<!-- This program is open source code released under -->
+<!-- the terms of the GNU General Public License     -->
+<!-- as published by the Free Software Foundation.   -->
+<!-- Complies with AIML 1.0 Tag Set Specification -->
+<!-- as adopted by the KIRA A.I. Foundation.  -->
+<!-- Last modified 10/5/2011 -->
+<!-- -->
+<category>
+<pattern>| YES |</pattern>
+<template><think><set name="action">yes</set></think></template>
+</category>
+<category>
+<pattern>| OKAY |</pattern>
+<template><think><set name="action">yes</set></think></template>
+</category>
+<category>
+<pattern>| K |</pattern>
+<template><think><set name="action">yes</set></think></template>
+</category>
+<category>
+<pattern>WHY NOT</pattern>
+<template><think><set name="action">yes</set></think></template>
+</category>
+<category>
+<pattern>| OK |</pattern>
+<template><think><set name="action">yes</set></think></template>
+</category>
+<category>
+<pattern>| WANT |</pattern>
+<template><think><set name="action">yes</set></think></template>
+</category>
+<category>
+<pattern>| FINE |</pattern>
+<template><think><set name="action">yes</set></think></template>
+</category>
+<category>
+<pattern>| AFFIRMATIVE |</pattern>
+<template><think><set name="action">yes</set></think></template>
+</category>
+<category>
+<pattern>| AMEN |</pattern>
+<template><think><set name="action">yes</set></think></template>
+</category>
+<category>
+<pattern>| TRUE |</pattern>
+<template><think><set name="action">yes</set></think></template>
+</category>
+<category>
+<pattern>| YEA |</pattern>
+<template><think><set name="action">yes</set></think></template>
+</category>
+<category>
+<pattern>| YEAH |</pattern>
+<template><think><set name="action">yes</set></think></template>
+</category>
+<category>
+<pattern>| YA |</pattern>
+<template><think><set name="action">yes</set></think></template>
+</category>
+<category>
+<pattern>| YEP |</pattern>
+<template><think><set name="action">yes</set></think></template>
+</category>
+<category>
+<pattern>ALL RIGHT</pattern>
+<template><think><set name="action">yes</set></think></template>
+</category>
+<category>
+<pattern>| ALRIGHT |</pattern>
+<template><think><set name="action">yes</set></think></template>
+</category>
+<category>
+<pattern>| CERTAINLY |</pattern>
+<template><think><set name="action">yes</set></think></template>
+</category>
+<category>
+<pattern>| DEFINITELY |</pattern>
+<template><think><set name="action">yes</set></think></template>
+</category>
+<category>
+<pattern>| EXACTLY |</pattern>
+<template><think><set name="action">yes</set></think></template>
+</category>
+<category>
+<pattern>| GLADLY |</pattern>
+<template><think><set name="action">yes</set></think></template>
+</category>
+<category>
+<pattern>| GOOD |</pattern>
+<template><think><set name="action">yes</set></think></template>
+</category>
+<category>
+<pattern>| GRANTED |</pattern>
+<template><think><set name="action">yes</set></think></template>
+</category>
+<category>
+<pattern>| NATURALLY |</pattern>
+<template><think><set name="action">yes</set></think></template>
+</category>
+<category>
+<pattern>OF COURSE</pattern>
+<template><think><set name="action">yes</set></think></template>
+</category>
+<category>
+<pattern>| ABSOLUTELY |</pattern>
+<template><think><set name="action">yes</set></think></template>
+</category>
+<category>
+<pattern>| POSITIVELY |</pattern>
+<template><think><set name="action">yes</set></think></template>
+</category>
+<category>
+<pattern>| PRECISELY |</pattern>
+<template><think><set name="action">yes</set></think></template>
+</category>
+<category>
+<pattern>| SURE |</pattern>
+<template><think><set name="action">yes</set></think></template>
+</category>
+<category>
+<pattern>| SURELY |</pattern>
+<template><think><set name="action">yes</set></think></template>
+</category>
+<category>
+<pattern>| UNDOUBTEDLY |</pattern>
+<template><think><set name="action">yes</set></think></template>
+</category>
+<category>
+<pattern>VERY WELL</pattern>
+<template><think><set name="action">yes</set></think></template>
+</category>
+<category>
+<pattern>| UNQUESTIONABLY |</pattern>
+<template><think><set name="action">yes</set></think></template>
+</category>
+<category>
+<pattern>| WILLINGLY |</pattern>
+<template><think><set name="action">yes</set></think></template>
+</category>
+<category>
+<pattern>| INDEED |</pattern>
+<template><think><set name="action">yes</set></think></template>
+</category>
+<category>
+<pattern>| LOVE |</pattern>
+<template><think><set name="action">yes</set></think></template>
+</category>
+<category>
+<pattern>| LIKE |</pattern>
+<template><think><set name="action">yes</set></think></template>
+</category>
+<category>
+<pattern>| COOL |</pattern>
+<template><think><set name="action">yes</set></think></template>
+</category>
+
+
+<category>
+<pattern>| NO |</pattern>
+<template><think><set name="action">no</set></think></template>
+</category>
+<category>
+<pattern>| NAH |</pattern>
+<template><think><set name="action">no</set></think></template>
+</category>
+<category>
+<pattern>| NA |</pattern>
+<template><think><set name="action">no</set></think></template>
+</category>
+<category>
+<pattern>| SORRY |</pattern>
+<template><think><set name="action">no</set></think></template>
+</category>
+<category>
+<pattern>| PASS |</pattern>
+<template><think><set name="action">no</set></think></template>
+</category>
+<category>
+<pattern>| NEGATIVE |</pattern>
+<template><think><set name="action">no</set></think></template>
+</category>
+<category>
+<pattern>ABSOLUTELY NOT</pattern>
+<template><think><set name="action">no</set></think></template>
+</category>
+<category>
+<pattern>BY NO MEANS</pattern>
+<template><think><set name="action">no</set></think></template>
+</category>
+<category>
+<pattern>| NEVER |</pattern>
+<template><think><set name="action">no</set></think></template>
+</category>
+<category>
+<pattern>NO WAY</pattern>
+<template><think><set name="action">no</set></think></template>
+</category>
+<category>
+<pattern>NOT AT ALL</pattern>
+<template><think><set name="action">no</set></think></template>
+</category>
+<category>
+<pattern>| NOT |</pattern>
+<template><think><set name="action">no</set></think></template>
+</category>
+<category>
+<pattern>| NOPE |</pattern>
+<template><think><set name="action">no</set></think></template>
+</category>
+<category>
+<pattern>| NAY |</pattern>
+<template><think><set name="action">no</set></think></template>
+</category>
+
+
+<category>
+<pattern>| SOMETIMES |</pattern>
+<template><think><set name="action">sometimes</set></think></template>
+</category>
+<category>
+<pattern>| CONSISTENTLY |</pattern>
+<template><think><set name="action">sometimes</set></think></template>
+</category>
+<category>
+<pattern>| CONSTANTLY |</pattern>
+<template><think><set name="action">sometimes</set></think></template>
+</category>
+<category>
+<pattern>| FREQUENTLY |</pattern>
+<template><think><set name="action">sometimes</set></think></template>
+</category>
+<category>
+<pattern>| OCCASIONALLY |</pattern>
+<template><think><set name="action">sometimes</set></think></template>
+</category>
+<category>
+<pattern>AT TIMES</pattern>
+<template><think><set name="action">sometimes</set></think></template>
+</category>
+<category>
+<pattern>AT INTERVALS</pattern>
+<template><think><set name="action">sometimes</set></think></template>
+</category>
+<category>
+<pattern>EVER AND AGAIN</pattern>
+<template><think><set name="action">sometimes</set></think></template>
+</category>
+<category>
+<pattern>EVERY SO OFTEN</pattern>
+<template><think><set name="action">sometimes</set></think></template>
+</category>
+<category>
+<pattern>FROM TIME TO TIME</pattern>
+<template><think><set name="action">sometimes</set></think></template>
+</category>
+<category>
+<pattern>HERE AND THERE</pattern>
+<template><think><set name="action">sometimes</set></think></template>
+</category>
+<category>
+<pattern>| INTERMITTENTLY |</pattern>
+<template><think><set name="action">sometimes</set></think></template>
+</category>
+<category>
+<pattern>NOW AND AGAIN</pattern>
+<template><think><set name="action">sometimes</set></think></template>
+</category>
+<category>
+<pattern>NOW AND THEN</pattern>
+<template><think><set name="action">sometimes</set></think></template>
+</category>
+<category>
+<pattern>OFF AND ON</pattern>
+<template><think><set name="action">sometimes</set></think></template>
+</category>
+<category>
+<pattern>ON OCCASION</pattern>
+<template><think><set name="action">sometimes</set></think></template>
+</category>
+<category>
+<pattern>ONCE IN A BLUE MOON</pattern>
+<template><think><set name="action">sometimes</set></think></template>
+</category>
+<category>
+<pattern>ONCE IN A WHILE</pattern>
+<template><think><set name="action">sometimes</set></think></template>
+</category>
+<category>
+<pattern>| PERIODICALLY |</pattern>
+<template><think><set name="action">sometimes</set></think></template>
+</category>
+<category>
+<pattern>| SPORADICALLY |</pattern>
+<template><think><set name="action">sometimes</set></think></template>
+</category>
+<category>
+<pattern>NOT OFTEN</pattern>
+<template><think><set name="action">sometimes</set></think></template>
+</category>
+<category>
+<pattern>| UNCOMMONLY |</pattern>
+<template><think><set name="action">sometimes</set></think></template>
+</category>
+<category>
+<pattern>| INFREQUENTLY |</pattern>
+<template><think><set name="action">sometimes</set></think></template>
+</category>
+
+<category>
+<pattern>| MAYBE |</pattern>
+<template><think><set name="action">maybe</set></think></template>
+</category>
+<category>
+<pattern>| PERCHANCE |</pattern>
+<template><think><set name="action">maybe</set></think></template>
+</category>
+<category>
+<pattern>| PERHAPS |</pattern>
+<template><think><set name="action">maybe</set></think></template>
+</category>
+<category>
+<pattern>AS IT MAY BE</pattern>
+<template><think><set name="action">maybe</set></think></template>
+</category>
+<category>
+<pattern>CAN BE</pattern>
+<template><think><set name="action">maybe</set></think></template>
+</category>
+<category>
+<pattern>| CONCEIVABLE |</pattern>
+<template><think><set name="action">maybe</set></think></template>
+</category>
+<category>
+<pattern>| CONCEIVABLY |</pattern>
+<template><think><set name="action">maybe</set></think></template>
+</category>
+<category>
+<pattern>COULD BE</pattern>
+<template><think><set name="action">maybe</set></think></template>
+</category>
+<category>
+<pattern>| CREDIBLE |</pattern>
+<template><think><set name="action">maybe</set></think></template>
+</category>
+<category>
+<pattern>| FEASIBLE |</pattern>
+<template><think><set name="action">maybe</set></think></template>
+</category>
+<category>
+<pattern>| IMAGINABLY |</pattern>
+<template><think><set name="action">maybe</set></think></template>
+</category>
+<category>
+<pattern>COULD BE</pattern>
+<template><think><set name="action">maybe</set></think></template>
+</category>
+<category>
+<pattern>MIGHT BE </pattern>
+<template><think><set name="action">maybe</set></think></template>
+</category>
+<category>
+<pattern>| OBTAINABLE |</pattern>
+<template><think><set name="action">maybe</set></think></template>
+</category>
+<category>
+<pattern>| POSSIBLY |</pattern>
+<template><think><set name="action">maybe</set></think></template>
+</category>
+<category>
+<pattern>NOT RIGHT NOW</pattern>
+<template><think><set name="action">maybe</set></think></template>
+</category>
+
+</aiml>

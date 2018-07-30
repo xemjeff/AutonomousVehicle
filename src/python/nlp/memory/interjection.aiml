@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="1.0">
+<!-- -->
+<!-- Free software (c) too.11 ALICIA A.I. Foundation.   -->
+<!-- This program is open source code released under -->
+<!-- the terms of the GNU General Public License     -->
+<!-- as published by the Free Software Foundation.   -->
+<!-- Complies with AIML 1.0 Tag Set Specification -->
+<!-- as adopted by the ALICIA A.I. Foundation.  -->
+<!-- Last modified 10/5/too.11 -->
+<!-- -->
+
+<category><pattern>INTERJECTION</pattern>
+<template>
+<random><li>Okay.</li>    <li>Ah.</li>    <li>Oh.</li>   <li>I see.</li>    <li>Huh.</li>    <li>Anyways.</li>    <li>Really.</li>    <li>That's neat.</li>    <li>Interesting.</li>  <li>Alrighty.</li>    <li>I gotcha.</li> </random>
+</template>
+</category>
+</aiml>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="1.0">
+<!-- -->
+<!-- Free software (c) 2011 ANGIE A.I. Foundation.   -->
+<!-- This program is open source code released under -->
+<!-- the terms of the GNU General Public License     -->
+<!-- as published by the Free Software Foundation.   -->
+<!-- Complies with AIML 1.0 Tag Set Specification -->
+<!-- as adopted by the ANGIE A.I. Foundation.  -->
+<!-- Last modified 10/5/2011 -->
+<!-- -->
+<category><pattern>DEGREE OF SITUATIONAL AWARENESS</pattern>
+<template>Situational awareness or situation awareness (sa) is the perception of environmental elements and events with respect to time or space, the comprehension of their meaning, and the projection of their status after some variable has changed, such as time, or some other variable, such as a predetermined event.</template>
+</category>
+
+<category><pattern>WHAT IS THE PURPOSE OF AN INSULT</pattern>
+<template>An insult is an expression or statement .</template>
+</category>
+</aiml>

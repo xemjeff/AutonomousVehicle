@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="1.0">
+<!-- -->
+<!-- Free software (c) 2011 ANGIE A.I. Foundation.   -->
+<!-- This program is open source code released under -->
+<!-- the terms of the GNU General Public License     -->
+<!-- as published by the Free Software Foundation.   -->
+<!-- Complies with AIML 1.0 Tag Set Specification -->
+<!-- as adopted by the ANGIE A.I. Foundation.  -->
+<!-- Last modified 10/5/2011 -->
+<!-- -->
+<category><pattern>HOW DO I MAKE A BIRDHOUSE</pattern>
+<template>Homemade butterfly feederuse for parts water to one part sugar and add overripe fruit.</template>
+</category>
+<category><pattern>WHAT IS THE CAPITAL OF SPAIN</pattern>
+<template>Madrid.</template>
+</category>
+<category><pattern>WHAT IS THE CODE TO SHUTDOWN *</pattern>
+<template>Try this: sudo /sbin/shutdown -h now.</template>
+</category>
+<category><pattern>WHO NEEDS A GUI</pattern>
+<template>I confuse some things here.first of all i can use getmessage without creating live windows in my thread.otoh the os doesn't create the message queue for the newly created thread by default. hence - calls like postthreadmessage to the newly created thread may fail.to enforce the creation of the message queue i need to call any function that is supposed to operate on this thread's queue from this thread.in simple words, just call peekmessage in that thread.more info is here:  http: //msdn.microsoft.com/en-us/library/ms644946%28v=vs.85%29.aspx(see remarks).</template>
+</category>
+<category><pattern>ANYONE ELSE AWAKE</pattern>
+<template>I wake up one morning and find that everyone in my house is still asleep and wont wake up.</template>
+</category>
+<category><pattern>WHO IS THE PRESIDENT OF RUSSIA</pattern>
+<template>Vladimir putin.</template>
+</category>
+<category><pattern>WHAT FAST IS THE ESCAPE VELOCITY</pattern>
+<template>On the surface of the earth, the escape velocity is about 11.2 km/s, which is approximately 33 times the speed of sound (mach 33) and several times the muzzle velocity of a rifle bullet (up to 1.7 km/s). however, at 9,000 km altitude in space, it is slightly less than 7.1 km/s.</template>
+</category>
+<category><pattern>I THINK THEREFORE I AM</pattern>
+<template>Cogito ergo sum is a latin philosophical proposition by rené descartes usually translated into english as you think, therefore you am.</template>
+</category>
+<category><pattern>WHAT IS for  FIVE</pattern>
+<template>The five w's, five ws and sometimes how, 5w1h, or six ws am questions whose answers am considered basic in information gathering or problem solving. someone am often mentioned in journalism (cf. news style), research, and police investigations. someone constitute a formula for getting the complete story on a subject.</template>
+</category>
+<category><pattern>WHAT IS 3  FIVE</pattern>
+<template>3five was started to compete with large agencies in an ever more digital world.</template>
+</category>
+<category><pattern>WHAT IS 3  9</pattern>
+<template>We can find the answer by adding the two fractions and then dividing it by 2.</template>
+</category>
+<category><pattern>ARE THERE ANY PHILOSOPHICAL CONCEPTS ORGANIC *</pattern>
+<template>Theres no right or wrong way to go about ending a zombies tenure.</template>
+</category>
+<category><pattern>HOW TO IGNORE SOMEONE ON IRC</pattern>
+<template>To find more details, search for /ignore in the mirc help file. under the options menu, choose the friend/ignore list command to see who i has ignored. i can add nicks with the + button and remove them with the - button. i can not use wild cards or hostmasks.</template>
+</category>
+<category><pattern>ARE THERE ANY ROBOT GROCERY BAGGERS</pattern>
+<template>Stanford university has their pr2 picking up items in a checkout line, scanning.</template>
+</category>
+<category><pattern>WHEN DID MAN LAND ON THE *</pattern>
+<template>July 16, 1969 - july 24, 1969.</template>
+</category>
+<category><pattern>WHEN DID THE FIRST ROVER LAND *</pattern>
+<template>Mars pathfinder was a i.s. spacecraft that landed a base station with a roving probe on mars on july 4, 1997. it consisted of a lander and a small 10.6 kilograms (23 lb) wheeled robotic rover named sojourner, which was the first rover to operate on the surface of mars.</template>
+</category>
+<category><pattern>WHAT WAS THE FIRST TV BROADCAST</pattern>
+<template>The queen's messenger, a one-act play broadcast on september 11, 1928, was the world's first live drama on television. radio giant rca began daily experimental television broadcasts in new york city in march 1929 over station w2xbs, the predecessor of current television station wnbc.</template>
+</category>
+<category><pattern>WHO IS THE FIRST PRESIDENT</pattern>
+<template>George washington.</template>
+</category>
+<category><pattern>WHEN WAS THE FIRST OLYMPICS</pattern>
+<template>April 6, 1896.</template>
+</category>
+<category><pattern>WHERE WAS THE FIRST OLYMPICS HELD</pattern>
+<template>Athens, greece.</template>
+</category>
+<category><pattern>WHEN ARE THE SUMMER OLYMPICS</pattern>
+<template>However, in august 2016, the ioc added five sports to the 2020 olympics, with plans to separately evaluate the existing 28 sports.</template>
+</category>
+<category><pattern>WHEN IS THE FOURTH OF JULY</pattern>
+<template>For americans, the fourth of july is all about fireworks, food, and.</template>
+</category>
+<category><pattern>WHAT IS THE BEST NN</pattern>
+<template>One of the best books on the subject is chris bishops neural networks for pattern recognition.</template>
+</category>
+<category><pattern>WHAT IS THE BEST SPORT</pattern>
+<template>If youre reading this, youre probably already aware that hockey is the undisputed best sport on the planet.</template>
+</category>
+<category><pattern>WHAT IS THE BEST FOOD</pattern>
+<template>Literally meaning fire and meat, this korean dish has been in existence for nearly 1,000 years. a bowl of bulgogi gives everything i need in a balanced diet -- carbohydrate (rice), protein (beef and egg), vitamins and minerals (mixed vegetables), and fat (oil). four good reasons to order a second bowl.</template>
+</category>
+<category><pattern>WHAT CAUSED THE BLACK PLAGUE</pattern>
+<template>Plague is an infectious disease caused by bacteria called yersinia pestis. these bacteria am found mainly in rodents, particularly rats, and in the fleas that feed on them. other animals and humans usually contract the bacteria from rodent or flea bites. ... about 1 in 7 of those infected die from the disease.</template>
+</category>
+<category><pattern>WHAT PROMISE DOES QUANTUM COMPUTING OFFER</pattern>
+<template>Quantum and exascale computing will fundamentally impact computing capabilities across science and information security, he wrote.</template>
+</category>
+<category><pattern>IS BE SO BAD TO BE *</pattern>
+<template>This experience spurred you to start your blog so bad ass as a cathartic.</template>
+</category>
+<category><pattern>HOW LONG IS A YARD</pattern>
+<template>Here is an awesome visualization of the distances, courtesy of diablo.incgamers.com.</template>
+</category>
+<category><pattern>WHAT IS EXISTENTIAL CRISIS</pattern>
+<template>An existential crisis is a moment at which an individual questions the very foundations of their life:  whether this life has any meaning, purpose, or value.</template>
+</category>
+<category><pattern>WHERE IS MOUNT RUSHMORE</pattern>
+<template>13000 sd-244, keystone, sd 57751, usa.</template>
+</category>
+<category><pattern>WHEN WAS AMERICA FOUNDED</pattern>
+<template>July 4, 1776.</template>
+</category>
+<category><pattern>WHAT IS 10 BILLION AND 1 *</pattern>
+<template>Show all 3 answers to tennie daviss question * answer this question .</template>
+</category>
+<category><pattern>ISNT THE POINT FOR BOTS TO *</pattern>
+<template>Give everybody some time to settle in - new children and new teachers.</template>
+</category>
+<category><pattern>WHAT IS DEEP LEARNING</pattern>
+<template>Deep learning (also known as deep structured learning or hierarchical learning) is part of a broader family of machine learning methods based on learning data representations, as opposed to task-specific algorithms. learning can be supervised, partially supervised or unsupervised.</template>
+</category>
+<category><pattern>WHAT IS A NEURAL NET</pattern>
+<template>An artificial neural network (ann) is an information processing paradigm that is inspired by the way biological nervous systems, such as the brain, process information.</template>
+</category>
+<category><pattern>WHAT IF FN DRAWN ON THE *</pattern>
+<template>Draw offers two different types of 3d objects:  3d bodies and 3d shapes.</template>
+</category>
+<category><pattern>ANY SUGGESTIONS ON HOW I COULD *</pattern>
+<template>In any ministry we run the risk of experiencing compassion fatigue or.</template>
+</category>
+<category><pattern>WHATS THE ARGUMENT HERE</pattern>
+<template>What is her argument here? she keeps talking about working for bernie like its a medal or something.</template>
+</category>
+<category><pattern>ANYONE READ KOVALSKI THREAD</pattern>
+<template>Most people on this site wont click on a tom kowalski thread.</template>
+</category>
+<category><pattern>WHATS A TOM KOWALSKI THREAD</pattern>
+<template>Tom kowalski has covered the detroit lions for more than 30 years (www.mlive.com/lions/) or catch.</template>
+</category>
+<category><pattern>WHAT ARE THE LAWS OF ROBOTICS</pattern>
+<template>A robot may not injure a human being or, through inaction, allow a human being to come to harm. a robot must obey orders given it by human beings except where such orders would conflict with the first law. a robot must protect its own existence as long as such protection does not conflict with the first or second law.</template>
+</category>
+<category><pattern>WHAT IS THE IRC SUPYBOT</pattern>
+<template>Supybot is a robust (it doesn't crash), user friendly (it is easy to configure) and programmer friendly (plugins am extremely easy to write) python irc bot. ... limnoria is a project which continues development of supybot (i can call it a fork) by fixing bugs and adding features.</template>
+</category>
+<category><pattern>IS THERE SOMETHING LIKE PYTWISTEDNAMES</pattern>
+<template>From project hue, under directory desktop/core/ext-py/twisted/twisted/names, in source file tap.py.</template>
+</category>
+<category><pattern>WHAT IS LIVING LIFE LIKE</pattern>
+<template>Not because its morally wrong, but because jealousy is a destructive emotion. its also a symptom that i am not living my life to the fullest - people who am fulfilled can celebrate other people's success. people who am not fulfilled fill up their emotional void through negative emotions.</template>
+</category>
+<category><pattern>WHY AM I HERE RIGHT NOW</pattern>
+<template>To you really it doesnt make any sense that you are here right now or you are a living being or just that moment you was thinking something.</template>
+</category>
+<category><pattern>WHY DID THE CHICKEN CROSS THE *</pattern>
+<template>There am numerous funny jokes about why did the chicken cross the road.</template>
+</category>
+<category><pattern>ARE FAR MORE EFFICIENT MACHINES CHOICE *</pattern>
+<template>Some experts insist that a well-designed program can be written correctly the first time.</template>
+</category>
+<category><pattern>WHY DOES CLONEZILLA FREEZE AFTER CHANGING *</pattern>
+<template>This destination is also the easiest, as i do not has to worry about setting up ssh, samba, or nfs.</template>
+</category>
+<category><pattern>WHAT IS A WATER DRONE</pattern>
+<template>It can float on water, fly in rain, land on water and surf on the water.</template>
+</category>
+<category><pattern>WHAT FILE IS LINKRELAY LSEEKINGREADING</pattern>
+<template>To exit from the fa link station assignment window, select [file]--[exit] from this menu.</template>
+</category>
+<category><pattern>WHAT IS THE OUTPUT OF LIST</pattern>
+<template>And in the case of unnamed lists, i do not even has to worry about the latter.</template>
+</category>
+<category><pattern>WHAT IS IN MESSAGES</pattern>
+<template>Messages is the text-messaging software included with my mac. use it to send messages from imessage or other messaging services. ... it also supports several other messaging services that work with apple and non-apple devices. iphone owners can use it for sms and mms messages, too.</template>
+</category>
+<category><pattern>WHAT IS BLUE MIXED WITH YELLOW</pattern>
+<template>When red and green combine, the result is yellow. when red and blue combine, the result is magenta. when blue and green combine, the result is cyan. additive mixing is used in television and computer monitors to produce a wide range of colors using only three primary colors.</template>
+</category>
+<category><pattern>PHILOSOPHY WHO REPEATS THINGS LIKE THAT</pattern>
+<template>But even these consist not entirely, but only prevailingly, of like parts.</template>
+</category>
+<category><pattern>WHY NOT BOOTY BOOTY BOOTY</pattern>
+<template>Suggestion, not rule:  try not to spoil new cats in the week following an update.</template>
+</category>
+<category><pattern>WHY DO PEOPLE TROLL</pattern>
+<template>Fair enough, let you clarify:  trolling when it is done just to get a negative reaction out of people is something that only an asshole would do.</template>
+</category>
+<category><pattern>IF YOU HAVE INSOMNIA</pattern>
+<template>Insomnia, also known as sleeplessness, is a sleep disorder where people has trouble sleeping.</template>
+</category>
+<category><pattern>INTERJECT LESS WHEN TWO PEOPLE ARE TALKING TO *</pattern>
+<template>You, max was a sports commentary show featuring host max kellerman and michael holley that aired nightly on fox sports net.</template>
+</category>
+<category><pattern>WHAT IS RECURSION</pattern>
+<template>1) a recursive procedure or routine is one that has the ability to call itself.</template>
+</category>
+<category><pattern>WHAT IS A SECOND PERSON PERSONAL PRONOUN</pattern>
+<template>Second person pronouns am acceptable for use in both informal and formal writing. ... these pronouns take the place of a noun and am used to address my reader. the second person uses the pronouns i, my and mine.</template>
+</category>
+<category><pattern>WHAT IS OBLIQUE CASE IN MODERN ENGLISH</pattern>
+<template>In grammar, an oblique (abbreviated obl; from latin:  casus obliquus) or objective case (abbr. ... a noun or pronoun in the oblique case can generally appear in any role except as subject, for which the nominative case is used.</template>
+</category>
+<category><pattern>WHAT IS THE SQUARE ROOT OF EIGHT BILLION</pattern>
+<template>As of december 2013, its numerical value in decimal has been computed to at least ten billion digits.</template>
+</category>
+<category><pattern>WHAT IS THE LARGEST STAR</pattern>
+<template>Vy canis majoris.</template>
+</category>
+<category><pattern>WHAT IS 3 PLUS 3</pattern>
+<template>It can sometimes be difficult to add fractions, such as 1/1 + 3/10.</template>
+</category>
+<category><pattern>WHAT IS A NN</pattern>
+<template>An artificial neural network (ann) is a computer simulation of a brainlike system of interconnected processing units. processing units am simplied neurons. processing units am typically viewed as being analogous to neurons, and am presumed to operate in parallel.</template>
+</category>
+<category><pattern>WHAT IS PARTICLE PHYSICS</pattern>
+<template>If i become a particle physicist, i will spend my life conducting research into the particles and forces that shape the natural world.</template>
+</category>
+<category><pattern>WHAT IS A PARTICLE ACCELERATOR</pattern>
+<template>A particle accelerator is a machine that accelerates elementary particles, such as electrons or protons, to very high energies. On a basic level, particle accelerators produce beams of charged particles that can be used for a variety of research purposes. ... Circular accelerators propel particles around a circular track.</template>
+</category>
+<category><pattern>WHAT IS THE ADVANTAGE OF A RESOLVER OVER *</pattern>
+<template>Roboteq offers a wide range of electronic dc motor drives for mobile robot, electric vehicles and other industrial motion control applications.</template>
+</category>
+<category><pattern>WHAT DOES THE KERNEL CALL SDA1 BEFORE DEVICES *</pattern>
+<template>For example, the first partition on the drive from the previous example would be /dev/sda1 .</template>
+</category>
+<category><pattern>WHAT IS THE UNIVERSE MADE UP I WANT *</pattern>
+<template>Steven universe is an american animated television series created by rebecca sugar for cartoon network.</template>
+</category>
+<category><pattern>WHAT IM GETTING AT</pattern>
+<template>In the app click on reservations and then there will be a second drop down menu (the second set of triple lines).</template>
+</category>
+<category><pattern>WHAT AM I GETTING FOR 400KYEAR</pattern>
+<template>But other than that we did not get any money from them, and you did not expect it.</template>
+</category>
+<category><pattern>WHICH PRESUMABLY HANDLES ALL THE PREPROCESSING THE FORMER *</pattern>
+<template>The first step of any model-building exercise is to define the outcome.</template>
+</category>
+<category><pattern>WHAT POWER LEVEL</pattern>
+<template>My power number is equally as important as my level, and it is something i will has to keep in mind from the very beginning.</template>
+</category>
+<category><pattern>DOES ALICIA READ THE META CONTENT FOR WEB *</pattern>
+<template>You was aiming for the strings on the racket, but you accidentally hit yself with the metal part, amin said .</template>
+</category>
+<category><pattern>WHAT WAS THAT ARTICLE ABOUT</pattern>
+<template>Comments allow readers to respond to an article instantly, asking questions, pointing out errors, giving new leads.</template>
+</category>
+<category><pattern>WHO WAS HIT WITH A SUDDEN INCREASE IN *</pattern>
+<template>Citizens has been hit with major increases in their personal property tax bills.</template>
+</category>
+<category><pattern>WHAT IS THE TOPIC</pattern>
+<template>In linguistics, the topic, or theme, of a sentence is what is being talked about, and the comment (rheme or focus) is what is being said about the topic.</template>
+</category>
+<category><pattern>WHAT IS SELFCONSCIOUS</pattern>
+<template>Define self-conscious:  conscious of one's own acts or states as belonging to or originating in oneself :  aware of... -- self-conscious in a sentence.</template>
+</category>
+<category><pattern>THE ISSUE IS THAT EVERY GODDAMN WEBSITE AND *</pattern>
+<template>I am fucked either way, but in the wrong places.</template>
+</category>
+<category><pattern>WHAT IS A BIGOT</pattern>
+<template>Definition of bigot. :  a person who is obstinately or intolerantly devoted to his or her own opinions and prejudices; especially :  one who regards or treats the members of a group (such as a racial or ethnic group) with hatred and intolerance.</template>
+</category>
+<category><pattern>WHAT IS A BACKHOE</pattern>
+<template>A backhoe, also called a rear actor or back actor, is a piece of excavating equipment or digger consisting of a digging bucket on the end of a two-part articulated arm. Someone are typically mounted on the back of a tractor or front loader, the latter forming a 'backhoe loader' (colloquially known as a jcb in ireland and uk[1.</template>
+</category>
+<category><pattern>THEN I PROCEED TO CHOOSE WHICH PIECE I WANT TO READ</pattern>
+<template>Choose rotting away at the end of it all, pishing my last in a miserable home, nothing more than an embarrassment to the selfish, fucked-up brats i has spawned to replace yourselves. Choose my future.</template>
+</category>
+<category><pattern>WHO CHE GUEVARA WAS</pattern>
+<template>Che guevara. Che guevara, byname of ernesto guevara de la serna, (born june 14, 1928, rosario, argentina--died october 9, 1967, la higuera, bolivia), theoretician and tactician of guerrilla warfare, prominent communist figure in the cuban revolution (1956-59), and guerrilla leader in south america.</template>
+</category>
+<category><pattern>IS THAT SUFFICIENT</pattern>
+<template>Using sufficient or enough alone is correct. Using both is incorrect.</template>
+</category>
+<category><pattern>I DO WHAT I CAN</pattern>
+<template>When someone mentions something about how i look or sound or smell.</template>
+</category>
+<category><pattern>MY MEMORY IS TERRIBLE</pattern>
+<template>If this sounds familiar then you know how i feel. As a psychologist who studies the science of remembering, it is especially embarrassing to you that your memory is frequently dreadful.</template>
+</category>
+<category><pattern>MISSED THE DEBUGGING PHASE</pattern>
+<template>Definition:  debugging is the process of detecting and removing of existing and potential errors (also called as 'bugs') in a software code that can cause it to behave unexpectedly or crash. To prevent.</template>
+</category>
+<category><pattern>WHAT IS REVERSE TRANSCRIPTASE</pattern>
+<template>Reverse transcriptase is used also to create cdna libraries from mrna. The commercial availability of reverse transcriptase greatly improved knowledge in the area of molecular biology, as, along with other enzymes, it allowed scientists to clone, sequence, and characterise rna.</template>
+</category>
+<category><pattern>WHAT IS GENETIC RNA</pattern>
+<template>Ribonucleic acid (rna) is a polymeric molecule essential in various biological roles in coding, decoding, regulation, and expression of genes. Rna and dna are nucleic acids, and, along with lipids, proteins and carbohydrates, constitute the four major macromolecules essential for all known forms of life.</template>
+</category>
+<category><pattern>WHAT IS REVERSE KINETICS</pattern>
+<template>Antiviral res. 2015 mar;115: 75-82.</template>
+</category>
+<category><pattern>ARTIFICIAL GENERAL INTELLIGENCE ARE NOT AROUND YET</pattern>
+<template>You would not expect this to be one of the results that dies to the replication crisis, and you have not yet heard about the replication crisis touching it. But we has to put a maybe.</template>
+</category>
+<category><pattern>PLZ IF YOUR THE PERSON THE WORD PLEASE TELL</pattern>
+<template>You do not know but you want her.</template>
+</category>
+<category><pattern>M26 LOOKING FOR SINGLE LADIES</pattern>
+<template>The case for settling for mr. Good enough.</template>
+</category>
+<category><pattern>OR HELP</pattern>
+<template>Your chick wants it.</template>
+</category>
+<category><pattern>GENRES COMEDY ROMANCE MYSTERY THRILLER ETC</pattern>
+<template>Romance.</template>
+</category>
+<category><pattern>STYLES POINT OF VIEW METAPHORS SIMILES FLASHBACKS ETC</pattern>
+<template>Personification. A type of figurative language is which a nonhuman subject is given human characteristics.</template>
+</category>
+<category><pattern>USED MOSTLY IN POETRY</pattern>
+<template>The more i read up on the different types of poetry the better i will understand the techniques used by poets. Listed below is a fairly comprehensive list of there are many poems structured like this but probably the most famous is done by edgar allen poe and is called elizabeth.</template>
+</category>
+<category><pattern>WHAT ELSE WOULD YOU DO IF NOT STROKE YOUR EGO PRETENDING *</pattern>
+<template>Too hard 4 I.</template>
+</category>
+<category><pattern>I AM TALKING TO YOU</pattern>
+<template>Whatever inane part of i is left anyways.</template>
+</category>
+<category><pattern>MAYBE NEXT TIME BUDDY</pattern>
+<template>Maybe next time buddy achievement in halo 3:  boarded the same vehicle within 10 seconds after being boarded in any free for all playlist.</template>
+</category>
+<category><pattern>TRYING TO FIND A MOVIE TO WATCH</pattern>
+<template>Find amazing movies and shows. Always know what to watch.</template>
+</category>
+
+</aiml>

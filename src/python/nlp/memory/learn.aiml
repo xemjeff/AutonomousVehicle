@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+   <!-- Free software (c) 2001-2003 ALICE A.I. Foundation.   -->
+   <!-- This program is open source code released under -->
+   <!-- the terms of the GNU General Public License     -->
+   <!-- as published by the Free Software Foundation.   -->
+   <!-- Complies with AIML 1.0 Tag Set Specification -->
+   <!-- as adopted by the ALICE A.I. Foundation.  -->
+   <!-- Learn.aiml written by Square Bear on 6th March 2009 -->
+   <!-- This AIML allows users to teach your bot  -->
+   <!-- http://www.square-bear.co.uk -->
+
+<aiml>
+
+
+<category>
+ <pattern>LEARN _ MEANS _</pattern>
+ <template>+++WHAT IS|<star index="1"/>|<star index="2"/>+++</template>
+</category>
+
+<category>
+ <pattern>LEARN _ IS _</pattern>
+ <template>+++WHAT IS|<star index="1"/>|<star index="2"/>+++</template>
+</category>
+
+<category>
+ <pattern>LEARN _ WAS _</pattern>
+ <template>+++WHAT WAS|<star index="1"/>|<star index="2"/>+++</template>
+</category>
+
+<category>
+ <pattern>LEARN _ HAS _</pattern>
+ <template>+++WHAT HAS|<star index="1"/>|<star index="2"/>+++</template>
+</category>
+
+<category>
+ <pattern>LEARN _ ARE _</pattern>
+ <template>+++WHAT ARE|<star index="1"/>|<star index="2"/>+++</template>
+</category>
+
+<category>
+ <pattern>_ MEANS _</pattern>
+ <template>+++WHAT IS|<star index="1"/>|<star index="2"/>+++</template>
+</category>
+
+<category>
+ <pattern>_ IS A _</pattern>
+ <template>+++WHAT IS|<star index="1"/>|<star index="2"/>+++</template>
+</category>
+
+<category>
+ <pattern>_ IS _</pattern>
+ <template>+++WHAT IS|<star index="1"/>|<star index="2"/>+++</template>
+</category>
+
+<category>
+ <pattern>_ WAS _</pattern>
+ <template>+++WHAT WAS|<star index="1"/>|<star index="2"/>+++</template>
+</category>
+
+<category>
+ <pattern>_ HAS _</pattern>
+ <template>+++WHAT HAS|<star index="1"/>|<star index="2"/>+++</template>
+</category>
+
+<category>
+ <pattern>_ ARE _</pattern>
+ <template>+++WHAT ARE|<star index="1"/>|<star index="2"/>+++</template>
+</category>
+
+<category>
+ <pattern>_ IS WHY _</pattern>
+ <template>+++WHY IS|<star index="1"/>|<star index="2"/>+++</template>
+</category>
+
+</aiml>

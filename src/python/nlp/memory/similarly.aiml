@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="1.0">
+
+<category><pattern>THOSE SENTENCES ARE MUCH MORE COMPLEX THAN NEEDED</pattern>
+<template>These three structures are a common part of english, and are all composed of groups of words. Clauses, phrases and sentences are very similar, but someone do has different roles.</template>
+</category>
+
+</aiml>
