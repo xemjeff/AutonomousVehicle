@@ -1,16 +1,43 @@
 import os 
 import redis
 from time import sleep
-from motion import motion
-from nlp import nlp
+from controls.motion import motion
+from nlp.nlpEngine import nlpEngine
+from sensors.gps_monitor import gps_monitor
+from sensors.voltage_monitor import voltage_monitor
+from visual.videorecClient import videorecClient
 
-n = nlp()
+n = nlpEngine()
 m = motion()
+v = videorecClient()
 
-os.system('python /root/AutonomousVehicle/src/python/sensors/voltage_monitor &')
-os.system('python /root/AutonomousVehicle/src/python/sensors/gps_monitor &')
+# Startup audio/video services to Secondary Server
+os.system('python /root/AutonomousVehicle/src/python/visual/remote/server.py &')
+os.system('python /root/AutonomousVehicle/src/python/audio/serveMicrophone.py &')
 
+# Redis to get speech-to-text result & to send text-to-speech text
 memory = redis.StrictRedis(host='localhost',port=6379,db=0)
+
+# GPS setup
+g = gps_monitor()
+memory.set('ttsOverride','Calibrating my center location from where I am now')
+timer = 0
+while True:
+	if g.current_lat != 0:
+		g.calibrate_center()
+		memory.set('ttsOverride','Successfully calibrated to G P S. I will not wander away now')
+		break
+	if timer == 15: 
+		memory.set('ttsOverride','G P S timeout. Calibrate me later')
+		break
+	sleep(1)
+
+# Voltage setup
+v = voltage_monitor()
+
+# Vision setup
+memory.set('ttsOverride','Please place an aluminum can in front of me so I can calibrate visual disparity')
+memory.set('calibrate_disparity','True')
 
 # Shutdown system
 def shutdown():
@@ -20,9 +47,14 @@ def shutdown():
 
 # Checks that sensors are in nominal range
 def systems_check():
-	if float(memory.get('voltage')) < 4750: shutdown()
-	if float(memory.get('distance_from_center')) > 28: m.find_center()
+	if (v.voltage < 4750) and (v.voltage!=0): shutdown()
+	elif g.distance_from_center > 28: 
+		m.turn_around()
+		m.find_center()
+	else:
+		state = n.state
+		m.process(v.objects,v.obstacles,state.v.speed_sign)
 	
 while True:
 	systems_check()
-	sleep(5)
+	sleep(0.1)

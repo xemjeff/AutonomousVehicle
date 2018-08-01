@@ -15,6 +15,7 @@ import glob
 import string
 from shutil import copyfile
 from Kernel import Kernel
+import threading
 
 #--------------------------------- SUPPORT FUNCTIONS ----------------------------------
 # -------------------------------------------------------------------------------------
@@ -174,7 +175,6 @@ memory = redis.StrictRedis(host='localhost', port=6379, db=0)
 os.system('python ../memory/setMemory.py')
 
 # AIML memory
-print "Starting to learn"
 k = Kernel()
 k.saveFilepath('/root/AutonomousVehicle/src/python/nlp/memory/')
 k.learn("*")
@@ -195,71 +195,26 @@ f_temp = 200
 volume = 35
 furnace_override = datetime.now()
 
-print "Ready for Input"
+class nlpEngine():
 
-while True:
-	if memory.get('stt_result'):
-		text = memory.get('stt_result')
-		memory.set('stt_result','')
+	def __init__(self):
+		threading.Thread(target=self.respond).start()
 
-		# Processes meta-vars
-		shiftArray(lastSaidUser,text)
+	def respond(self):
+		while True:
+			result = memory.get('stt_result')
+			if result:
+				text = memory.get('stt_result')
+				memory.set('stt_result','')
 
-		# Creates a new group for actions
-		if ('group' in text) and ('add' in text):
-			listenResponse = [True,'group','','',False]
-		# Processes for actions in text if mode is True
-		if command(text):
-			tts('Okay')
-		# Responds from memory
-		else:
-			tts(k.respond(text,'human'))		
-	else:
-		#---------------------------------- LEARN FUNCTIONS -------------------------------
-		#----------------------------------------------------------------------------------
-		if (listenResponse[0] == True):
-			# Listens and learns responses
-			if (listenResponse[1] == 'learn'):
-				if (type(text) is str) and text:
-					# If response is a question, ignore
-					if ('?' in text) or (text.split()[0].lower() in ['what','when','why','where','who','how','which','can','do']):
-						tts('Nevermind') 
-					else:
-						# Send the important aspects to saveAIML and forget the rest
-						if 'means' in text.lower():
-							text = (text.lower()).split('means')[1]
-						elif 'mean' in text.lower():
-							text = (text.lower()).split('mean')[1]
-						if 'that' in text.lower():
-							text = (text.lower()).split('that')[1]
-						if 'say' in text.lower():
-							text = (text.lower()).split('say')[1]
-						k.saveAIML(listenResponse[2],text,'learn','',False)
-						k.learn("learn.aiml")
-						tts(thanks[randint(0,3)])
-				listenResponse = [False, '', '', '', False]
-			# Listens and learns action groups
-			elif (listenResponse[1] == 'group'):
-				# First call
-				if listenResponse[2] == '':
-					tts('Which actions would you like to group?')
-					listenResponse[2] == 'True'
-				elif (listenResponse[3] == '') and action_group:
-					tts('Alright. Now what do you want to call it?')
-					listenResponse[3] == 'True'
-				elif action_group:
-					# Saves the command to memory
-					trigger = lowerLetter(text.title().replace(' ',''))
-					response = '%e'+'\n'.join(action_group)
-					memory.set(trigger, response)
-					with open("../memory/setMemory.py","a") as actionFile:
-						actionFile.write('\tmemory.set("%s","%s")' % (trigger,response))
-					actionFile.close()
-					tts('Your new action is now set up.')
-					listenResponse = [False,'','','',False]
-					action_group = []
-					be_quiet = True
-		#----------------------------------------------------------------------------------
+				# Processes meta-vars
+				shiftArray(lastSaidUser,text)
 
-	sleep(0.1)
+				# Processes for actions in text if mode is True
+				if command(text):
+					tts('Okay')
+				# Responds from memory
+				else:
+					tts(k.respond(text,'human'))		
+			sleep(0.1)
 

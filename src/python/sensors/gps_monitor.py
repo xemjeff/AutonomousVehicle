@@ -4,7 +4,8 @@
 
 from gps3 import gps3
 from math import radians, cos, sin, asin, sqrt
-import redis, os
+import os,threading
+from time import sleep
 
 # Returns distance between two locations in feet
 def haversine(lon1, lat1, lon2, lat2):
@@ -16,8 +17,6 @@ def haversine(lon1, lat1, lon2, lat2):
     r = 3956
     return (c * r) * 5280
     
-memory = redis.StrictRedis(host='localhost',port=6379,db=0)
-
 os.system('gpsd /dev/ttyAMA0')
 
 gps_socket = gps3.GPSDSocket()
@@ -25,26 +24,30 @@ data_stream = gps3.DataStream()
 gps_socket.connect()
 gps_socket.watch()
 
-# Input the lon,lat coords. here that you want the robot to stay 30ft. within
-center_lon, center_lat = 0,0
+class gps_monitor():
+	def __init__(self):
+		self.center_lon,self.center_lat,self.previous_lon,self.previous_lat,self.current_lon,self.current_lat,self.distance_traveled,self.distance_from_center = 0,0,0,0,0,0,0,0
+		threading.Thread(target=self._get_data).start()
 
-previous_lon, previous_lat = 0,0
+	def calibrate_center(self):
+		self.center_lon = self.current_lon
+		self.center_lat = self.current_lat
 
-for new_data in gps_socket:
-	if new_data:
-		data_stream.unpack(new_data)
-		lat = data_stream.TPV['lat']
-		lon = data_stream.TPV['lon']
-                if memory.get('calibrate_center_gps') == 'True':
-                    memory.set('calibrate_center_gps','False')
-                    center_lat = lat
-                    center_lon = lon
-                else:
-                    memory.set('gps_latitude',lat)
-                    memory.set('gps_longitude',lon)
-                    if previous_lon != 0:
-                        memory.set('distance_last_traveled',haversine(previous_lon,previous_lat,lon,lat))
-                        previous_lon = lon
-                        previous_lat = lat
-                    if center_lon != 0:
-                        memory.set('distance_from_center',haversine(center_lon,center_lat,lon,lat))
+	def _get_data(self):
+		while True:
+			for new_data in gps_socket:
+				if new_data:
+					data_stream.unpack(new_data)
+					self.current_lat = data_stream.TPV['lat']
+					self.current_lon = data_stream.TPV['lon']
+
+					if self.previous_lon != 0:
+						self.distance_last_traveled=haversine(self.previous_lon,self.previous_lat,self.current_lon,self.current_lat)
+						self.previous_lon = self.current_lon
+						self.previous_lat = self.current_lat
+					if self.center_lon != 0:
+						self.distance_from_center=haversine(self.center_lon,self.center_lat,self.current_lon,self.current_lat)
+			sleep(1)
+
+
+

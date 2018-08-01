@@ -17,8 +17,6 @@ pipeline = Gst.parse_launch('uridecodebin name=source ! audioconvert !' +
                             ' audioresample ! pocketsphinx name=asr !' +
                             ' fakesink')
 source = pipeline.get_by_name('source')
-source.set_property('uri', 'http://ted.mielczarek.org/test.wav')
-
 bus = pipeline.get_bus()
 
 # Start playing

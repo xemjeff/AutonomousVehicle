@@ -194,9 +194,10 @@ def read_images(path, image_size=None):
     return [X,y,folder_names]
 
 
-class App(object):
+class videorecClient():
+    self.speed_sign = 0
 
-    def __init__(self, model, camera_id, cascade_filename):
+    def __init__(self, model, camera_id=0, cascade_filename='/root/AutonomousVehicle/src/python/visual/haarcascade/face.xml'):
         self.model = model
 	# ===============================================================================
 	# Recursive call to load all cascades in memory
@@ -213,8 +214,7 @@ class App(object):
 			descriptors.append([filelist[x],5,1.1])
 		exec('self.%s = CascadedDetector(cascade_fn="%s", minNeighbors=%s, scaleFactor=%s)' % (filelist[x],filenames[x],desc[0],desc[1]))
 	# ===============================================================================
-
-        #self.cam = create_capture(camera_id)
+	threading.Thread(target=self.run).start()
 
     def run(self):
 	avg = None
@@ -385,7 +385,7 @@ class App(object):
 	    # Gets speed limit from road signs
 	    if [z for z in combined if 'sign' in z[0]]:
 		text = pytesseract.image_to_string(imgout)
-		if text: memory.set('speed_sign',text)
+		if text: self.speed_sign = text
 	    # Repeated & high confidence detected objects are treated as foolproof
 	    if repeated:
 		for x in xrange(0,len(repeated)):
@@ -396,6 +396,10 @@ class App(object):
 	    if ball: definites.extend(ball)
 	    # Removes objects not currently detected from definite objects list
 	    current_definites = definites
+
+	    # Adds the distance from each object
+	    current_definites = self.add_depth_variable(current_definites)
+
 	    memory.set('objects_detected',str(current_definites))
 
 	    #cv2.imshow('videofacerec', imgout)
@@ -404,6 +408,10 @@ class App(object):
 	    #   break
 	    sock1.send('OK')
 	    sock2.send('OK')
+
+
+
+
 
 if __name__ == '__main__':
     from optparse import OptionParser
@@ -501,4 +509,5 @@ if __name__ == '__main__':
     App(model=model,
         camera_id=options.camera_id,
         cascade_filename=options.cascade_filename).run()
-    ssh.close()
+
+

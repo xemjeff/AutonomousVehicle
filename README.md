@@ -74,7 +74,7 @@ Sensory Input:
   - /sensors/voltage_monitor.py
   - /visual/remote/server.py
   - /nlp/nlpServer.py
-  - /controls/motionController.py
+  - /controls/motion.py
   - /audio/serveMicrophone.py
 
 
