@@ -5,11 +5,9 @@ from controls.motion import motion
 from nlp.nlpEngine import nlpEngine
 from sensors.gps_monitor import gps_monitor
 from sensors.voltage_monitor import voltage_monitor
-from visual.videorecClient import videorecClient
 
 n = nlpEngine()
 m = motion()
-v = videorecClient()
 
 # Startup audio/video services to Secondary Server
 os.system('python /root/AutonomousVehicle/src/python/visual/remote/server.py &')
@@ -53,7 +51,7 @@ def systems_check():
 		m.find_center()
 	else:
 		state = n.state
-		m.process(v.objects,v.obstacles,state.v.speed_sign)
+		m.process(memory.get('objects'),memory.get('obstacles'),state,memory.get('speed_sign'))
 	
 while True:
 	systems_check()
