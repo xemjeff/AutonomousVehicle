@@ -35,6 +35,9 @@ import redis
 from time import sleep
 from datetime import datetime
 from datetime import timedelta
+from collections import deque
+import threading
+import imutils
 
 # Connect to the rPi
 try:
@@ -42,6 +45,9 @@ try:
 except:
 	print "The AV is offline"
 	sys.exit () 
+
+memory = redis.StrictRedis(ip,port=6379,db=0)
+memory.set('current_state','default')
 
 #Load the Caffe model 
 net = cv2.dnn.readNetFromCaffe('/root/AutonomousVehicle/src/python/visual/MobileNetSSD_deploy.prototxt', '/root/AutonomousVehicle/src/python/visual/MobileNetSSD_deploy.caffemodel')
@@ -69,14 +75,12 @@ current_definites = []
 # Ball color range defined
 greenLower = (29, 86, 6)
 greenUpper = (64, 255, 255)
-pts = deque(maxlen=args["buffer"])
+pts = deque(maxlen=30)
 
 descriptors = [['face_3',5,1.1],['eye',5,1.1],['hand',5,1.25],['smile',5,1.35],['cat_face_1',5,1.5],['lower_body',5,1.2]]
 
-filelist = []
-filenames = glob.glob('/root/Scripts/Alicia/haarcascade/*')
-for x in xrange(0,len(filenames)):
-	filelist.append(filenames[x].split('haarcascade_')[1].split('.xml')[0])
+filenames = glob.glob('/root/AutonomousVehicle/src/python/visual/haarcascade/*')
+filelist = [z.split('.xml')[0].split('/')[-1] for z in filenames]
 
 # Create a socket object
 sock1 = socket() 
@@ -195,11 +199,11 @@ def read_images(path, image_size=None):
 
 
 class videorecClient():
-    self.speed_sign = 0
 
-    def __init__(self, model, camera_id=0, cascade_filename='/root/AutonomousVehicle/src/python/visual/haarcascade/face.xml'):
-        self.model = model
-	# ===============================================================================
+    def __init__(self):
+        self.model = load_model('/root/AutonomousVehicle/src/python/visual/model.pkl')
+	cascade_filename='/root/AutonomousVehicle/src/python/visual/haarcascade/face.xml'
+	camera_id=0
 	# Recursive call to load all cascades in memory
 	for x in xrange(0,len(filelist)):
 		if not filelist[x] in default:
@@ -213,7 +217,6 @@ class videorecClient():
 		else:
 			descriptors.append([filelist[x],5,1.1])
 		exec('self.%s = CascadedDetector(cascade_fn="%s", minNeighbors=%s, scaleFactor=%s)' % (filelist[x],filenames[x],desc[0],desc[1]))
-	# ===============================================================================
 	threading.Thread(target=self.run).start()
 
     def run(self):
@@ -244,7 +247,7 @@ class videorecClient():
 		    blob = cv2.dnn.blobFromImage(frame_resized, 0.007843, (300, 300), (127.5, 127.5, 127.5), False)
 
 		    # Preprocessing for ball detection
-		    blurred = cv2.GaussianBlur(frame, (11, 11), 0)
+		    blurred = cv2.GaussianBlur(frame1, (11, 11), 0)
 		    hsv = cv2.cvtColor(blurred, cv2.COLOR_BGR2HSV)
 		    mask = cv2.inRange(hsv, greenLower, greenUpper)
 		    mask = cv2.erode(mask, None, iterations=2)
@@ -260,9 +263,11 @@ class videorecClient():
 		    rows = frame_resized.shape[0]
 
 		    # Get the disparity from both cams
-		    stereo = cv2.StereoBM(cv2.STEREO_BM_BASIC_PRESET,ndisparities=16, SADWindowSize=15)
-		    stereo = cv2.createStereoBM(numDisparities=16, blockSize=15)
+		    stereo = cv2.StereoBM_create(numDisparities=16,blockSize=15)
+		    #stereo = cv2.StereoBM(cv2.STEREO_BM_BASIC_PRESET,ndisparities=16, SADWindowSize=15)
+		    #stereo = cv2.createStereoBM(numDisparities=16, blockSize=15)
 		    frame1_new = cv2.cvtColor(frame1, cv2.COLOR_BGR2GRAY)
+		    frame2_new = cv2.cvtColor(frame2, cv2.COLOR_BGR2GRAY)
 		    disparity = stereo.compute(frame1_new,frame2_new)
 
 		    imgout = img.copy()
@@ -282,17 +287,19 @@ class videorecClient():
 		    _,cnts,ret, = cv2.findContours(thresh.copy(), cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)
 
 		    # Motion detect
+		    current_motion = []
 		    for c in cnts:
 			# If the contour is too small, ignore it
 			if cv2.contourArea(c) < 5000:
 				continue
 			(x, y, w, h) = cv2.boundingRect(c)
-			memory.set('motion_centerX', ((x+(x+w))/2)*2)
-			memory.set('motion_centerY', ((y+(y+h))/2)*2)
-		        memory.set('lastMotionTime', datetime.now())
-			memory.set('motionEnded', 'False')
+			c_x = ((x+(x+w))/2)*2
+			c_y = ((y+(y+h))/2)*2
+			current_motion.extend(['motion',c_x,c_y,100])
+		        memory.set('last_motion_time',datetime.now())
+			memory.set('motion_ended','False')
 		    else:
-			memory.set('motionEnded', 'True')
+			memory.set('motion_ended','True')
 
 		    # Ball Detection
 		    cnts = cv2.findContours(mask.copy(), cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)
@@ -322,10 +329,10 @@ class videorecClient():
 					x0,y0,x1,y1 = r
 					exec('%s = img[y0:y1, x0:x1]' % filename)
 					exec('%s = cv2.cvtColor(%s,cv2.COLOR_BGR2GRAY)' % (filename,filename))
-					exec('%s = cv2.resize(%s, self.model.image_size, interpolation = cv2.INTER_CUBIC)' % (filename,filename))
+					#exec('%s = cv2.resize(%s, self.model.image_size, interpolation = cv2.INTER_CUBIC)' % (filename,filename))
 					# Get a prediction from the model:
-					exec('prediction = self.model.predict(%s)[0]' % filename)
-					current_frame_haar.extend([[filename,((x0+x1)/2),((y0+y1)/2),prediction]])
+					#exec('prediction = self.model.predict(%s)[0]' % filename)
+					current_frame_haar.extend([[filename,((x0+x1)/2),((y0+y1)/2),100]])
 				else:
 					desc_num = (["'"+filelist[x]+"'" in str(s) for s in descriptors].index(True))
 				
@@ -348,7 +355,7 @@ class videorecClient():
 	 	    # Tensorflow analysis
 		    for i in range(detections.shape[2]):
 			confidence = detections[0, 0, i, 2] #Confidence of prediction 
-			if confidence > args.thr: # Filter prediction 
+			if confidence > 0.2: # Filter prediction 
 			    class_id = int(detections[0, 0, i, 1]) # Class label
 			    # Object location 
 			    _xLeftBottom = int(detections[0, 0, i, 3] * cols) 
@@ -356,8 +363,8 @@ class videorecClient():
 			    _xRightTop   = int(detections[0, 0, i, 5] * cols)
 			    _yRightTop   = int(detections[0, 0, i, 6] * rows)
 			    # Factor for scale to original size of frame
-			    heightFactor = frame.shape[0]/300.0  
-			    widthFactor = frame.shape[1]/300.0 
+			    heightFactor = frame1.shape[0]/300.0  
+			    widthFactor = frame1.shape[1]/300.0 
 			    # Scale object detection to frame
 			    xLeftBottom = int(widthFactor * _xLeftBottom) 
 			    yLeftBottom = int(heightFactor * _yLeftBottom)
@@ -374,140 +381,35 @@ class videorecClient():
 	    definites = []
 	    # Combines haar & tensorflow objects, then finds repeated ones
 	    combined = current_frame_haar.extend(current_frame_tensorflow)
-	    repeated = [z for z in combined if combined.count(z) > 1]
-	    combined.sort()
-	    combined = list(combined for combined,_ in itertools.groupby(combined))
-	    repeated.sort()
-	    repeated = list(repeated for repeated,_ in itertools.groupby(repeated))
-	    # Check for high confidence
-	    high_confidence = [z for z in combined if float(z[3]) > 99.1]
-	    if high_confidence: repeated.extend(high_confidence)
-	    # Gets speed limit from road signs
-	    if [z for z in combined if 'sign' in z[0]]:
-		text = pytesseract.image_to_string(imgout)
-		if text: self.speed_sign = text
-	    # Repeated & high confidence detected objects are treated as foolproof
-	    if repeated:
-		for x in xrange(0,len(repeated)):
-			# Add them to definite objects currently detected, if not already there
-			if not [z for z in current_definites if repeated[x][0] in current_definites]:
-				definites.extend(repeated[x])
+	    if combined:
+		    repeated = [z for z in combined if combined.count(z) > 1]
+		    combined.sort()
+		    combined = list(combined for combined,_ in itertools.groupby(combined))
+		    repeated.sort()
+		    repeated = list(repeated for repeated,_ in itertools.groupby(repeated))
+		    # Check for high confidence
+		    high_confidence = [z for z in combined if float(z[3]) > 99.1]
+		    if high_confidence: repeated.extend(high_confidence)
+		    # Gets speed limit from road signs
+		    if [z for z in combined if 'sign' in z[0]]:
+			text = pytesseract.image_to_string(imgout)
+			if text: memory.set('speed_sign_text',text)
+		    # Repeated & high confidence detected objects are treated as foolproof
+		    if repeated:
+			for x in xrange(0,len(repeated)):
+				# Add them to definite objects currently detected, if not already there
+				if not [z for z in current_definites if repeated[x][0] in current_definites]:
+					definites.extend(repeated[x])
 	    # Checks if there is a ball
 	    if ball: definites.extend(ball)
+	    if current_motion: definites.extend(current_motion)
 	    # Removes objects not currently detected from definite objects list
 	    current_definites = definites
 
 	    # Adds the distance from each object
-	    current_definites = self.add_depth_variable(current_definites)
+	    #current_definites = self.add_depth_variable(current_definites)
 
 	    memory.set('objects_detected',str(current_definites))
 
-	    #cv2.imshow('videofacerec', imgout)
-            #ch = cv2.waitKey(10)
-            #if ch == 27:
-	    #   break
 	    sock1.send('OK')
 	    sock2.send('OK')
-
-
-
-
-
-if __name__ == '__main__':
-    from optparse import OptionParser
-    # model.pkl is a pickled (hopefully trained) PredictableModel, which is
-    # used to make predictions. You can learn a model yourself by passing the
-    # parameter -d (or --dataset) to learn the model from a given dataset.
-    usage = "usage: %prog [options] model_filename"
-    # Add options for training, resizing, validation and setting the camera id:
-    parser = OptionParser(usage=usage)
-    parser.add_option("-r", "--resize", action="store", type="string", dest="size", default="100x100", 
-        help="Resizes the given dataset to a given size in format [width]x[height] (default: 100x100).")
-    parser.add_option("-v", "--validate", action="store", dest="numfolds", type="int", default=None, 
-        help="Performs a k-fold cross validation on the dataset, if given (default: None).")
-    parser.add_option("-t", "--train", action="store", dest="dataset", type="string", default=None,
-        help="Trains the model on the given dataset.")
-    parser.add_option("-i", "--id", action="store", dest="camera_id", type="int", default=0, 
-        help="Sets the Camera Id to be used (default: 0).")
-    parser.add_option("-c", "--cascade", action="store", dest="cascade_filename", default="haarcascade_frontalface_alt2.xml",
-        help="Sets the path to the Haar Cascade used for the face detection part (default: haarcascade_frontalface_alt2.xml).")
-    # Show the options to the user:
-    parser.print_help()
-    print "Press [ESC] to exit the program!"
-    print "Script output:"
-    # Parse arguments:
-    (options, args) = parser.parse_args()
-    # Check if a model name was passed:
-    #model_filename = args[0]
-    # Check if the given model exists, if no dataset was passed:
-    if (options.dataset is None) and (not os.path.exists(model_filename)):
-        print "[Error] No prediction model found at '%s'." % model_filename
-        sys.exit()
-    # Check if the given (or default) cascade file exists:
-    if not os.path.exists(options.cascade_filename):
-        print "[Error] No Cascade File found at '%s'." % options.cascade_filename
-        sys.exit()
-    # We are resizing the images to a fixed size, as this is neccessary for some of
-    # the algorithms, some algorithms like LBPH don't have this requirement. To 
-    # prevent problems from popping up, we resize them with a default value if none
-    # was given:
-    try:
-        image_size = (int(options.size.split("x")[0]), int(options.size.split("x")[1]))
-    except:
-        print "[Error] Unable to parse the given image size '%s'. Please pass it in the format [width]x[height]!" % options.size
-        sys.exit()
-    # We have got a dataset to learn a new model from:
-    if options.dataset:
-        # Check if the given dataset exists:
-        if not os.path.exists(options.dataset):
-            print "[Error] No dataset found at '%s'." % dataset_path
-            sys.exit()    
-        # Reads the images, labels and folder_names from a given dataset. Images
-        # are resized to given size on the fly:
-        print "Loading dataset..."
-        [images, labels, subject_names] = read_images(options.dataset, image_size)
-        # Zip us a {label, name} dict from the given data:
-        list_of_labels = list(xrange(max(labels)+1))
-        subject_dictionary = dict(zip(list_of_labels, subject_names))
-        # Get the model we want to compute:
-        model = get_model(image_size=image_size, subject_names=subject_dictionary)
-        # Sometimes you want to know how good the model may perform on the data
-        # given, the script allows you to perform a k-fold Cross Validation before
-        # the Detection & Recognition part starts:
-        if options.numfolds:
-            print "Validating model with %s folds..." % options.numfolds
-            # We want to have some log output, so set up a new logging handler
-            # and point it to stdout:
-            handler = logging.StreamHandler(sys.stdout)
-            formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-            handler.setFormatter(formatter)
-            # Add a handler to facerec modules, so we see what's going on inside:
-            logger = logging.getLogger("facerec")
-            logger.addHandler(handler)
-            logger.setLevel(logging.DEBUG)
-            # Perform the validation & print results:
-            crossval = KFoldCrossValidation(model, k=options.numfolds)
-            crossval.validate(images, labels)
-            crossval.print_results()
-        # Compute the model:
-        print "Computing the model..."
-        model.compute(images, labels)
-        # And save the model, which uses Pythons pickle module:
-        print "Saving the model..."
-        save_model('model.pkl', model)
-    else:
-        print "Loading the model..."
-        model = load_model(model_filename)
-    # We operate on an ExtendedPredictableModel. Quit the application if this
-    # isn't what we expect it to be:
-    if not isinstance(model, ExtendedPredictableModel):
-        print "[Error] The given model is not of type '%s'." % "ExtendedPredictableModel"
-        sys.exit()
-    # Now it's time to finally start the Application! It simply get's the model
-    # and the image size the incoming webcam or video images are resized to:
-    print "Starting application..."
-    App(model=model,
-        camera_id=options.camera_id,
-        cascade_filename=options.cascade_filename).run()
-
-

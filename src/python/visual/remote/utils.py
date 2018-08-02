@@ -1,7 +1,7 @@
 # import the necessary modules
 from threading import Thread
 import cv2 
-from models import *
+#from models import *
 import netifaces as ni
 import numpy
 
