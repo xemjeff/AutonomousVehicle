@@ -4,7 +4,7 @@ from time import sleep
 from controls.motion import motion
 from nlp.nlpEngine import nlpEngine
 from sensors.gps_monitor import gps_monitor
-from sensors.voltage_monitor import voltage_monitor
+#from sensors.voltage_monitor import voltage_monitor
 
 n = nlpEngine()
 m = motion()
@@ -31,7 +31,7 @@ while True:
 	sleep(1)
 
 # Voltage setup
-v = voltage_monitor()
+#v = voltage_monitor()
 
 # Vision setup
 memory.set('ttsOverride','Please place an aluminum can in front of me so I can calibrate visual disparity')
@@ -45,13 +45,14 @@ def shutdown():
 
 # Checks that sensors are in nominal range
 def systems_check():
-	if (v.voltage < 4750) and (v.voltage!=0): shutdown()
+	#if (v.voltage < 4750) and (v.voltage!=0): shutdown()
+	if '0x00005' in os.popen('vcgencmd get_throttled').read(): shutdown()
 	elif g.distance_from_center > 28: 
 		m.turn_around()
 		m.find_center()
 	else:
 		state = n.state
-		m.process(memory.get('objects'),memory.get('obstacles'),state,memory.get('speed_sign'))
+		m.process(memory.get('objects_detected'),memory.get('obstacles'),state,memory.get('speed_sign_text'))
 	
 while True:
 	systems_check()
