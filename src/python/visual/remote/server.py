@@ -6,6 +6,12 @@ import netifaces as ni
 from utils import *
 import os
 
+try:
+	ip = os.popen('nslookup raspberrypi').read().split('Address: ')[1].replace('\n','')
+except:
+	ip = 'localhost'
+	pass
+
 # Transmits both camera feeds to the client
 cam1 = Cam(0)
 cam2 = Cam(2)
@@ -16,7 +22,6 @@ sock1 = socket()
 sock1.setsockopt(SOL_SOCKET, SO_REUSEADDR, 1)
 sock2 = socket()
 sock2.setsockopt(SOL_SOCKET, SO_REUSEADDR, 1)
-ip = 'localhost'
 
 sock1.bind((ip,5000))
 sock1.listen(True)

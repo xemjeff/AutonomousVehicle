@@ -172,7 +172,6 @@ def tts(text):
 
 # Redis memory (short-term, HAL)
 memory = redis.StrictRedis(host='localhost', port=6379, db=0)
-os.system('python ../memory/setMemory.py')
 
 # AIML memory
 k = Kernel()
@@ -196,6 +195,7 @@ volume = 35
 furnace_override = datetime.now()
 
 class nlpEngine():
+	state = 'nlp'
 
 	def __init__(self):
 		threading.Thread(target=self.respond).start()
@@ -203,7 +203,7 @@ class nlpEngine():
 	def respond(self):
 		while True:
 			result = memory.get('stt_result')
-			if result:
+			if result and (state=='nlp'):
 				text = memory.get('stt_result')
 				memory.set('stt_result','')
 

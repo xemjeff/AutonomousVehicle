@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python79,db=0)
 # -*- coding: utf-8 -*-
 
 import glob
@@ -36,12 +36,14 @@ from time import sleep
 from datetime import datetime
 from datetime import timedelta
 from collections import deque
+from lane_detection.line_fit_frames import laneDetect
+from stereovision.calibration import StereoCalibration
 import threading
 import imutils
 
 # Connect to the rPi
 try:
-	ip = os.popen('AV').read().split('Address: ')[1].replace('\n','')
+	ip = os.popen('nslookup raspberrypi').read().split('Address: ')[1].replace('\n','')
 except:
 	print "The AV is offline"
 	sys.exit () 
@@ -51,8 +53,6 @@ memory.set('current_state','default')
 
 #Load the Caffe model 
 net = cv2.dnn.readNetFromCaffe('/root/AutonomousVehicle/src/python/visual/MobileNetSSD_deploy.prototxt', '/root/AutonomousVehicle/src/python/visual/MobileNetSSD_deploy.caffemodel')
-
-sleep(5)
 
 n = 25
 
@@ -71,6 +71,7 @@ vegetables = ['apple','banana']
 vehicles = ['car','bus','two_wheeler','licence_plate']
 signs = ['signs','yield_sign','stop_sign','speed_sign']
 current_definites = []
+past_definites = ['','','','','']
 
 # Ball color range defined
 greenLower = (29, 86, 6)
@@ -82,6 +83,9 @@ descriptors = [['face_3',5,1.1],['eye',5,1.1],['hand',5,1.25],['smile',5,1.35],[
 filenames = glob.glob('/root/AutonomousVehicle/src/python/visual/haarcascade/*')
 filelist = [z.split('.xml')[0].split('/')[-1] for z in filenames]
 
+# Setup lane detection for later
+l = laneDetect()
+
 # Create a socket object
 sock1 = socket() 
 sock2 = socket()
@@ -89,22 +93,8 @@ print '==' * n
 sock1.connect((ip, 5000))
 sock2.connect((ip, 5001))
 
-# Disparity settings
-window_size = 5
-min_disp = 32
-num_disp = 112-min_disp
-stereo = cv2.StereoSGBM(
-    minDisparity = min_disp,
-    numDisparities = num_disp,
-    SADWindowSize = window_size,
-    uniquenessRatio = 10,
-    speckleWindowSize = 100,
-    speckleRange = 32,
-    disp12MaxDiff = 1,
-    P1 = 8*3*window_size**2,
-    P2 = 32*3*window_size**2,
-    fullDP = False
-)
+# Disparity
+block_matcher = cv2.StereoBM()
  
 # Morphology settings
 kernel = np.ones((12,12),np.uint8)
@@ -199,6 +189,9 @@ def read_images(path, image_size=None):
 
 
 class videorecClient():
+    can = [4.83,2.6]
+    calibrated = False
+    calibration = ''
 
     def __init__(self):
         self.model = load_model('/root/AutonomousVehicle/src/python/visual/model.pkl')
@@ -217,6 +210,8 @@ class videorecClient():
 		else:
 			descriptors.append([filelist[x],5,1.1])
 		exec('self.%s = CascadedDetector(cascade_fn="%s", minNeighbors=%s, scaleFactor=%s)' % (filelist[x],filenames[x],desc[0],desc[1]))
+	# Calibration
+	self.calibration = StereoCalibration(input_folder='/root/AutonomousVehicle/src/python/visual/calibration_data')
 	threading.Thread(target=self.run).start()
 
     def run(self):
@@ -232,17 +227,23 @@ class videorecClient():
                 break
 
 	    # If the vision detection is activated and motion isn't being ignored
-	    if True: #(memory.get('visionDetect') == 'True') and (memory.get('ignoreLastMotion') == 'False'):
+	    if True: 
+		    # Init vars
+		    tracking, sign_text = '',''
+
+		    # Get data from connected network socket
 		    buf1 = recvall(sock1, int(length1))
 		    buf2 = recvall(sock2, int(length2))
 		    data1 = numpy.fromstring(buf1, dtype='uint8')
 		    data2 = numpy.fromstring(buf2, dtype='uint8')
 
+		    # Form them into frames
 		    frame1 = cv2.imdecode(data1, 1)
 		    frame2 = cv2.imdecode(data2, 1)
 		    
 		    # Special analysis from frame1
 		    img = cv2.resize(frame1, (frame1.shape[1], frame1.shape[0]), interpolation = cv2.INTER_CUBIC)
+		    img2 = cv2.resize(frame2, (frame2.shape[1], frame2.shape[0]), interpolation = cv2.INTER_CUBIC)
 		    frame_resized = cv2.resize(frame1,(300,300))
 		    blob = cv2.dnn.blobFromImage(frame_resized, 0.007843, (300, 300), (127.5, 127.5, 127.5), False)
 
@@ -253,30 +254,27 @@ class videorecClient():
 		    mask = cv2.erode(mask, None, iterations=2)
 		    mask = cv2.dilate(mask, None, iterations=2)
 
-		    #Set to network the input blob 
+		    # Set to network the input blob 
 		    net.setInput(blob)
-		    #Prediction of network
+
+		    # Prediction of network
 		    detections = net.forward()
 
-		    #Size of frame resize (300x300)
+		    # Size of frame resize (300x300)
 		    cols = frame_resized.shape[1] 
 		    rows = frame_resized.shape[0]
 
-		    # Get the disparity from both cams
-		    stereo = cv2.StereoBM_create(numDisparities=16,blockSize=15)
-		    #stereo = cv2.StereoBM(cv2.STEREO_BM_BASIC_PRESET,ndisparities=16, SADWindowSize=15)
-		    #stereo = cv2.createStereoBM(numDisparities=16, blockSize=15)
-		    frame1_new = cv2.cvtColor(frame1, cv2.COLOR_BGR2GRAY)
-		    frame2_new = cv2.cvtColor(frame2, cv2.COLOR_BGR2GRAY)
-		    disparity = stereo.compute(frame1_new,frame2_new)
+		    # Disparity
+		    rectified_pair = calibration.rectify((img, img2))
+		    disparity = block_matcher.compute(rectified_pair[0], rectified_pair[1])
 
+		    # Used for speed sign OCR
 		    imgout = img.copy()
 
 		    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 		    gray = cv2.GaussianBlur(gray, (21,21), 0)
 
 		    if avg is None:
-		    	#print "[INFO] starting background model..."
 			avg = gray.copy().astype("float")
 
 		    cv2.accumulateWeighted(gray, avg, 0.5)
@@ -286,8 +284,11 @@ class videorecClient():
 	     	    thresh = cv2.dilate(thresh, None, iterations=2)
 		    _,cnts,ret, = cv2.findContours(thresh.copy(), cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)
 
+		    # =========== Motion, Haar, Tensorflow, Ball & Depth ============
+		    # Init vars
+		    current_frame_haar,current_frame_tensorflow,current_motion,ball = [],[],[],[]
+
 		    # Motion detect
-		    current_motion = []
 		    for c in cnts:
 			# If the contour is too small, ignore it
 			if cv2.contourArea(c) < 5000:
@@ -296,7 +297,7 @@ class videorecClient():
 			c_x = ((x+(x+w))/2)*2
 			c_y = ((y+(y+h))/2)*2
 			current_motion.extend(['motion',c_x,c_y,100])
-		        memory.set('last_motion_time',datetime.now())
+			memory.set('last_motion_time',datetime.now())
 			memory.set('motion_ended','False')
 		    else:
 			memory.set('motion_ended','True')
@@ -305,7 +306,6 @@ class videorecClient():
 		    cnts = cv2.findContours(mask.copy(), cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)
 		    cnts = cnts[0] if imutils.is_cv2() else cnts[1]
 		    center = None
-		    ball = []
 		    if len(cnts) > 0:
 			c = max(cnts, key=cv2.contourArea)
 			((x, y), radius) = cv2.minEnclosingCircle(c)
@@ -317,7 +317,6 @@ class videorecClient():
 
 	 	    # Haarcascade analysis
 		    # Recursive call to look for matching, selected cascades
-		    current_frame_haar = []
 		    current_state = memory.get('current_state')
 		    filelist = []
 		    exec('filelist = %s' % current_state)
@@ -351,7 +350,6 @@ class videorecClient():
 			    else:
 				pass
 
-		    current_frame_tensorflow = []
 	 	    # Tensorflow analysis
 		    for i in range(detections.shape[2]):
 			confidence = detections[0, 0, i, 2] #Confidence of prediction 
@@ -372,15 +370,20 @@ class videorecClient():
 			    yRightTop   = int(heightFactor * _yRightTop)
 			    # Label and confidence of prediction in frame resized
 			    if class_id in classNames:
-				label = classNames[class_id] + ": " + str(confidence)
+				label = classNames[class_id]
 				labelSize, baseLine = cv2.getTextSize(label, cv2.FONT_HERSHEY_SIMPLEX, 0.5, 1)
 
 				yLeftBottom = max(yLeftBottom, labelSize[1])
 				current_frame_tensorflow.extend([[label,((_xLeftBottom+_xRightTop)/2),((_yLeftBottom+_yRightTop)/2),confidence]])
 
+		    # Lane Detection
+		    if memory.get('lane_detect') == 'True':
+			tracking = l.get_data(img)
+
 	    definites = []
 	    # Combines haar & tensorflow objects, then finds repeated ones
-	    combined = current_frame_haar.extend(current_frame_tensorflow)
+	    current_frame_haar.extend(current_frame_tensorflow)
+	    combined = current_frame_haar
 	    if combined:
 		    repeated = [z for z in combined if combined.count(z) > 1]
 		    combined.sort()
@@ -392,8 +395,7 @@ class videorecClient():
 		    if high_confidence: repeated.extend(high_confidence)
 		    # Gets speed limit from road signs
 		    if [z for z in combined if 'sign' in z[0]]:
-			text = pytesseract.image_to_string(imgout)
-			if text: memory.set('speed_sign_text',text)
+			sign_text = pytesseract.image_to_string(imgout)
 		    # Repeated & high confidence detected objects are treated as foolproof
 		    if repeated:
 			for x in xrange(0,len(repeated)):
@@ -403,13 +405,14 @@ class videorecClient():
 	    # Checks if there is a ball
 	    if ball: definites.extend(ball)
 	    if current_motion: definites.extend(current_motion)
-	    # Removes objects not currently detected from definite objects list
-	    current_definites = definites
 
-	    # Adds the distance from each object
-	    #current_definites = self.add_depth_variable(current_definites)
-
-	    memory.set('objects_detected',str(current_definites))
+	    # Checks if there is coorelation over time
+	    past_definites[0] = definites
+	    for count in xrange(1,len(past_definites)): past_definites[5-count]=pastDefinites[4-count]
+	    for x in xrange(0, len(past_definites)):
+	
+	    # Uploads the results to objects_detected
+	    memory.set('objects_detected',str(current_definites)+'|||'+sign_text+'|||'+tracking)
 
 	    sock1.send('OK')
 	    sock2.send('OK')

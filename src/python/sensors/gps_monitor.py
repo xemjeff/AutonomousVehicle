@@ -29,15 +29,16 @@ class gps_monitor():
 		self.center_lon,self.center_lat,self.previous_lon,self.previous_lat,self.current_lon,self.current_lat,self.distance_traveled,self.distance_from_center = 0,0,0,0,0,0,0,0
 		threading.Thread(target=self._get_data).start()
 
-	def calibrate_center(self):
-		self.center_lon = self.current_lon
-		self.center_lat = self.current_lat
+	def calibrate_center(self,lat,lon):
+		self.center_lon = lon
+		self.center_lat = lat
 
 	def _get_data(self):
 		while True:
 			for new_data in gps_socket:
 				if new_data:
 					data_stream.unpack(new_data)
+					if self.current_lat == 0: self.calibrate_center(data_stream.TPV['lat'],data_stream.TPV['lon'])
 					self.current_lat = data_stream.TPV['lat']
 					self.current_lon = data_stream.TPV['lon']
 

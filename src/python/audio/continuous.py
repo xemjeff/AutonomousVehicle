@@ -30,7 +30,7 @@ while True:
         if struct and struct.get_name() == 'pocketsphinx':
 	    # Send results back to the rPi
             if struct['final']:
-                memory.set('stt_result',struct['hypothesis'])
+                memory.set('stt_result',struct['final'])
             elif struct['hypothesis']:
                 memory.set('stt_result',struct['hypothesis'])
                 pass

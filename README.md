@@ -16,9 +16,11 @@ Actuator Control:
 Sensory Input:
 - Camera(s)
 - Microphone
-- Speaker
-- IMU
-- Wheel Encoding (not done)
+- GPS
+- Ping ))) Distance
+- <b>Speaker</b> <i>(bluetooth or separate amp too)</i>
+- <b>IMU</b> <i>(code integration)</i>
+- <b>Wheel Encoding</b> <i>(maybe not necessary)</i>
 - Battery Voltage Level
 
 <i>VISUAL SYSTEM</i>
@@ -29,10 +31,11 @@ Sensory Input:
 + Tensorflow Detection (20 objs.)
 + Stereographic Vision 
   - Depth Perception
-- <b>Facial Recognition (if wanted)</b>
+- <b>Facial Recognition</b> <i>(if wanted)</i>
 - Motion Detection
 - OCR Alphanumeric Recognition
 - Florescent Ball Recognition
+- <b>Lane Detection</b> <i>(annotations need to be interpreted)</i>
 
 <i>AUDIO SYSTEM</i>
 - TTS from Secondary Server, scp to rPi's speaker
@@ -40,7 +43,7 @@ Sensory Input:
 
 <i>NLP SYSTEM</i>
 + Modified AIML
-  - <b>Specific Maker Faire Q&As</b>
+  - <b>Specific Maker Faire Q&As</b> <i>(coded by team)</i>
   - Basic Conversation
 - Commands Processing
 
@@ -48,62 +51,35 @@ Sensory Input:
 <b><i>COMBINED SYSTEMS</i></b>
 - Process EVERYTHING offline between rPi & Secondary Server via Wifi Relay
 - Track & follow objects of interest via Visual, IMU & Wheel encoding
-- Avoid hitting people's feet by Visual disparity & motion detection
+- Avoid hitting people's feet by Ping ))) sensor
 - Engage with people around it via NLP & Audio
 - Stay within a specific location via GPS
 - Inform when battery is low & shutdown via Power
 + Perform Maker Faire specific tricks
   - React to Road Signs
   - Follow balls being led around 
+  - Track and follow a lane
   - Play croquet with itself
 - Try not to kill all humans
 
 
-<b>STRUCTURE:</b>
+<b>SETUP:</b>
 
-(Secondary Server)
-- ../shell/startAPBridge.sh
-+ /controls/imageMotionHAL.py
-  - /visual/videorecClient.py
-- /audio/ttsServer.py
-- /audio/continuous.py
-
-(rPi 3)
-+ /sensors/master.py
+~ Run AutonomousVehicle/src/python/master.py on the RPi 3
++ master.py
   - /sensors/gps_monitor.py
   - /sensors/voltage_monitor.py
   - /visual/remote/server.py
   - /nlp/nlpServer.py
-  - /controls/motion.py
+  + /controls/motion.py
+    - /controls/ping_monitor.py
   - /audio/serveMicrophone.py
 
-
-<b>REQUIREMENTS & SETUP:</b>
-
-CONTROLS SETUP: (not done)
-- Uses controls/motionController.py on rPi
-
-WIFI RELAY SETUP: (done)
-- Start ./src/shell/startAPBridge.sh on Secondary Server
-
-GPS SETUP: (done)
-- GPS sensor monitor requires 'gpsd /dev/ttyAMA0' to be run on rPi
-- Uses sensors/gps_monitor.py on the rPi
-
-POWER SETUP: (done)
-- Uses sensors/voltage_monitor.py on the rPi
-
-VISUAL SETUP: (almost done)
-- Uses visual/remote/server.py on the rPi
-- Start controls/imageMotionHAL.py on Secondary Server
-
-AUDIO SETUP: (done)
-- Start audio/ttsServer.py on Secondary Server (tts)
-- Uses audio/serveMicrophone.py on rPi
-- Start audio/continuous.py on Secondary Server (stt)
-
-NLP SETUP: (needs maker faire Q&As)
-- Uses nlp/nlpServer.py on rPi
+~ Run the following on the server 
+- ../shell/startAPBridge.sh
+- /visual/videorecClient.py
+- /audio/ttsServer.py
+- /audio/continuous.py
 
 GPIO PINOUTS: (rPi3)
 - GPS Monitor (GND),(VCC-5v),(TX-PIN8),(RX-PIN10)

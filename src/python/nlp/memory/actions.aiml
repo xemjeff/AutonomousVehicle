@@ -1,11 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aiml version="1.0">
 
-<category><pattern>TURN ON ACTIONS</pattern>
-<template>I'm now listening for actions memory.set('actionModeOn','True')</template>
+<category><pattern>TURN LEFT</pattern>
+<template><action>turnLeft()</action></template>
 </category>
-<category><pattern>TURN OFF ACTIONS</pattern>
-<template>I won't listen for actions now memory.set('actionModeOn','False')</template>
+<category><pattern>TURN RIGHT</pattern>
+<template><action>turnRight()</action></template>
+</category>
+<category><pattern>GO BACK</pattern>
+<template><action>backup()</action></template>
+</category>
+<category><pattern>GO FORWARD</pattern>
+<template><action>ahead()</action></template>
+</category>
+<category><pattern>TALK TO PEOPLE</pattern>
+<template><action>%sstate='nlp'</action></template>
+</category>
+<category><pattern>FOLLOW THE ROAD</pattern>
+<template><action>%sstate='lane'</action></template>
+</category>
+<category><pattern>TRACK THE BALL</pattern>
+<template><action>%sstate='ball'</action></template>
+</category>
+<category><pattern>GO UNDER THE LOOPS</pattern>
+<template><action>%sstate='croquet'</action></template>
+</category>
+<category><pattern>FOLLOW THE SIGN</pattern>
+<template><action>%sstate='sign'</action></template>
 </category>
 
 </aiml>
