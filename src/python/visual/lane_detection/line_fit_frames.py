@@ -7,12 +7,9 @@ from combined_thresh import combined_thresh
 from perspective_transform import perspective_transform
 from Line import Line
 from line_fit import line_fit, tune_fit, final_viz, calc_curve, calc_vehicle_offset
-from moviepy.editor import VideoFileClip
-
 
 # Global variables (just to make the moviepy video annotation work)
-with open('calibrate_camera.p', 'rb') as f:
-	save_dict = pickle.load(f)
+with open('/root/Scripts/Alicia/HAL/visual/lane_detection/cam_cal.p', 'rb') as f: save_dict = pickle.load(f)
 mtx = save_dict['mtx']
 dist = save_dict['dist']
 window_size = 5  # how many frames for line smoothing
@@ -87,10 +84,9 @@ def annotate_image(img_in):
 	vehicle_offset = calc_vehicle_offset(undist, left_fit, right_fit)
 
 	# Perform final visualization on top of original undistorted image
-	result = final_viz(undist, left_fit, right_fit, m_inv, left_curve, right_curve, vehicle_offset)
-
-	return vehicle_offset
+	#result = final_viz(undist, left_fit, right_fit, m_inv, left_curve, right_curve, vehicle_offset)
+	result = [undist, left_fit, right_fit, m_inv, left_curve, right_curve, vehicle_offset]
+	return result
 
 class laneDetect():
-	def get_data(self,img):
-		return annotate_image(img)
+	def get_data(self,img): return annotate_image(img)

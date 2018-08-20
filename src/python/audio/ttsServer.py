@@ -2,7 +2,7 @@ import os,redis,os.path,sys,paramiko
 from time import sleep
 
 try:
-	ip = os.popen('AV').read().split('Address: ')[1].replace('\n','')
+	ip = os.popen('nslookup raspberrypi').read().split('Address: ')[1].replace('\n','')
 	memory = redis.StrictRedis(host=ip, port=6379, db=0)
 except:
 	print "The rPi is offline"

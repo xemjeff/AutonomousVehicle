@@ -16,9 +16,7 @@ def haversine(lon1, lat1, lon2, lat2):
     c = 2 * asin(sqrt(a))
     r = 3956
     return (c * r) * 5280
-    
-os.system('gpsd /dev/ttyAMA0')
-
+   
 gps_socket = gps3.GPSDSocket()
 data_stream = gps3.DataStream()
 gps_socket.connect()

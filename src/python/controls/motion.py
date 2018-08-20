@@ -23,6 +23,9 @@ for x in SERVO:
 pi.set_mode(SERVO[0], pigpio.OUTPUT)
 pi.set_servo_pulsewidth(SERVO[0],0)
 
+# Init vars.
+past_ball = ['','','','','','','','','','','','','','','']
+
 class motion():
 	direction,speed,pan,tilt = 0,0,0,0
 	pan_direction = 'right'
@@ -161,6 +164,16 @@ class motion():
 	# ---------------------------------------------------------------------------
 	# Finds the object when out of sight
 	def oob(self):
+		# Return tilt to proper position 
+		if (self.tilt != 800) or (self.pan != 1200): self.defaultHead()
+		# Obstacle is near AV - stop and wait for it to pass
+		if p.ping <= 12:
+			self.neutral()
+			sleep(1)
+		# Wait is over - turn left
+		elif self.motion == False:
+			self.shiftLeft()
+		''' The code below is for the head pan/tilt search to be used with IMU
 		if (self.pan_direction == 'right') and (self.pan != -1):
 			self.shiftPanRight()
 		elif (self.pan_direction == 'right') and (self.pan == -1):
@@ -171,8 +184,9 @@ class motion():
 		elif (self.pan_direction == 'left') and (self.pan == 1):
 			self.pan_direction = 'right'
 			self.shiftPanRight()
+		'''
 	# Centers the object in vision
-	def find_center_object(x,y,camera_width=640):
+	def find_center_object(str(x),str(y),camera_width=640):
 		self.setSpeed(0.1)
 		if x < ((camera_width/2)-15): self.shiftRight()
 		elif x > ((camera_width/2)+15): self.shiftLeft()
@@ -180,7 +194,7 @@ class motion():
 		elif y > ((camera_width/2)+15): self.shiftTiltDown()
 		else: return 'FIXED'
 	# Move self AV to center the object in view
-	def track(x,y,distance,camera_width=640):
+	def track(str(x),str(y),distance,camera_width=640):
 		excused = False
 		# Move toward the object if centered
 		if self.find_center_object(x,y,camera_width) == 'FIXED':
@@ -207,7 +221,7 @@ class motion():
 			self.neutral()
 			return 'TRACKED'
 	# Navigate toward objects of interest while avoiding obstacles
-	def process(self,objects,state,speed,tracking):
+	def process(self,objects,state,speed,tracking,motion):
 		# Focus upon tracking the ball
 		if state == 'ball':
 			ball = [z for z in objects if 'ball' in z[0]]

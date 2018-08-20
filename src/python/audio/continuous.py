@@ -1,17 +1,21 @@
 from __future__ import print_function
-import gi,sys,redis
+import gi,sys,redis,os
 gi.require_version('Gst', '1.0')
 from gi.repository import GObject, Gst
 GObject.threads_init()
 Gst.init(None)
 
 # Connect to the rPi
-try:
-	ip = os.popen('AV').read().split('Address: ')[1].replace('\n','')
-	memory = redis.StrictRedis(host=ip,port=6379,db=0)
-except:
-	print "The AV is offline"
-	sys.exit () 
+print "Waiting for the rPis IP"
+while True:
+	try:
+		ip = os.popen('nslookup raspberrypi').read().split('Address: ')[1].replace('\n','')
+	except:
+		sleep(1)
+print "Aquired IP "+str(ip)
+
+memory = redis.StrictRedis(host=ip,port=6379,db=0)
+
 
 pipeline = Gst.parse_launch('uridecodebin name=source ! audioconvert !' +
                             ' audioresample ! pocketsphinx name=asr !' +
