@@ -84,8 +84,9 @@ def annotate_image(img_in):
 	vehicle_offset = calc_vehicle_offset(undist, left_fit, right_fit)
 
 	# Perform final visualization on top of original undistorted image
-	#result = final_viz(undist, left_fit, right_fit, m_inv, left_curve, right_curve, vehicle_offset)
-	result = [undist, left_fit, right_fit, m_inv, left_curve, right_curve, vehicle_offset]
+	#result = final_viz(undist, left_fit, right_fit, m_inv, left_curve, right_curve, vehicle_offset) 
+	# undist, left_fit, right_fit, m_inv, left_curve, 
+	result = [right_curve, vehicle_offset]
 	return result
 
 class laneDetect():

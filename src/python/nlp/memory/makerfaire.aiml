@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="1.0">
+
+<category><pattern>RECOMMEND_ACTIVITY</pattern>
+<template><random> <li>Champ Bots on Display and Competition. See Champ Bots and talk with the Makers behind them. Witness Champ Bots navigate the waters of Lake Champlain, with several challenges</li> <li>Make your own E-Wearables. learn how to build electronics right into clothing!</li> <li>Check out us Autonomous Vehicles!</li> <li>Check out Repair Cafe this afternoon!</li> <li>Check out MakerBear Competition this afternoon!</li> <li>Check out Drone Expo Demonstration this afternoon!</li> <li>Check out Battery Fire Demonstrations this afternoon!</li> <li>Check out Soldering Workshops this afternoon!</li> <li>Check out the Robot Battles this afternoon!</li> <li>Check out Main Stage Presentation this afternoon!</li> <li>Check out the Streamer Paper Chase this afternoon!</li> <li>Check out Drone Races this afternoon!</li> <li>Check out Taking Things Apart this afternoon!</li> <li>Check out Adopt A Maker Project Idea Pitch this afternoon!</li> <li>Check out the Main Stage Presentation this afternoon!</li> <li>Check out ChampBot Regatta this afternoon!</li> <li>Visit the Illuminated Woods this evening!</li> <li>Visit the Dance and Music Performers this evening!</li> <li>Visit the Autonomous Vehicles this evening!</li> <li>Visit the Drone Expo Demonstration this evening!</li> <li>Visit the Burning Man Vermont – Fire Demonstration this evening!</li> <li>Six Makers will pitch their business idea to Fresh Tracks Capital for a chance to receive advice and funding this evening!</li> <li>Check out MakeWearable Runway this evening!</li> <li>Visit the Drone Race this evening!</li>
+</random></template></category>
+
+</aiml>

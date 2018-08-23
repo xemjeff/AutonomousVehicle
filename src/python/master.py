@@ -54,10 +54,10 @@ while True:
 		#memory.set('current_state',n.state+'|||'+str(m.motion))
 
 		# Receive visual detection data from server and parse
-		objects,speed_sign,tracking,motion = memory.get('objects_detected').split('|||')
+		objects,speed_sign,offset,angle = memory.get('objects_detected').split('|||')
 
 		# Pass visual & audio information to motion class for appropriate processing
-		m.process(list(objects),'ball',speed_sign,tracking) # replace "'ball'" with "state"
+		m.process(list(objects),'ball',speed_sign,offset,angle) # replace "'ball'" with "state"
 
 		# Sleep for 1/10th of a second
 		sleep(0.1)

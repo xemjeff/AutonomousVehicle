@@ -121,7 +121,7 @@ class videorecClient():
 
         while True:
 	    # Init vars
-	    tracking, sign_text = '',''
+	    offset, angle, sign_text = '','',''
 	    combined, checked_definites = [],[]
 	    current_motion,ball = [],[]
 	    current_state,in_motion = memory.get('current_state').split()
@@ -286,11 +286,11 @@ class videorecClient():
 		if [z for z in checked_definites if 'sign' in z[0]]:
 			sign_text = pytesseract.image_to_string(img)
 		# Lane Detection
-	        tracking = l.get_data(img)
+	        offset,angle = l.get_data(img)
 
 	    # Uploads the results to AV
-	    memory.set('objects_detected',str(checked_definites)+'|||'+sign_text+'|||'+tracking)
+	    memory.set('objects_detected',str(checked_definites)+'|||'+sign_text+'|||'+offset+'|||'+angle)
 
-	    # Get what's in the buffer next
+	    # Says we can receive what's in the buffer next
 	    sock1.send('OK')
 	    sock2.send('OK')

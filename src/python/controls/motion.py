@@ -221,7 +221,7 @@ class motion():
 			self.neutral()
 			return 'TRACKED'
 	# Navigate toward objects of interest while avoiding obstacles
-	def process(self,objects,state,speed,tracking,motion):
+	def process(self,objects,state,speed,offset,angle):
 		# Focus upon tracking the ball
 		if state == 'ball':
 			ball = [z for z in objects if 'ball' in z[0]]
@@ -260,13 +260,13 @@ class motion():
 			# Lane detection
 			elif state == 'lane':
 				# If there's a lane
-				if (tracking<-10) or (tracking>3):
+				if (offset<-10) or (offset>3):
 					# Turn right
-					if tracking < self.offset:
+					if offset < self.offset:
 						if self.direction < 0: self.direction = 0
 						self.direction += 0.05
 					# Turn left
-					elif tracking > self.offset:
+					elif offset > self.offset:
 						if self.direction > 0: self.direction = 0
 						self.direction += -0.05
 					self.setDirectionAV(self.direction)
