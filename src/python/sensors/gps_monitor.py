@@ -44,8 +44,8 @@ class gps_monitor():
 						self.distance_last_traveled=haversine(self.previous_lon,self.previous_lat,self.current_lon,self.current_lat)
 						self.previous_lon = self.current_lon
 						self.previous_lat = self.current_lat
-					if self.center_lon != 0:
-						self.distance_from_center=haversine(self.center_lon,self.center_lat,self.current_lon,self.current_lat)
+					#if self.center_lon != 0:
+						#self.distance_from_center=haversine(float(self.center_lon),float(self.center_lat),float(self.current_lon),float(self.current_lat))
 			sleep(1)
 
 

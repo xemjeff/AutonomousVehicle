@@ -6,8 +6,8 @@ import threading,time
 GPIO.setmode(GPIO.BCM)
  
 # Set GPIO Pins
-GPIO_TRIGGER = 23
-GPIO_ECHO = 24
+GPIO_TRIGGER = 24
+GPIO_ECHO = 23
 
 # Set GPIO direction (IN / OUT)
 GPIO.setup(GPIO_TRIGGER, GPIO.OUT)
@@ -36,4 +36,4 @@ class ping_monitor():
 	def _get_data(self):
 		while True:
 			self.ping = distance()
-			sleep(0.2)
+			sleep(0.01)

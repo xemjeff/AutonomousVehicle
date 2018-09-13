@@ -1,4 +1,4 @@
-import glob,logging,cv2,Image,os,sys,pytesseract,itertools,redis,threading,imutils,numpy
+import glob,logging,cv2,Image,os,sys,pytesseract,itertools,redis,threading,imutils,numpy,sys
 from socket import *
 from getpass import getpass
 from matplotlib import pyplot as plt
@@ -17,19 +17,23 @@ from facedet.detector import CascadedDetector
 from time import sleep
 from collections import deque
 from stereovision.calibration import StereoCalibration
+from copy import copy
+from ParticleFilter import ParticleFilter
 
 # Connect to the rPi
 print "Waiting for the rPis IP"
-while True:
-	try:
-		ip = os.popen('nslookup raspberrypi').read().split('Address: ')[1].replace('\n','')
-	except:
-		sleep(1)
-print "Aquired IP "+str(ip)
+#while True:
+#	try:
+#		ip = os.popen('nslookup raspberrypi').read().split('Address: ')[1].replace('\n','')
+#	except:
+#		sleep(1)
+#		pass
+#print "Aquired IP "+str(ip)
+ip = '192.168.1.103'
 
 # Sets up redis to communicate results
 memory = redis.StrictRedis(ip,port=6379,db=0)
-memory.set('current_state','ball|||False')
+memory.set('current_state','ball|||False|||False')
 print "Connected to Redis"
 
 # Load the Caffe model 
@@ -53,6 +57,7 @@ vehicles = ['car','bus','two_wheeler','licence_plate']
 signs = ['signs','yield_sign','stop_sign','speed_sign']
 past_definites = ['','','','','']
 last_ball = [0,0]
+pf = None
 
 # Ball color range defined
 orangeUpper = (30,255,255)
@@ -70,13 +75,16 @@ filelist = [z.split('.xml')[0].split('/')[-1] for z in filenames]
 l = laneDetect()
 
 # Create a socket object
-sock1 = socket() 
-sock2 = socket()
-sock1.connect((ip, 5000))
-sock2.connect((ip, 5001))
-
-# Disparity
-block_matcher = cv2.StereoBM()
+try:
+	sock1 = socket() 
+	sock1.connect((ip, 5000))
+except: 
+	print "Cam 1 error"
+	sys.exit()
+try:
+	sock2 = socket()
+	sock2.connect((ip, 5001))
+except: pass
  
 # Morphology settings
 kernel = np.ones((12,12),np.uint8)
@@ -92,10 +100,11 @@ def recvall(conn, count):
         return buf
 
 class videorecClient():
-    calibration = ''
-    face = ''
+    calibration,face = '',''
+    cam_type='mono'
 
-    def __init__(self):
+    def __init__(self,cam_type='mono'):
+	self.cam_type = cam_type
         self.model = load_model('/root/AutonomousVehicle/src/python/visual/model.pkl')
 	cascade_filename='/root/AutonomousVehicle/src/python/visual/haarcascade/face.xml'
 	# Recursive call to load all cascades in memory
@@ -117,44 +126,51 @@ class videorecClient():
 	threading.Thread(target=self.run).start()
 
     def run(self):
+	global last_ball
 	avg = None
 
         while True:
 	    # Init vars
 	    offset, angle, sign_text = '','',''
-	    combined, checked_definites = [],[]
+	    combined,checked_definites,past,high_confidence = [],[],[],[]
 	    current_motion,ball = [],[]
-	    current_state,in_motion = memory.get('current_state').split()
+	    current_state,in_motion,upside_down = memory.get('current_state').split('|||')
 	    filelist = []
 	    exec('filelist = %s' % current_state)
 
 	    # Get length of buffered data
             length1 = recvall(sock1, 16)
             if length1 == None:
+		print "Cam error"
                 break
-            length2 = recvall(sock2, 16)
-            if length2 == None:
-                break
+	    if self.cam_type == 'stereo':
+		    length2 = recvall(sock2, 16)
+		    if length2 == None:
+		    	print "Cam error"
+		        break
 
 	    # Process buffed data from socket into numpy
 	    buf1 = recvall(sock1, int(length1))
-	    buf2 = recvall(sock2, int(length2))
+	    if self.cam_type == 'stereo': buf2 = recvall(sock2, int(length2))
 	    data1 = numpy.fromstring(buf1, dtype='uint8')
-	    data2 = numpy.fromstring(buf2, dtype='uint8')
+	    if self.cam_type == 'stereo': data2 = numpy.fromstring(buf2, dtype='uint8')
 
 	    # Form numpys into frames
 	    frame1 = cv2.imdecode(data1, 1)
-	    frame2 = cv2.imdecode(data2, 1)
-	    
+	    if self.cam_type == 'stereo': frame2 = cv2.imdecode(data2, 1)
+	   
 	    # Forming images resized from frames
 	    img = cv2.resize(frame1, (frame1.shape[1], frame1.shape[0]), interpolation = cv2.INTER_CUBIC)
-	    img2 = cv2.resize(frame2, (frame2.shape[1], frame2.shape[0]), interpolation = cv2.INTER_CUBIC)
+	    if self.cam_type == 'stereo': img2 = cv2.resize(frame2, (frame2.shape[1], frame2.shape[0]), interpolation = cv2.INTER_CUBIC)
+	    # Flips the img  
+	    if upside_down == 'False':
+		img = cv2.flip(img,1)
+		if self.cam_type == 'stereo': img2 = cv2.flip(img2,1)
 
 	    # Disparity from the images to determine distance
-	    rectified_pair = calibration.rectify((img, img2))
-	    disparity = block_matcher.compute(rectified_pair[0], rectified_pair[1], disptype=cv2.CV_32F)
-	    norm_coeff = 255 / disparity.max()
-	    disp = disparity * norm_coeff / 255
+	    if self.cam_type == 'stereo':
+		    rectified_pair = self.calibration.rectify((img, img2))
+		    disp = cv2.StereoMatcher(rectified_pair[0], rectified_pair[1])
 
 	    # Motion detect
 	    if in_motion == 'False':
@@ -174,16 +190,26 @@ class videorecClient():
 			(x, y, w, h) = cv2.boundingRect(c)
 			c_x = ((x+(x+w))/2)*2
 			c_y = ((y+(y+h))/2)*2
-			combined.extend(['motion',str(c_x),str(c_y),'100',disp[c_x,c_y]])
+			if self.cam_type == 'stereo': combined.extend(['motion',str(c_x),str(c_y),'100',str(disp[c_x,c_y])])
+			else: combined.extend([['motion',str(c_x),str(c_y),'100','0']])
 
 	    # Ball Detection
 	    if current_state == 'ball':
+		    # Particle filtering
+		    #if (pf is None) and (current_state == 'ball'):
+		    #    pf = ParticleFilter(NUM_PARTICLES,(-frame1.shape[0]/2, 3*frame1.shape[0]/2),(-frame1.shape[1]/2, 3*frame1.shape[1]/2),(10, max(frame1.shape)/2))
+
+		    #pf.elapse_time()
 	    	    # Preprocessing for ball detection
 		    blurred = cv2.GaussianBlur(frame1, (11, 11), 0)
 		    hsv = cv2.cvtColor(blurred, cv2.COLOR_BGR2HSV)
 		    mask = cv2.inRange(hsv, orangeLower, orangeUpper)
 		    mask = cv2.erode(mask, None, iterations=2)
 		    mask = cv2.dilate(mask, None, iterations=2)
+		    #contours = cv2.findContours(mask.copy(), cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)[-2]
+		    #pf.observe(contours)
+		    #x,y,radius = pf.return_most_likely(frame1)
+		    #pf.resample()
 		    cnts = cv2.findContours(mask.copy(), cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)
 		    cnts = cnts[0] if imutils.is_cv2() else cnts[1]
 		    center = None
@@ -195,14 +221,21 @@ class videorecClient():
 			M = cv2.moments(c)
 			center = (int(M["m10"] / M["m00"]), int(M["m01"] / M["m00"]))
 			# Only proceed if the radius meets a minimum size (distance from AV)
-			if radius > 10:
-				ball=['ball',str(x),str(y),'100',disp[x,y]]
+			if radius > 5:
+				#print "RADIUS: " + str(radius)
+			        if self.cam_type == 'stereo': ball=['ball',str(x),str(y),'100',str(disp[x,y])]
+			        else: ball=['ball',str(x),str(y),'100','0']
+			        combined.extend([ball])
+				#if self.cam_type == 'stereo': ball=['ball',str(x),str(y),'100',str(disp[x,y])]
+				#else: ball=['ball',str(x),str(y),'100','0']
+				'''
 				# Out of bounds - resort to last ball location
-				if (int(ball[1])>(last_ball[0]+100)) or (int(ball[1])<(last_ball[0]-100)) or (int(ball[2])>(last_ball[0]+100)) or (int(ball[2])<(last_ball[0]-100)):
-					ball[1] = last_ball[0]
-					ball[2] = last_ball[1]
+				if (float(ball[1])>float(last_ball[0]+100)) or (float(ball[1])<float(last_ball[0]-100)) or (float(ball[2])>(last_ball[0]+100)) or (float(ball[2])<(last_ball[0]-100)):
+					if last_ball[0] != 0:
+						ball[1] = last_ball[0]
+						ball[2] = last_ball[1]
 				last_ball = ball[1:][:-1]
-			combined.extend(ball)
+				'''
 
 	    # Haar cascade objects
 	    if (current_state == 'default') or (current_state == 'signs'):
@@ -218,7 +251,8 @@ class videorecClient():
 					exec('%s = cv2.resize(%s, self.model.image_size, interpolation = cv2.INTER_CUBIC)' % (filename,filename))
 					exec('prediction = self.model.predict(%s)[0]' % filename)
 					self.face = self.model.subject_names[prediction]
-				combined.extend([[filename,str((x0+x1)/2),str((y0+y1)/2),'80',disp[(x0+x1)/2,(y0+y1)/2]]])
+				if self.cam_type == 'stereo': combined.extend([[filename,str((x0+x1)/2),str((y0+y1)/2),'80',str(disp[(x0+x1)/2,(y0+y1)/2])]])
+				else: combined.extend([[filename,str((x0+x1)/2),str((y0+y1)/2),'80','0']])
 
 	    # Tensorflow objects
 	    if (current_state == 'default'):
@@ -256,16 +290,21 @@ class videorecClient():
 
 				yLeftBottom = max(yLeftBottom, labelSize[1])
 				xCenter = (_xLeftBottom+_xRightTop)/2
-				yCenter = (_yLeftBottom+_yRightTop)/2)
-				combined.extend([[label,str(xCenter),str(yCenter),str(confidence),disp[xCenter,yCenter]]])
+				yCenter = (_yLeftBottom+_yRightTop)/2
+				if self.cam_type == 'stereo': combined.extend([[label,str(xCenter),str(yCenter),str(confidence),disp[int(widthFactor*xCenter),int(heightFactor*yCenter)]]])
+				else: combined.extend([[label,str(xCenter),str(yCenter),str(confidence),'0']])
 
+	    checked_definites = copy(combined)
+	    
 	    # Inputs current objects into past 5 collection groupings
-	    past_definites[0] = definites
+	    past_definites[0] = copy(combined)
 	    for count in xrange(1,len(past_definites)): past_definites[5-count]=past_definites[4-count]
 	    [past.extend(z) for z in past_definites]
 
+	    '''
 	    # High confidence detected objects are treated as foolproof
-	    high_confidence = [z for z in combined if float(z[3]) > 99.1]
+	    if combined and (isinstance(combined[0],list) == True): high_confidence = [z for z in combined if float(z[3]) > 99.1]
+	    elif combined and (float(combined[3]) > 99.1): high_confidence = combined
 	    for x in xrange(0,len(high_confidence)):
 		# Add them to definite objects currently detected, if not already there
 		if not [z for z in checked_definites if high_confidence[x][0] in checked_definites]:
@@ -276,7 +315,8 @@ class videorecClient():
 		names_list = [z[0] for z in past]
 		for y in xrange(0,len(names_list)):
 			# If there are more than 4 instances of object, and object is currently being detected
-			names_check = [z for z in definites if names_list[y] in z[0]]
+			names_check = [z for z in checked_definites if names_list[y] in z[0]]
+			print str(names_check)
 			if (names_list.count(names_list[y]) > 4) and (names_check) and (not [z for z in checked_definites if high_confidence[x][0] in checked_definites]):
 				checked_definites.extend(names_check)
 
@@ -287,10 +327,21 @@ class videorecClient():
 			sign_text = pytesseract.image_to_string(img)
 		# Lane Detection
 	        offset,angle = l.get_data(img)
+	    '''
+	    '''
+	    # Looks for objects that overlap with any balls
+	    if ball:
+		x = int(ball[1])
+		y = int(ball[2])
+		overlap = [z for z in checked_definites if (int(z[1])>(x-30)) and (int(z[1])<(x+30)) and (int(z[2])>(y-30)) and (int(z[2])<(x+30)) and (z[0]!='ball') and (z[0] in person_features)]
+	    '''
 
+	    
+	    #cv2.imshow('test',frame1)
+	    print str(checked_definites)
 	    # Uploads the results to AV
 	    memory.set('objects_detected',str(checked_definites)+'|||'+sign_text+'|||'+offset+'|||'+angle)
 
 	    # Says we can receive what's in the buffer next
 	    sock1.send('OK')
-	    sock2.send('OK')
+	    if self.cam_type == 'stereo': sock2.send('OK')
