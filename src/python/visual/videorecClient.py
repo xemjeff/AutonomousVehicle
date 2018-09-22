@@ -22,9 +22,10 @@ from ParticleFilter import ParticleFilter
 
 # Connect to the rPi
 print "Videorec is finding the IP - may take 10 seconds"
-#gw = os.popen('ip route | grep default').read().split('via ')[1].split(' dev')[0]
-#ip = os.popen('nmap -p 5000 '+gw+'/24').read().split('raspberrypi.home (')[1].split(')')[0]
-ip = '192.168.1.119'
+os = os.popen('uname -a').read()
+if 'Linux' in os: gw = os.popen('ip route | grep default').read().split('via ')[1].split(' dev')[0]
+else: gw = os.popen('netstat -nr | grep "^default"').read()
+ip = os.popen('nmap -p 5000 '+gw+'/24').read().split('raspberrypi.home (')[1].split(')')[0]
 
 # Sets up redis to communicate results
 memory = redis.StrictRedis(ip,port=6379,db=0)

@@ -6,7 +6,9 @@ try:
 	ip = os.popen('timeout 2 nslookup raspberrypi').read().split('Address: ')[1].replace('\n','')
 except:
 	print "Router doesn't support nslookup. Trying nmap (may take 10 seconds)"
-	gw = os.popen('ip route | grep default').read().split('via ')[1].split(' dev')[0]
+	os = os.popen('uname -a').read()
+	if 'Linux' in os: gw = os.popen('ip route | grep default').read().split('via ')[1].split(' dev')[0]
+	else: gw = os.popen('netstat -nr | grep "^default"').read()
 	try: 
 		os.popen('nmap -sP '+'.'.join(gw.split('.')[:-1])+'.0/24').read().split('raspberrypi.home (')[1].split(')')[0]
 	except: 
