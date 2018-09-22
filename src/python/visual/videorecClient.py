@@ -4,7 +4,7 @@ from getpass import getpass
 from matplotlib import pyplot as plt
 from helper.common import *
 from helper.video import *
-from lane_detection.line_fit_frames import laneDetect
+#from lane_detection.line_fit_frames import laneDetect
 # add facerec to system path
 sys.path.append("/root/AutonomousVehicle/src/python/visual/facerec/py/")
 from facerec.model import PredictableModel
@@ -21,15 +21,10 @@ from copy import copy
 from ParticleFilter import ParticleFilter
 
 # Connect to the rPi
-print "Waiting for the rPis IP"
-#while True:
-#	try:
-#		ip = os.popen('nslookup raspberrypi').read().split('Address: ')[1].replace('\n','')
-#	except:
-#		sleep(1)
-#		pass
-#print "Aquired IP "+str(ip)
-ip = '192.168.1.103'
+print "Videorec is finding the IP - may take 10 seconds"
+#gw = os.popen('ip route | grep default').read().split('via ')[1].split(' dev')[0]
+#ip = os.popen('nmap -p 5000 '+gw+'/24').read().split('raspberrypi.home (')[1].split(')')[0]
+ip = '192.168.1.119'
 
 # Sets up redis to communicate results
 memory = redis.StrictRedis(ip,port=6379,db=0)
@@ -60,8 +55,10 @@ last_ball = [0,0]
 pf = None
 
 # Ball color range defined
-orangeUpper = (30,255,255)
-orangeLower = (5,131,172)
+#orangeUpper = (30,255,255) # orange ball
+#orangeLower = (5,131,172)
+orangeUpper = (64,255,255) # tennis ball
+orangeLower = (29,86,6)
 pts = deque(maxlen=30)
 
 # Default calibrations for camera
@@ -72,7 +69,7 @@ filenames = glob.glob('/root/AutonomousVehicle/src/python/visual/haarcascade/*')
 filelist = [z.split('.xml')[0].split('/')[-1] for z in filenames]
 
 # Setup lane detection for later
-l = laneDetect()
+#l = laneDetect()
 
 # Create a socket object
 try:
@@ -164,7 +161,7 @@ class videorecClient():
 	    if self.cam_type == 'stereo': img2 = cv2.resize(frame2, (frame2.shape[1], frame2.shape[0]), interpolation = cv2.INTER_CUBIC)
 	    # Flips the img  
 	    if upside_down == 'False':
-		img = cv2.flip(img,1)
+		img = cv2.flip(img,0)
 		if self.cam_type == 'stereo': img2 = cv2.flip(img2,1)
 
 	    # Disparity from the images to determine distance
@@ -173,7 +170,7 @@ class videorecClient():
 		    disp = cv2.StereoMatcher(rectified_pair[0], rectified_pair[1])
 
 	    # Motion detect
-	    if in_motion == 'False':
+	    if (in_motion == 'False') and (current_state == 'motion'):
 		    # Preprocessing for motion detection
 		    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 		    gray = cv2.GaussianBlur(gray, (21,21), 0)
@@ -201,7 +198,7 @@ class videorecClient():
 
 		    #pf.elapse_time()
 	    	    # Preprocessing for ball detection
-		    blurred = cv2.GaussianBlur(frame1, (11, 11), 0)
+		    blurred = cv2.GaussianBlur(img, (11, 11), 0)
 		    hsv = cv2.cvtColor(blurred, cv2.COLOR_BGR2HSV)
 		    mask = cv2.inRange(hsv, orangeLower, orangeUpper)
 		    mask = cv2.erode(mask, None, iterations=2)
@@ -224,7 +221,7 @@ class videorecClient():
 			if radius > 5:
 				#print "RADIUS: " + str(radius)
 			        if self.cam_type == 'stereo': ball=['ball',str(x),str(y),'100',str(disp[x,y])]
-			        else: ball=['ball',str(x),str(y),'100','0']
+			        else: ball=['ball',str(center[0]),str(center[1]),str(radius),'0']
 			        combined.extend([ball])
 				#if self.cam_type == 'stereo': ball=['ball',str(x),str(y),'100',str(disp[x,y])]
 				#else: ball=['ball',str(x),str(y),'100','0']
@@ -337,8 +334,9 @@ class videorecClient():
 	    '''
 
 	    
-	    #cv2.imshow('test',frame1)
-	    print str(checked_definites)
+	    #cv2.imshow('test',img)
+	    #if cv2.waitKey(1) == 27: break
+	    #print str(checked_definites)
 	    # Uploads the results to AV
 	    memory.set('objects_detected',str(checked_definites)+'|||'+sign_text+'|||'+offset+'|||'+angle)
 

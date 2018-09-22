@@ -5,7 +5,7 @@ from ping_monitor import ping_monitor
 from random import randint
 from time import sleep
 import pigpio,redis,threading,os
-import ast
+import ast,sys
 
 # To tell people to move
 memory = redis.StrictRedis(host='localhost',port=6379,db=0)
@@ -30,7 +30,7 @@ pi.set_servo_pulsewidth(SERVO[0],0)
 # Pan min-500,max-2500
 
 # Init vars.
-degree = 1.25/90
+degree = float(1.25/90)
 
 class motion():
 	direction,speed,pan,tilt,height,width,low_height,offset = 0,0,0,0,0,0,0,0
@@ -46,17 +46,17 @@ class motion():
 	# Set initial positions and start watch-dog thread
         def __init__(self,height,width):
 		self.height,self.width = height,width
-		self.low_margin_min_x = ((self.width/2)-(self.width/42))
-		self.low_margin_max_x = ((self.width/2)+(self.width/42))
+		self.low_margin_min_x = ((self.width/2)-(self.width/35))
+		self.low_margin_max_x = ((self.width/2)+(self.width/35))
 		self.high_margin_min_x = ((self.width/2)-(self.width/18))
 		self.high_margin_max_x = ((self.width/2)+(self.width/18))
-		self.low_margin_min_y = ((self.height/2)-(self.height/42))
-		self.low_margin_max_y = ((self.height/2)+(self.height/42))
+		self.low_margin_min_y = ((self.height/2)-(self.height/35))
+		self.low_margin_max_y = ((self.height/2)+(self.height/35))
 		self.high_margin_min_y = ((self.height/2)-(self.height/18))
 		self.high_margin_max_y = ((self.height/2)+(self.height/18))
 		self.low_height = self.height/9
 		self.defaultHead()
-		threading.Thread(target=self.run).start()
+		#threading.Thread(target=self.run).start()
 
 	# ---------------------------------------------------------------------------
 	# Key settings
@@ -190,10 +190,10 @@ class motion():
 	def tiltDown(self,num):
 		num = self.rangeLimit(num)
 		if num < 0: self.setDirectionTilt(num)
-	def shiftPanLeft(self): self.setDirectionPan(self.pan+0.05)
-	def shiftPanRight(self): self.setDirectionPan(self.pan-0.05)
-	def shiftTiltUp(self): self.setDirectionTilt(self.tilt+0.05)
-	def shiftTiltDown(self): self.setDirectionTilt(self.tilt-0.05)
+	def shiftPanLeft(self): self.setDirectionPan(self.pan+0.01)
+	def shiftPanRight(self): self.setDirectionPan(self.pan-0.01)
+	def shiftTiltUp(self): self.setDirectionTilt(self.tilt+0.01)
+	def shiftTiltDown(self): self.setDirectionTilt(self.tilt-0.01)
 	# Variable direction / speed (between -1 and 1)
 	def setDirectionAV(self,direction):
 		direction = self.rangeLimit(direction)
@@ -213,12 +213,14 @@ class motion():
 		self.motion = True
 		pi.set_servo_pulsewidth(SERVO[3],int(self.toServoPWM(direction)))
 		self.motion = False
+		sleep(0.01)
 	def setDirectionTilt(self,direction):
 		direction = self.rangeLimit(direction)
 		self.tilt = direction
 		self.motion = True
 		pi.set_servo_pulsewidth(SERVO[2],int(self.toServoPWM(direction)))
 		self.motion = False
+		sleep(0.01)
 	# Support functions
 	def rangeLimit(self,num):
 		if num > 1: num = 1
@@ -264,8 +266,8 @@ class motion():
 					self.force_stop = False
 			'''
 			# Checks if camera is upside down to send signal
-			if self.tilt >= 0.3: self.upside_down = True
-			else: self.upside_down = False
+			#if self.tilt >= 0.3: self.upside_down = True
+			#else: self.upside_down = False
 			sleep(0.05)
 	# ---------------------------------------------------------------------------
 	# Alternative to an IMU
@@ -277,12 +279,22 @@ class motion():
 		self.setDirectionAV(0)
 	# Finds the object when out of sight
 	def oob(self):
-		# While not moving, use Pan / Tilt servos
-		if self.motion == False:
+		# Stops if moving and lost object
+		if self.motion: self.neutral()
+		# Memory relative position predictions
+		if self.object_history[0]:
+			# Looks for rapid y-axis movement - look up
+			if (self.object_history[0][1] > self.height-50): self.setDirectionTilt(self.tilt+0.2)
+			# Looks for last position to the right - turns EVEN further right
+			elif (self.object_history[0][0] > self.width-50): self.setDirectionAV(self.direction-0.4)
+			# Looks for last position to the left - turns EVEN further left
+			elif (self.object_history[0][0] < 50): self.setDirectionAV(self.direction+0.4)
+		# Standard pan / tilt back and forth
+		else:
 			# Negate images directly UP		
 			if (self.tilt > 0) and (self.tilt < 0.4): self.setDirectionTilt(0.4)
 			# Reset the tilt
-			elif self.tilt > 0.9: self.setDirectionTilt(-0.5)
+			elif self.tilt > 0.7: self.setDirectionTilt(-0.5)
 			# Memory relative position predictions
 			if self.object_history[0]:
 				# Looks for rapid y-axis movement - turns head back
@@ -305,69 +317,47 @@ class motion():
 			elif (self.pan_direction == 'left') and (self.pan == 1):
 				self.pan_direction = 'right'
 				self.shiftPanRight()
-		# Lost track of the object while moving
-		else:
-			# Memory relative position predictions
-			if self.object_history[0]:
-				# Looks for rapid y-axis movement - look up
-				if (self.object_history[0][1] > self.height-50): self.setDirectionTilt(self.tilt+0.2)
-				# Looks for last position to the right - turns EVEN further right
-				elif (self.object_history[0][0] > self.width-50): self.setDirectionAV(self.direction-0.4)
-				# Looks for last position to the left - turns EVEN further left
-				elif (self.object_history[0][0] < 50): self.setDirectionAV(self.direction+0.4)
-			# Shot in the dark to keep moving further - stop
-			else: self.neutral()
-		# Delay so vision isn't blurry
-		sleep(0.05)
 				
 	# Centers the object in vision
-	def find_center_object(self,x,y):
+	def find_center_object(self,x,y,distance):
 		# Past distances comparison
-		if [z for z in self.object_history if z != '']:
-			distances = [z[2] for z in self.object_history if len(z) == 4][:3]
-			delta = max(abs(x-y) for (x,y) in zip(distances[1:],distances[:-1]))
-		else: delta = 6
+		#if [z for z in self.object_history if z != '']:
+		#	distances = [z[2] for z in self.object_history if len(z) == 4][:3]
+		#	delta = max(abs(x-y) for (x,y) in zip(distances[1:],distances[:-1]))
+		#else: delta = 29
 		# If pan isn't in default, move AV to direction pan is pointed to
-		if (self.pan != -0.75) and (delta > 6): self.moveOOB()
+		#if (self.pan != -0.75) and (delta > 30): self.moveOOB()
 		# Low Margin of Error for stationary tracking
 		if self.motion == False:
-			# Non-priority for tilt feature
-			if y < self.low_margin_min_y: self.shiftTiltUp()
-			elif y > self.high_margin_max_y: self.shiftTiltDown()
-			# Move to find center of object
-			if (y < self.low_height) and (self.tilt < -0.95): self.backup()
-			if delta > 6:
-				if x < self.low_margin_min_x: self.turnRight((abs((self.width/2)-x))*0.1)
-				elif x > self.high_margin_max_x: self.turnLeft((abs((self.width/2)-x))*0.1)
+			if (y > self.low_margin_max_y) or (y < self.low_margin_min_y) or (x > self.low_margin_max_x) or (x < self.low_margin_min_x):
+				if y > self.low_margin_max_y: self.shiftTiltDown()
+				elif y < self.low_margin_min_y: self.shiftTiltUp()
+				if x > self.low_margin_max_x: self.shiftPanLeft()
+				elif x < self.low_margin_min_x: self.shiftPanRight()
 				else: return 'FIXED'
-			elif delta <= 6:
-				if x < self.low_margin_min_x: self.shiftPanRight()
-				elif x > self.high_margin_max_x: self.shiftPanLeft()
-				else: return 'FIXED'
+			else: return 'FIXED'
 		# High Margin of Error for On-the-go tracking
 		elif self.motion == True:
-			# Non-priority for tilt feature
-			if y < self.low_margin_min_y: self.shiftTiltUp()
-			elif y > self.high_margin_max_y: self.shiftTiltDown()
-			# Too close - back up a bit
-			if (y < self.low_height) and (self.tilt < -0.95): self.backup()
-			# Changes to direction mid-drive
-			elif x < self.low_margin_min_x: self.setDirectionAV(self.direction-0.05)
-			elif x > self.high_margin_max_x: self.setDirectionAV(self.direction+0.05)
+			if (y > self.high_margin_max_y) or (y < self.high_margin_min_y) or (x > self.high_margin_max_x) or (x < self.high_margin_min_x):
+				if y > self.high_margin_max_y: self.shiftTiltDown()
+				elif y < self.high_margin_min_y: self.shiftTiltUp()
+				if x > self.high_margin_max_x: self.setDirectionAV(self.direction+0.05)
+				elif x < self.high_margin_min_x: self.setDirectionAV(self.direction-0.05)
+				else: return 'FIXED'	
 			else: return 'FIXED'
+			# Too close - back up a bit
+			#if (y < self.low_height) and (self.tilt < -0.95): self.backup()
 	# Center & Move AV to the Object
 	def track(self,x,y,distance):
-		# Input object into object history
-		for count in xrange(1,len(self.object_history)): self.object_history[10-count]=self.object_history[9-count]
-		self.object_history[0] = [x,y,distance]
 		# Move toward the object if centered
-		if (self.find_center_object(x,y) == 'FIXED') and (distance > 18) and (p.ping > 18):
-			self.setDirectionAV(0)			
-			self.forward()
+		if (self.find_center_object(x,y,distance) == 'FIXED') and (p.ping > 10):
+			if (self.pan != -0.75): self.moveOOB()
+			else: self.setDirectionAV(0)			
+			self.ahead()
 			self.moving_while_tracking = True
 			self.tracked = False
 		# Do nothing if object is already tracked
-		elif (self.find_center_object(x,y) == 'FIXED') and (distance <= 20):
+		elif (self.find_center_object(x,y,distance) == 'FIXED') and (distance >= 70):
 			self.neutral()
 			self.moving_while_tracking = False
 			self.tracked = True
@@ -378,17 +368,17 @@ class motion():
 	# Navigate & interact with objects based on the self-State via NLP
 	def process(self,objects,state='ball'):
 		objects = ast.literal_eval(objects)
-		# Resets object history if state changes
-		if state != self.last_state: 
-			self.object_history = ['','','','','','','','','','']
-			self.last_state = state
-		# Save offset for turnLeft & turnRight later
-		#if offset != 0: self.offset = offset
-		#else: self.offset = 0
+		# Input object into object history
+		for count in xrange(1,len(self.object_history)): self.object_history[10-count]=self.object_history[9-count]
+		if objects: self.object_history[0] = [float(objects[0][1]),float(objects[0][2]),float(objects[0][3])]
+		else: self.object_history[0] = []
 		# Focus upon tracking the ball
 		if state == 'ball':
+			#print str(self.object_history)
 			ball = [z for z in objects if 'ball' in z[0]]
-			if ball: self.track(float(ball[1]),float(ball[2]),float(ball[4]))
+			if ball: 
+				ball = ball[0]
+				self.track(float(ball[1]),float(ball[2]),float(ball[3]))
 			else: self.oob()
 		# Sign obeyance and lane detection
 		elif (state == 'sign') or (state == 'lane'):
