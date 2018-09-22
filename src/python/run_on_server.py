@@ -31,7 +31,6 @@ if result != 0:
 	ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 	ssh.connect(ip, username='root', password='stop22')
 	ssh_stdin, ssh_stdout, ssh_stderr = ssh.exec_command("python /root/AutonomousVehicle/src/python/visual/remote/server.py &")
-	ssh_stdin, ssh_stdout, ssh_stderr = ssh.exec_command("pigpiod &")
 	ssh.close()
 else: print "rPis camera server already started"
 
@@ -43,6 +42,7 @@ print "Starting master.py on the rPi"
 ssh = paramiko.SSHClient()
 ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 ssh.connect(ip, username='root', password='stop22')
+ssh_stdin, ssh_stdout, ssh_stderr = ssh.exec_command("pigpiod &")
 ssh_stdin, ssh_stdout, ssh_stderr = ssh.exec_command("python /root/AutonomousVehicle/src/python/master.py &")
 ssh.close()
 print "\nAV is ready for the ball! (make sure to turn on ESC too!)"
