@@ -2,6 +2,7 @@ import socket,paramiko,sys,os
 sys.path.insert(0,'/Users/jeff/Code/harrisonscode/AutonomousVehicle/src/python/visual')
 print "Starting the Ball Tracking script for the AV\n"
 print "Finding rPis IP with nslookup"
+ip = ''
 try:
 	ip = os.popen('timeout 2 nslookup raspberrypi').read().split('Address: ')[1].replace('\n','')
 except:
@@ -15,6 +16,7 @@ except:
 		print "Error with nmap"
 		ip = raw_input("Input IP manually: ")
 		pass
+	if not '.' in ip: ip = raw_input("Input IP manually: ")
 	pass
 print "Aquired IP "+str(ip)
 print "Checking that AV is online"
