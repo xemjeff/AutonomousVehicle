@@ -33,7 +33,7 @@ memory.set('current_state','ball|||False|||False')
 print "Connected to Redis"
 
 # Load the Caffe model 
-#net = cv2.dnn.readNetFromCaffe('/root/AutonomousVehicle/src/python/visual/MobileNetSSD_deploy.prototxt', '/root/AutonomousVehicle/src/python/visual/MobileNetSSD_deploy.caffemodel')
+#net = cv2.dnn.readNetFromCaffe('/Users/jeff/Code/harrisonscode/AutonomousVehicle/src/python/visual/MobileNetSSD_deploy.prototxt', '/Users/jeff/Code/harrisonscode/AutonomousVehicle/src/python/visual/MobileNetSSD_deploy.caffemodel')
 n = 25
 
 # Labels of Network.
@@ -66,7 +66,7 @@ pts = deque(maxlen=30)
 descriptors = [['face_3',5,1.1],['eye',5,1.1],['hand',5,1.25],['smile',5,1.35],['cat_face_1',5,1.5],['lower_body',5,1.2]]
 
 # Setup for haar detection
-filenames = glob.glob('/root/AutonomousVehicle/src/python/visual/haarcascade/*')
+filenames = glob.glob('/Users/jeff/Code/harrisonscode/AutonomousVehicle/src/python/visual/haarcascade/*')
 filelist = [z.split('.xml')[0].split('/')[-1] for z in filenames]
 
 # Setup lane detection for later
@@ -103,8 +103,8 @@ class videorecClient():
 
     def __init__(self,cam_type='mono'):
 	self.cam_type = cam_type
-        self.model = load_model('/root/AutonomousVehicle/src/python/visual/model.pkl')
-	cascade_filename='/root/AutonomousVehicle/src/python/visual/haarcascade/face.xml'
+        self.model = load_model('/Users/jeff/Code/harrisonscode/AutonomousVehicle/src/python/visual/model.pkl')
+	cascade_filename='/Users/jeff/Code/harrisonscode/AutonomousVehicle/src/python/visual/haarcascade/face.xml'
 	# Recursive call to load all cascades in memory
 	for x in xrange(0,len(filelist)):
 		if not filelist[x] in default:
@@ -119,7 +119,7 @@ class videorecClient():
 			descriptors.append([filelist[x],5,1.1])
 		exec('self.%s = CascadedDetector(cascade_fn="%s", minNeighbors=%s, scaleFactor=%s)' % (filelist[x],filenames[x],desc[0],desc[1]))
 	# Calibration
-	self.calibration = StereoCalibration(input_folder='/root/AutonomousVehicle/src/python/visual/calibration_data')
+	self.calibration = StereoCalibration(input_folder='/Users/jeff/Code/harrisonscode/AutonomousVehicle/src/python/visual/calibration_data')
 	print "Models loaded: Starting streaming thread"
 	threading.Thread(target=self.run).start()
 
