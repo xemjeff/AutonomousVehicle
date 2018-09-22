@@ -1,4 +1,4 @@
-import glob,logging,cv2,Image,os,sys,pytesseract,itertools,redis,threading,imutils,numpy,sys
+import glob,logging,cv2,os,sys,pytesseract,itertools,redis,threading,imutils,numpy,sys
 from socket import *
 from getpass import getpass
 from matplotlib import pyplot as plt
@@ -6,14 +6,14 @@ from helper.common import *
 from helper.video import *
 #from lane_detection.line_fit_frames import laneDetect
 # add facerec to system path
-sys.path.append("/root/AutonomousVehicle/src/python/visual/facerec/py/")
-from facerec.model import PredictableModel
-from facerec.feature import Fisherfaces
-from facerec.distance import EuclideanDistance
-from facerec.classifier import NearestNeighbor
-from facerec.validation import KFoldCrossValidation
-from facerec.serialization import save_model, load_model
-from facedet.detector import CascadedDetector
+sys.path.append("/Users/jeff/Code/harrisonscode/AutonomousVehicle/src/python/visual/facerec/py/")
+#from facerec.model import PredictableModel
+#from facerec.feature import Fisherfaces
+#from facerec.distance import EuclideanDistance
+#from facerec.classifier import NearestNeighbor
+#from facerec.validation import KFoldCrossValidation
+#from facerec.serialization import save_model, load_model
+#from facedet.detector import CascadedDetector
 from time import sleep
 from collections import deque
 from stereovision.calibration import StereoCalibration
@@ -33,7 +33,7 @@ memory.set('current_state','ball|||False|||False')
 print "Connected to Redis"
 
 # Load the Caffe model 
-net = cv2.dnn.readNetFromCaffe('/root/AutonomousVehicle/src/python/visual/MobileNetSSD_deploy.prototxt', '/root/AutonomousVehicle/src/python/visual/MobileNetSSD_deploy.caffemodel')
+#net = cv2.dnn.readNetFromCaffe('/root/AutonomousVehicle/src/python/visual/MobileNetSSD_deploy.prototxt', '/root/AutonomousVehicle/src/python/visual/MobileNetSSD_deploy.caffemodel')
 n = 25
 
 # Labels of Network.
@@ -251,7 +251,7 @@ class videorecClient():
 					self.face = self.model.subject_names[prediction]
 				if self.cam_type == 'stereo': combined.extend([[filename,str((x0+x1)/2),str((y0+y1)/2),'80',str(disp[(x0+x1)/2,(y0+y1)/2])]])
 				else: combined.extend([[filename,str((x0+x1)/2),str((y0+y1)/2),'80','0']])
-
+	    '''
 	    # Tensorflow objects
 	    if (current_state == 'default'):
 		    # Resize frame to 300x300 (required by tensorflow)
@@ -291,7 +291,7 @@ class videorecClient():
 				yCenter = (_yLeftBottom+_yRightTop)/2
 				if self.cam_type == 'stereo': combined.extend([[label,str(xCenter),str(yCenter),str(confidence),disp[int(widthFactor*xCenter),int(heightFactor*yCenter)]]])
 				else: combined.extend([[label,str(xCenter),str(yCenter),str(confidence),'0']])
-
+	    '''
 	    checked_definites = copy(combined)
 	    
 	    # Inputs current objects into past 5 collection groupings

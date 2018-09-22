@@ -1,5 +1,5 @@
 import socket,paramiko,sys,os
-sys.path.insert(0,'/root/AutonomousVehicle/src/python/visual')
+sys.path.insert(0,'/Users/jeff/Code/harrisonscode/AutonomousVehicle/src/python/visual')
 print "Starting the Ball Tracking script for the AV\n"
 print "Finding rPis IP with nslookup"
 try:
